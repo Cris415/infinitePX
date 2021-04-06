@@ -1,6 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
+import Root from './components/root';
+
 import * as sessionActions from './actions/session_actions';
 
 import configureStore from './store/store';
@@ -16,5 +18,5 @@ document.addEventListener('DOMContentLoaded', () => {
   window.dispatch = store.dispatch;
   // Testing
 
-  ReactDOM.render(<h1>Welcome to InfinitePX</h1>, document.getElementById('root'))
+  ReactDOM.render(<Root store={store} /> , document.getElementById('root'))
 });
