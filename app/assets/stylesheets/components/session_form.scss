@@ -83,15 +83,16 @@
       
       &:hover{
         background-color: $color-active-2;
-
       }
     }
 
     .errors {
+      font-size: 1.4rem;
       margin: 0;
       padding: 0;
       padding-top: 5px;
-      height: 1.9rem;
+      min-height: 1.9rem;
+      display: inline-block;
     }
   }
 

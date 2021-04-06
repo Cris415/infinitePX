@@ -54,7 +54,10 @@ class SessionForm extends React.Component {
   }
 
   renderErrors(){
-    return this.props.errors ? this.props.errors : "&nbsp;";
+    const errs = this.props.errors.map((err, i) => {
+      return <li key={i}>{err}</li>
+    })
+    return this.props.errors ? errs : "&nbsp;";
   }
 
   render() {
@@ -82,7 +85,7 @@ class SessionForm extends React.Component {
               }
             />
           </label>
-          <span className="errors">{this.renderErrors()}</span>
+          <ul className="errors">{this.renderErrors()}</ul>
           <input
             type="submit"
             className="button"
