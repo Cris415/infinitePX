@@ -1,34 +1,78 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 class SessionForm extends React.Component {
-  constructor(props){
+  constructor(props) {
     super(props);
     this.state = {
       username: "",
-      password: ""
+      password: "",
     };
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-  handleSubmit(e){
+  handleSubmit(e) {
     e.preventDefault();
     this.props.processForm(this.state);
   }
 
-  handleChange(label){
-    return e => {
-      this.setState({ [label] : e.currentTarget.value });
+  handleChange(label) {
+    return (e) => {
+      this.setState({ [label]: e.currentTarget.value });
     };
   }
 
-  render(){
-    return (
-    <form onSubmit={this.handleSubmit}>
-      <label> Username
-        <input type="text" value={this.state.username} onChange={this.handleChange('username')}/>
-      </label>
+  renderHeader() {
+    return this.props.formType === "login" ? (
+      <h1>Log in to infinitePx</h1>
+    ) : (
+      <div>
+        <h1>Join infinitePx</h1>
+        <p>Discover and share incredible photos, and gain global exposure.</p>
+      </div>
+    );
+  }
 
-    </form>
+  renderLink() {
+    return this.props.formType === "login" ? (
+      <p>
+        Don't have an account?
+        <Link to="/signup">Sign Up</Link>
+      </p>
+    ) : (
+      <p>
+        Already have an account?
+        <Link to="/login">Log in</Link>
+      </p>
+    );
+  }
+
+  render() {
+    return (
+      <form onSubmit={this.handleSubmit}>
+        {this.renderHeader()}
+        <label>
+          Username
+          <input
+            type="text"
+            value={this.state.username}
+            onChange={this.handleChange("username")}
+          />
+        </label>
+
+        <label>
+          Password
+          <input
+            type="password"
+            value={this.state.username}
+            onChange={this.handleChange("username")}
+            placeholder="(minimum 8 characters)"
+          />
+        </label>
+
+        <input type="submit" value={this.props.formType}/>
+        {this.renderLink()}
+      </form>
     );
   }
 }
