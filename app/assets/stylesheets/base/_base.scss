@@ -10,6 +10,7 @@ body {
   font-family: $font-primary;
   color: $color-secondary;
   font-weight: 300;
+  font-size: $font-size;
 }
 
 a {
@@ -28,5 +29,8 @@ a {
   padding: 0.5rem 1.5rem;
   font-weight: 600;
  
+}
+.errors {
+  color: rgb(195, 30, 30);
 }
 

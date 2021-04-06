@@ -54,7 +54,7 @@ class SessionForm extends React.Component {
   }
 
   renderErrors(){
-    return this.props.errors ? this.props.errors : null
+    return this.props.errors ? this.props.errors : "&nbsp;";
   }
 
   render() {
@@ -82,10 +82,12 @@ class SessionForm extends React.Component {
               }
             />
           </label>
-
-          {this.renderErrors()}
-
-          <input type="submit" className="button" value={this.props.formType === 'login' ? 'Log in' : 'Sign up'} />
+          <span className="errors">{this.renderErrors()}</span>
+          <input
+            type="submit"
+            className="button"
+            value={this.props.formType === "login" ? "Log in" : "Sign up"}
+          />
           {this.renderLink()}
         </form>
       </div>
