@@ -34,7 +34,7 @@ class SessionForm extends React.Component {
     ) : (
       <div>
         <h1>Join infinitePx</h1>
-        <p>Discover and share incredible photos, and gain global exposure.</p>
+        <p>Discover, share incredible photos, and gain global exposure.</p>
       </div>
     );
   }
@@ -42,12 +42,12 @@ class SessionForm extends React.Component {
   renderLink() {
     return this.props.formType === "login" ? (
       <p>
-        Don't have an account?
+        Don't have an account? 
         <Link to="/signup">Sign Up</Link>
       </p>
     ) : (
       <p>
-        Already have an account?
+        Already have an account? 
         <Link to="/login">Log in</Link>
       </p>
     );
@@ -59,32 +59,36 @@ class SessionForm extends React.Component {
 
   render() {
     return (
-      <form onSubmit={this.handleSubmit}>
-        {this.renderHeader()}
-        <label>
-          Username
-          <input
-            type="text"
-            value={this.state.username}
-            onChange={this.handleChange("username")}
-          />
-        </label>
+      <div className="session_form">
+        <form onSubmit={this.handleSubmit}>
+          {this.renderHeader()}
+          <label>
+            Username
+            <input
+              type="text"
+              value={this.state.username}
+              onChange={this.handleChange("username")}
+            />
+          </label>
 
-        <label>
-          Password
-          <input
-            type="password"
-            value={this.state.password}
-            onChange={this.handleChange("password")}
-            placeholder={this.props.formType === 'signup' ? "(minimum 8 characters)" : ''}
-          />
-        </label>
+          <label>
+            Password
+            <input
+              type="password"
+              value={this.state.password}
+              onChange={this.handleChange("password")}
+              placeholder={
+                this.props.formType === "signup" ? "(minimum 8 characters)" : ""
+              }
+            />
+          </label>
 
-        {this.renderErrors()}
+          {this.renderErrors()}
 
-        <input type="submit" value={this.props.formType}/>
-        {this.renderLink()}
-      </form>
+          <input type="submit" className="button" value={this.props.formType === 'login' ? 'Log in' : 'Sign up'} />
+          {this.renderLink()}
+        </form>
+      </div>
     );
   }
 }

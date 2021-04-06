@@ -3,10 +3,11 @@ header {
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
+
+  background-color: $color-primary;
   font-size: 1.6rem;
 
   padding: 2.5rem 6rem;
-  border-bottom: 1px solid $color-grey-light-2;
 
   .logo {
     fill: rgb(14, 14, 14);

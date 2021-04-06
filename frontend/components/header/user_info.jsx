@@ -19,7 +19,7 @@ const UserInfo = props => {
         </li>,
         <li key="signup">
           <Link to="/signup" className="button">
-            Signup
+            Sign up
           </Link>
         </li>,
       ]
