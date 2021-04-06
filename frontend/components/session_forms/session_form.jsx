@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
 
 class SessionForm extends React.Component {
   constructor(props) {
@@ -13,7 +13,13 @@ class SessionForm extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    this.props.processForm(this.state);
+    this.props.processForm(this.state).then(() => {
+      this.setState({
+        username: "",
+        password: ""
+      });
+      return <Redirect to='/' />
+    })
   }
 
   handleChange(label) {
@@ -47,6 +53,10 @@ class SessionForm extends React.Component {
     );
   }
 
+  renderErrors(){
+    return this.props.errors ? this.props.errors : null
+  }
+
   render() {
     return (
       <form onSubmit={this.handleSubmit}>
@@ -64,11 +74,13 @@ class SessionForm extends React.Component {
           Password
           <input
             type="password"
-            value={this.state.username}
-            onChange={this.handleChange("username")}
-            placeholder="(minimum 8 characters)"
+            value={this.state.password}
+            onChange={this.handleChange("password")}
+            placeholder={this.props.formType === 'signup' ? "(minimum 8 characters)" : ''}
           />
         </label>
+
+        {this.renderErrors()}
 
         <input type="submit" value={this.props.formType}/>
         {this.renderLink()}

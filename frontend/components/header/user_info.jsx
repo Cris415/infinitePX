@@ -14,10 +14,10 @@ const UserInfo = props => {
       </li>
     ) : (
       [
-        <li>
+        <li key="login">
           <Link to="/login">Log in</Link>
         </li>,
-        <li>
+        <li key="signup">
           <Link to="/signup" className="button">
             Signup
           </Link>
