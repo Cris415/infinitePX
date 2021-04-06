@@ -13,9 +13,10 @@ a {
   color: $color-secondary;
   text-decoration: none;
   font-weight: 600;
+  cursor: pointer;
   &:hover {
   color: $color-active;
-}
+  }
 }
 
 .button {

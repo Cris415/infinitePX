@@ -2,23 +2,34 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 const UserInfo = props => {
-  const handleLogout = () => {
+  const handleLogout = (e) => {
+    e.preventDefault();
     props.logout();
   }
 
   const renderInfo = () =>
     props.currentUser ? (
-      <button onClick={handleLogout} >Logout</button>
+      <li>
+        <a onClick={handleLogout}>Logout</a>{" "}
+      </li>
     ) : (
-      <ul className="auth-btns">
-        <Link to="/login" >Log in</Link>
-        <Link to="/signup" className="button">Signup</Link>
-      </ul>
+      [
+        <li>
+          <Link to="/login">Log in</Link>
+        </li>,
+        <li>
+          <Link to="/signup" className="button">
+            Signup
+          </Link>
+        </li>,
+      ]
     );
 
-  return ( <div>
-  { renderInfo() }
-    </div> )
+  return (
+    <div>
+      <ul className="auth-btns">{renderInfo()}</ul>
+    </div>
+  );
 }
 
 export default UserInfo;

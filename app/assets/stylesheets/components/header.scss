@@ -16,8 +16,13 @@ header {
     fill: $color-active
     }
   }
+  .auth-btns{
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+  }
 
-  .auth-btns a {
+  .auth-btns li {
     margin-right: 1.5rem;
 
     &:last-child {
