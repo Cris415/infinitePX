@@ -13,7 +13,6 @@
  *= require_self
  */
 @import "base/reset";
-@import "base";
 
 @import "base/colors";
 @import "base/fonts";
@@ -21,4 +20,5 @@
 
 @import "base/grid";
 
+@import "base/base";
 @import "components/*";

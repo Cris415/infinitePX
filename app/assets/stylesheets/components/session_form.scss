@@ -1,0 +1,99 @@
+.session_form{
+  height: 95vh;
+  width: 100vw; 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  form {
+    width: 34rem;
+    background-color: $color-primary;
+    border: $border;
+    padding: 3rem;
+    
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+
+
+      & > :last-child {
+      padding-top: 2rem;
+      margin-bottom: -0.5rem;
+    }
+
+    h1 {
+      font-size: 3rem;
+      font-weight: 400;
+      text-align: center;
+      margin-bottom: 2.5rem;
+      width: 100%;
+    }
+
+    p {
+      color: $color-grey-dark-3;
+      font-size: 1.6rem;
+      margin-bottom: 1.5rem;
+      
+      a {
+        margin-left: 0.5rem;
+      }
+    }
+
+    a {
+      color: $color-active;
+      font-weight: 400;
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+
+    label {
+      width: 90%;
+      font-size: 1.6rem;
+      color: $color-grey-dark-2;
+    }
+
+    input {
+      width: 100%;
+    }
+
+    label input[type=text] {
+      margin-bottom: 1.5rem;
+    }
+
+    input[type=text], input[type=password] {
+      margin-top: 1rem;
+      border-radius: 5px;
+      border: $border;
+      padding: 1.5rem;
+      font-size: 1.6rem;
+    }
+    ::placeholder {
+      color: $color-grey-dark-1;
+    }
+
+    input[type="submit"] {
+      font-size: 1.6rem;
+      background-color: $color-active;
+      color: $color-primary;
+      border:none;
+      padding: 1.5rem 0;
+      cursor: pointer;
+      outline:none;
+      
+      &:hover{
+        background-color: $color-active-2;
+      }
+    }
+
+    .errors {
+      font-size: 1.4rem;
+      margin: 0;
+      padding: 0;
+      padding-top: 5px;
+      min-height: 1.9rem;
+      display: inline-block;
+    }
+  }
+
+}

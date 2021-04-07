@@ -1,0 +1,39 @@
+header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+
+  background-color: $color-primary;
+  font-size: 1.6rem;
+
+  padding: 2.5rem 6rem;
+
+  .logo {
+    fill: rgb(14, 14, 14);
+    cursor: pointer;
+    height: 25px;
+    &:hover {
+    fill: $color-active
+    }
+  }
+  .auth-btns{
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+  }
+
+  .auth-btns li {
+    margin-right: 1.5rem;
+
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+
+
+}
+
+
+
+

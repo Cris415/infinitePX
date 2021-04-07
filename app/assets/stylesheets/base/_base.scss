@@ -1,10 +1,36 @@
+$border: solid $color-grey-light-2 1px;
+
 html {
   box-sizing: border-box;
   font-size: 62.5%; // 10px/16px = 62% -> 1rem =>  10px
 }
 
-body{
+body {
+  background-color: $color-grey-light-1;
   font-family: $font-primary;
   color: $color-secondary;
   font-weight: 300;
+  font-size: $font-size;
 }
+
+a {
+  color: $color-secondary;
+  text-decoration: none;
+  font-weight: 600;
+  cursor: pointer;
+  &:hover {
+    color: $color-active;
+  }
+}
+
+.button {
+  border-radius: 10rem;
+  border: 2px solid black;
+  padding: 0.5rem 1.5rem;
+  font-weight: 600;
+ 
+}
+.errors {
+  color: rgb(195, 30, 30);
+}
+
