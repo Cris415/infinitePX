@@ -94,6 +94,16 @@
       min-height: 1.9rem;
       display: inline-block;
     }
+
+    .button {
+      align-self: center;
+      background-color: $color-primary;
+      &:hover {
+        background-color: $color-active;
+        color: $color-primary;
+      }
+    }
+
   }
 
 }

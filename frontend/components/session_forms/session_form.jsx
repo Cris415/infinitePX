@@ -9,17 +9,23 @@ class SessionForm extends React.Component {
       password: "",
     };
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleDemoLogin = this.handleDemoLogin.bind(this);
   }
 
-  componentWillUnmount(){
-    if (this.props.errors.length){
-      this.props.clearErrors()
+  componentWillUnmount() {
+    if (this.props.errors.length) {
+      this.props.clearErrors();
     }
   }
 
   handleSubmit(e) {
     e.preventDefault();
-    this.props.processForm(this.state)
+    this.props.processForm(this.state);
+  }
+
+  handleDemoLogin(e) {
+    e.preventDefault();
+    this.props.loginDemo({ username: "demo", password: "password" });
   }
 
   handleChange(label) {
@@ -42,21 +48,21 @@ class SessionForm extends React.Component {
   renderLink() {
     return this.props.formType === "login" ? (
       <p>
-        Don't have an account? 
+        Don't have an account?
         <Link to="/signup">Sign Up</Link>
       </p>
     ) : (
       <p>
-        Already have an account? 
+        Already have an account?
         <Link to="/login">Log in</Link>
       </p>
     );
   }
 
-  renderErrors(){
+  renderErrors() {
     const errs = this.props.errors.map((err, i) => {
-      return <li key={i}>{err}</li>
-    })
+      return <li key={i}>{err}</li>;
+    });
     return this.props.errors ? errs : "&nbsp;";
   }
 
@@ -91,6 +97,9 @@ class SessionForm extends React.Component {
             className="button"
             value={this.props.formType === "login" ? "Log in" : "Sign up"}
           />
+          <br/>
+          <button className="button" onClick={this.handleDemoLogin}>Demo Log in</button>
+
           {this.renderLink()}
         </form>
       </div>
