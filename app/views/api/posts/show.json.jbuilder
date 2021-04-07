@@ -1,1 +1,1 @@
-json.extract! @post, :id, :title, :description, :user_id
+json.partial! "api/posts/post", post: @post
