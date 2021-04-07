@@ -11,15 +11,15 @@ class SessionForm extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
+  componentWillUnmount(){
+    if (this.props.errors.length){
+      this.props.clearErrors()
+    }
+  }
+
   handleSubmit(e) {
     e.preventDefault();
-    this.props.processForm(this.state).then(() => {
-      this.setState({
-        username: "",
-        password: ""
-      });
-      return <Redirect to='/' />
-    })
+    this.props.processForm(this.state)
   }
 
   handleChange(label) {
