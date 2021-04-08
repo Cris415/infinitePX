@@ -6,10 +6,10 @@ const postsReducer = (state = {}, action) => {
 
   switch (action.type) {
     case RECEIVE_POST:
-      newState[action.post.id] = action.post
+      newState[action.post.id] = action.post;
       return newState;
     case RECEIVE_POSTS:
-      return action.posts.posts
+      return action.posts
     default:
       return state;
   }

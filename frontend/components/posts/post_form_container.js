@@ -10,7 +10,7 @@ const mapStateToProps = state => ({
 })
 
 const mapDispatchToProps = dispatch => ({
-  processForm: (post) => dispatch(createPost(post))
+  processForm: (post, redirectCallback) => dispatch(createPost(post, redirectCallback))
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(PostForm)

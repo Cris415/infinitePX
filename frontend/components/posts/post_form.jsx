@@ -14,11 +14,7 @@ class PostForm extends React.Component {
     const post = Object.assign({}, this.state);
     post.userId = this.props.currentUser;
    
-    this.props.processForm(post).then(() => {
-      this.setState({ title: "", description: "" });
-      this.props.history.push("/feed");
-      return <Redirect to="feed" />;
-    });
+    this.props.processForm(post, (postId) => this.props.history.push(`/posts/${postId}`))
   }
 
   handleChange(label){
