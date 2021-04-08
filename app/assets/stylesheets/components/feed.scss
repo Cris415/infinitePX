@@ -1,0 +1,10 @@
+.feed {
+  height: 100vh;
+
+  li {
+    display: inline-block;
+    background-color: $color-grey-light-2;
+    padding: 1rem;
+    margin: 0.5rem;
+  }
+}

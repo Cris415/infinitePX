@@ -23,6 +23,22 @@ a {
   }
 }
 
+.header {
+  text-align: left;
+  background-color: $color-primary;
+  padding: 3.5rem;
+
+  h1 {
+    font-size: 3.5rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+  }
+  p {
+    color: $color-grey-dark-2;
+    font-size: 1.6rem;
+  }
+}
+
 .button {
   border-radius: 10rem;
   border: 2px solid black;
