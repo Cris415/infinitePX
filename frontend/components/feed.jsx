@@ -1,12 +1,9 @@
 import React from "react";
-import { connect } from 'react-redux';
 import PostIndexContainer from './posts/post_index_container';
 
-
-
-const feed = props => {
+const Feed = () => {
   return (
-    <div >
+    <div className="feed" >
       <h1>Home Feed</h1>
       <p>See photos from other photographers</p>
 
@@ -15,9 +12,4 @@ const feed = props => {
   );
 };
 
-const mapStateToProps = (state) => ({
-  user: state.entities.users[state.session.id]
-})
-
-
-export default connect(mapStateToProps)(feed);
+export default Feed;
