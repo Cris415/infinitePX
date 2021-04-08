@@ -9,7 +9,7 @@ const postsReducer = (state = {}, action) => {
       newState[action.post.id] = action.post
       return newState;
     case RECEIVE_POSTS:
-      return action.posts
+      return action.posts.posts
     default:
       return state;
   }
