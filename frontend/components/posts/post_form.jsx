@@ -1,5 +1,5 @@
 import React from 'react';
-import { Redirect, withRouter } from 'react-router';
+import { withRouter } from 'react-router';
 
 class PostForm extends React.Component {
   constructor(props){
@@ -7,6 +7,10 @@ class PostForm extends React.Component {
 
     this.state = this.props.post;
     this.handleSubmit = this.handleSubmit.bind(this);
+  }
+
+  componentWillUnmount(){
+    this.props.clearErrors();
   }
 
   handleSubmit(e){
@@ -28,21 +32,30 @@ class PostForm extends React.Component {
       <form onSubmit={this.handleSubmit}>
         <h2>{this.props.formType}</h2>
 
-        <label>Title
-          <input type="text" 
-          value={this.state.title} 
-          onChange={this.handleChange('title')}  />
+        <label>
+          Title
+          <input
+            type="text"
+            value={this.state.title}
+            onChange={this.handleChange("title")}
+          />
         </label>
 
-        <label>Description
-          <textarea 
-            value={this.state.description} 
-            onChange={this.handleChange('description')} />
+        <label>
+          Description
+          <textarea
+            value={this.state.description}
+            onChange={this.handleChange("description")}
+          />
         </label>
+
+        <div className="errors">
+          <ul>{this.props.errors.map((err, i) => <li key={i}>{err}</li>  )}</ul>
+        </div>
 
         <input type="submit" value={this.props.formType} />
       </form>
-    )
+    );
   }
 }
 

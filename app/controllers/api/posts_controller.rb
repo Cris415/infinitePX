@@ -11,11 +11,11 @@ class Api::PostsController < ApplicationController
 
   def create
     @post = Post.new(post_params)
-    
+
     if @post.save
       render :show
     else
-      render @post.errors.full_messages, status: 400
+      render json: @post.errors.full_messages, status: 400
     end
   end
 
