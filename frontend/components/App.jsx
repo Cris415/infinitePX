@@ -10,6 +10,7 @@ import signup_form_container from './session_forms/signup_form_container';
 import PageNotFound from './error/page_not_found.jsx';
 import Splash from './splash';
 import Feed from './feed';
+import post_form_container from './posts/post_form_container';
 
 const App = () => (
   <div>
@@ -23,6 +24,7 @@ const App = () => (
       <ProtectedRoute path="/feed" component={Feed} />
       <AuthRoute path="/login" component={login_form_container} />
       <AuthRoute path="/signup" component={signup_form_container} />
+      <ProtectedRoute path="/posts/new" component={post_form_container} /> 
       <PageNotFound />
     </Switch>
   </div>
