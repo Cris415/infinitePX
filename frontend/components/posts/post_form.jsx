@@ -12,7 +12,7 @@ class PostForm extends React.Component {
   handleSubmit(e){
     e.preventDefault();
     const post = Object.assign({}, this.state);
-    post.user_id = this.props.currentUser;
+    post.userId = this.props.currentUser;
    
     this.props.processForm(post).then(() => {
       this.setState({ title: "", description: "" });
