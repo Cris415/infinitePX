@@ -1,12 +1,12 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-const PostIndexItem = ({post}) => {
+const PostIndexItem = ({post , author}) => {
   return (
     <li>
-      <Link to={`/posts/${post.id}` }>
+      <Link to={`/posts/${post.id}`}>
         <h2>{post.title}</h2>
-        <p>{post.description}</p>
+        <p>{author}</p>
       </Link>
     </li>
   )

@@ -6,7 +6,7 @@ import PostIndexContainer from './posts/post_index_container';
 
 const feed = props => {
   return (
-    <div className="splash">
+    <div >
       <h1>Home Feed</h1>
       <p>See photos from other photographers</p>
 
