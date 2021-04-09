@@ -9,6 +9,7 @@ const postsReducer = (state = {}, action) => {
       newState[action.post.id] = action.post;
       return newState;
     case RECEIVE_POSTS:
+      if (action.posts === undefined) return state
       return action.posts
     default:
       return state;

@@ -6,7 +6,7 @@ import { clearErrors } from '../../actions/error_actions';
 
 const mapStateToProps = state => ({
   formType: 'Create Post',
-  post: {title: '', description: ''},
+  post: {title: '', description: '', photoFile: null},
   currentUser: state.session.id,
   errors: state.errors.posts
 })

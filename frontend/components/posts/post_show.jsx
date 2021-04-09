@@ -16,8 +16,9 @@ class PostShow extends React.Component {
     const date = new Date(createdAt);
 
     return (
-      <div>
+      <div className="post-show">
         <h2>{title}</h2>
+        <img src={this.props.post.photoUrl} alt={title} />
         <p>Created at: {date.toLocaleDateString()}</p>
         <p> {description} </p>
         <p>by: {author.username}</p>
