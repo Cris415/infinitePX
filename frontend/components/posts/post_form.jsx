@@ -12,8 +12,15 @@ class PostForm extends React.Component {
   }
 
   handleFile(e){
-    console.log(this.state)
-    this.setState({photoFile: e.currentTarget.files[0]})
+    const file = e.currentTarget.files[0];
+    const fileReader = new FileReader();
+    
+    fileReader.onloadend = ()=>{
+      this.setState({ photoFile: file,  photoUrl: fileReader.result })
+    }
+    if (file) {
+      fileReader.readAsDataURL(file);
+    }
   }
 
   componentWillUnmount(){
@@ -25,12 +32,12 @@ class PostForm extends React.Component {
 
     const formData = new FormData();
     formData.append('post[title]', this.state.title);
-    formData.append('post[photo]', this.state.photoFile);
     formData.append('post[description]', this.state.description);
     formData.append('post[userId]', this.props.currentUser);
 
-    const post = Object.assign({}, this.state);
-    post.userId = this.props.currentUser;
+    if (this.state.photoFile) {
+      formData.append('post[photo]', this.state.photoFile);
+    }
    
     this.props.processForm(formData, (postId) =>
       this.props.history.push(`/posts/${postId}`)
@@ -43,7 +50,17 @@ class PostForm extends React.Component {
     }
   }
 
+  renderPreview(){
+    return this.state.photoUrl ? (
+      <div className="image-preview">
+        <h3>Image Preview</h3>
+        <img src={this.state.photoUrl} />
+      </div>
+    ) : null;
+  }
+
   render(){
+
     return (
       <form onSubmit={this.handleSubmit}>
         <h2>{this.props.formType}</h2>
@@ -77,6 +94,8 @@ class PostForm extends React.Component {
             ))}
           </ul>
         </div>
+
+        { this.renderPreview }
 
         <input
           type="submit"

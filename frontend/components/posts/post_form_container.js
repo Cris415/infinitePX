@@ -5,8 +5,8 @@ import { createPost } from '../../actions/post_actions';
 import { clearErrors } from '../../actions/error_actions';
 
 const mapStateToProps = state => ({
-  formType: 'Create Post',
-  post: {title: '', description: '', photoFile: null},
+  formType: 'Upload',
+  post: {title: '', description: '', photoFile: null, photoUrl: null},
   currentUser: state.session.id,
   errors: state.errors.posts
 })
