@@ -72,36 +72,12 @@
       color: $color-grey-dark-1;
     }
 
-    input[type="submit"] {
-      font-size: 1.6rem;
-      background-color: $color-active;
-      color: $color-primary;
-      border:none;
-      padding: 1.5rem 0;
-      cursor: pointer;
-      outline:none;
-      
-      &:hover{
-        background-color: $color-active-2;
-      }
-    }
-
     .errors {
-      font-size: 1.4rem;
-      margin: 0;
-      padding: 0;
       padding-top: 5px;
-      min-height: 1.9rem;
-      display: inline-block;
     }
 
-    .button {
+    .btn-inverse {
       align-self: center;
-      background-color: $color-primary;
-      &:hover {
-        background-color: $color-active;
-        color: $color-primary;
-      }
     }
 
   }
