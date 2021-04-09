@@ -14,3 +14,17 @@
     font-size: 1.6rem;
   }
 }
+
+.header-small{
+  box-sizing: border-box;
+  width: 100%;
+  text-align: left;
+  background-color: $color-primary;
+  padding: 1.5rem 6rem;
+
+  h2 {
+    font-size: 2rem;
+    font-weight: 600;
+
+  }
+}

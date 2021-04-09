@@ -1,7 +1,50 @@
 .post-form {
+  width: 40rem;
+  align-self: right;
+
+
   .image-preview {
     img {
-      height: 10rem;
+      display: block;
+      padding: 2px;
+      border: 2px solid $color-active-2;
+      height: 19rem;
+    }
+    span {
+      display: block;
+      font-size: 1.2rem;
+      margin-top: 2px;
+      color: $color-grey-dark-2;
+    }
+  }
+  .inputs {
+    padding: 2.5rem;
+    input, textarea {
+      width: 90%;
+    }
+  }
+
+  .submit-btn {
+    width: 33%;
+  }
+
+  .buttons {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+
+    width: 100%;
+    box-sizing: border-box;
+    border-top: $border;
+    padding: 1rem;
+
+    a {
+      color: $color-active;
+      margin-right: 2rem;
+
+      &:hover {
+        color: $color-active-2;
+      }
     }
   }
 }

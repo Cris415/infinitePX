@@ -1,7 +1,6 @@
 form {
   background-color: $color-primary;
   border: $border;
-  padding: 3rem;
   display: flex;
   flex-direction: column;
   align-items: start;
@@ -11,7 +10,7 @@ form {
     color: $color-grey-dark-2;
   }
 
-  input {
+  input, textarea{
     width: 100%;
   }
 
@@ -19,18 +18,29 @@ form {
     margin-bottom: 1.5rem;
   }
 
-  input[type=text], input[type=password] {
+  input[type=text], input[type=password], textarea {
     margin-top: 1rem;
     border-radius: 5px;
     border: $border;
     padding: 1.5rem;
     font-size: 1.6rem;
 
-    ::placeholder {
+    &::placeholder {
       color: $color-grey-dark-1;
+      line-height: 1.6;
     }
   }
+
+  textarea {
+    resize: none;
+    font-family: inherit;
+    font-size: 1.4rem;
+    overflow: auto;
+    height: 5rem
+  }
+
   .errors {
     padding-top: 5px;
   }
+
 }

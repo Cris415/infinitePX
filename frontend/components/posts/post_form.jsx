@@ -1,5 +1,5 @@
 import React from 'react';
-import { withRouter } from 'react-router';
+import { withRouter, Link } from 'react-router-dom';
 
 class PostForm extends React.Component {
   constructor(props){
@@ -53,8 +53,8 @@ class PostForm extends React.Component {
   renderPreview(){
     return this.state.photoUrl ? (
       <div className="image-preview">
-        <h3>Image Preview</h3>
         <img src={this.state.photoUrl} />
+        <span>image title goes here</span>
       </div>
     ) : null;
   }
@@ -63,12 +63,20 @@ class PostForm extends React.Component {
 
     return (
       <form onSubmit={this.handleSubmit} className="post-form">
-        <h2>{this.props.formType}</h2>
 
-        <label>
-          Upload Image
-          <input type="file" onChange={this.handleFile} />
-        </label>
+        <div className="header-small">
+          <h2>{this.props.formType}</h2>
+        </div>
+
+
+        <input
+          type="file"
+          accept="image/jpeg"
+          className="file-input"
+          required
+          onChange={this.handleFile}
+        />
+        <div className="inputs">
 
         <label>
           Title
@@ -76,6 +84,7 @@ class PostForm extends React.Component {
             type="text"
             value={this.state.title}
             onChange={this.handleChange("title")}
+            required
           />
         </label>
 
@@ -84,10 +93,14 @@ class PostForm extends React.Component {
           <textarea
             value={this.state.description}
             onChange={this.handleChange("description")}
+            placeholder="e.g. Low angle view of a young bulldog skateboarding near the beach with a striking sunset"
+            required
           />
         </label>
 
         <div className="errors">
+        </div>
+
           <ul>
             {this.props.errors.map((err, i) => (
               <li key={i}>{err}</li>
@@ -95,13 +108,15 @@ class PostForm extends React.Component {
           </ul>
         </div>
 
-        { this.renderPreview()}
+        <div className="buttons">
+          <Link to="/">Cancel</Link>
 
-        <input
-          type="submit"
-          value={this.props.formType}
-          accept="image/png, image/jpeg"
-        />
+          <input
+            className="btn submit-btn"
+            type="submit"
+            value={this.props.formType}
+          />
+        </div>
       </form>
     );
   }

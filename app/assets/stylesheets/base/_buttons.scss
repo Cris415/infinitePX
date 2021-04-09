@@ -38,6 +38,35 @@ input[type="submit"].submit-btn {
     background-color: $color-active-2;
   }
 }
+.file-input {
+  display: inline-block;
+  color: transparent;
+  outline: none;
+
+  &::-webkit-file-upload-button  {
+    visibility: hidden;
+  }
+
+  &::before {
+    color: $color-primary;
+    content: 'Select Photo';
+    display: inline-block;
+    background: $color-active;
+    border-radius: 10rem;
+    padding: 1.5rem 2rem;
+    outline: none;
+    cursor: pointer;
+    font-weight: 600;
+  }
+
+  &:hover::before {
+    background-color: $color-active-2;
+
+  }
+  &:active::before {
+    background: -webkit-linear-gradient(top, #e3e3e3, #f9f9f9);
+  }
+}
 
 .btn-medium {
   padding: 1.3rem 2.0rem;
