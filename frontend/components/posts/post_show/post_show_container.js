@@ -1,8 +1,8 @@
 import { connect } from 'react-redux';
 import PostShow from './post_show';
-import { fetchPost } from '../../actions/post_actions'
+import { fetchPost } from '../../../actions/post_actions'
 
-import { postAuthorSelector } from '../../selectors/post_author_selector';
+import { postAuthorSelector } from '../../../selectors/post_author_selector';
 
 const mapStateToProps = (state, ownProps) => ({
   post: state.entities.posts[ownProps.match.params.postId],

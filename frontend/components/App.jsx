@@ -10,8 +10,8 @@ import signup_form_container from './session_forms/signup_form_container';
 import PageNotFound from './error/page_not_found.jsx';
 import Splash from './splash';
 import Feed from './feed';
-import post_form_container from './posts/post_form_container';
-import post_show_container from './posts/post_show_container';
+import post_form_container from './posts/post_form/post_form_container';
+import post_show_container from './posts/post_show/post_show_container';
 
 const App = () => (
   <div>

@@ -1,8 +1,8 @@
 import { connect } from 'react-redux';
 
 import PostForm from './post_form';
-import { createPost } from '../../actions/post_actions';
-import { clearErrors } from '../../actions/error_actions';
+import { createPost } from '../../../actions/post_actions';
+import { clearErrors } from '../../../actions/error_actions';
 
 const mapStateToProps = state => ({
   formType: 'Upload',
