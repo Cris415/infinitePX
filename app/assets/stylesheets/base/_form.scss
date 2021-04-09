@@ -1,0 +1,36 @@
+form {
+  background-color: $color-primary;
+  border: $border;
+  padding: 3rem;
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+
+  label {
+    width: 90%;
+    color: $color-grey-dark-2;
+  }
+
+  input {
+    width: 100%;
+  }
+
+  label input[type=text] {
+    margin-bottom: 1.5rem;
+  }
+
+  input[type=text], input[type=password] {
+    margin-top: 1rem;
+    border-radius: 5px;
+    border: $border;
+    padding: 1.5rem;
+    font-size: 1.6rem;
+
+    ::placeholder {
+      color: $color-grey-dark-1;
+    }
+  }
+  .errors {
+    padding-top: 5px;
+  }
+}

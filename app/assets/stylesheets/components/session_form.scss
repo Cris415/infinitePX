@@ -6,17 +6,9 @@
   align-items: center;
 
   form {
-    width: 34rem;
-    background-color: $color-primary;
-    border: $border;
-    padding: 3rem;
-    
-    display: flex;
-    flex-direction: column;
-    align-items: start;
+    width: 34rem;    
 
-
-      & > :last-child {
+    & > :last-child {
       padding-top: 2rem;
       margin-bottom: -0.5rem;
     }
@@ -31,7 +23,6 @@
 
     p {
       color: $color-grey-dark-3;
-      font-size: 1.6rem;
       margin-bottom: 1.5rem;
       
       a {
@@ -45,35 +36,6 @@
       &:hover {
         text-decoration: underline;
       }
-    }
-
-    label {
-      width: 90%;
-      font-size: 1.6rem;
-      color: $color-grey-dark-2;
-    }
-
-    input {
-      width: 100%;
-    }
-
-    label input[type=text] {
-      margin-bottom: 1.5rem;
-    }
-
-    input[type=text], input[type=password] {
-      margin-top: 1rem;
-      border-radius: 5px;
-      border: $border;
-      padding: 1.5rem;
-      font-size: 1.6rem;
-    }
-    ::placeholder {
-      color: $color-grey-dark-1;
-    }
-
-    .errors {
-      padding-top: 5px;
     }
 
     .btn-inverse {
