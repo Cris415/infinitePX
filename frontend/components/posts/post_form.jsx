@@ -62,7 +62,7 @@ class PostForm extends React.Component {
   render(){
 
     return (
-      <form onSubmit={this.handleSubmit}>
+      <form onSubmit={this.handleSubmit} className="post-form">
         <h2>{this.props.formType}</h2>
 
         <label>
@@ -95,7 +95,7 @@ class PostForm extends React.Component {
           </ul>
         </div>
 
-        { this.renderPreview }
+        { this.renderPreview()}
 
         <input
           type="submit"
