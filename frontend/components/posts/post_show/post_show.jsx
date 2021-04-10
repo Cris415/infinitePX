@@ -17,11 +17,21 @@ class PostShow extends React.Component {
 
     return (
       <div className="post-show">
-        <h2>{title}</h2>
-        <img src={this.props.post.photoUrl} alt={title} />
-        <p>Created at: {date.toLocaleDateString()}</p>
-        <p> {description} </p>
-        <p>by: {author.username}</p>
+        <div className="img-section">
+          <img src={this.props.post.photoUrl} alt={title} />
+        </div>
+        <div className="info-container">
+          <div className="img-info">
+            <h2>{title}</h2>
+            <p className="author">by {author.username}</p>
+
+            <div className="date-info">
+              <strong>Uploaded: </strong>
+              <span> {date.toLocaleDateString()} </span>
+            </div>
+            <p className="description"> {description} </p>
+          </div>
+        </div>
       </div>
     );
   }

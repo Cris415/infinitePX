@@ -1,5 +1,49 @@
 .post-show {
-  img {
-    height: 40rem;
+  height: 100%;
+  color: $color-secondary;
+
+  .img-section {
+    padding: 2rem 0;
+    background-color: $color-secondary;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    img {
+      height: 60.5rem;
+    }
   }
+  .info-container {
+    padding: 2rem 10rem;
+  }
+  .img-info {
+    background-color: $color-primary;
+    width: 70rem;
+    height: 20rem;
+    padding: 3rem;
+
+    h2 {
+      font-weight: 600;
+      font-size: 2.4rem;
+      margin-bottom: 0.8rem;
+    }
+    strong {
+      font-weight: 600;
+    }
+    span {
+      font-weight: 100;
+    }
+    .author {
+      font-weight: 300;
+      margin-bottom: 1rem;
+    }
+    .date-info {
+      font-size: 1.4rem;
+      margin-bottom: 1rem;
+    }
+
+
+  }
+  
 }
