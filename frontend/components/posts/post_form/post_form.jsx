@@ -55,9 +55,9 @@ class PostForm extends React.Component {
     return this.state.photoUrl ? (
       <div className="image-preview">
         <img src={this.state.photoUrl} />
-        <span>image title goes here</span>
+        <span>{this.state.photoFile.name.split('.')[0]}</span>
       </div>
-    ) : <div>{' '}</div>;
+    ) : null;
   }
 
   render(){
@@ -70,7 +70,7 @@ class PostForm extends React.Component {
         <div className="form-container">
           {!this.state.photoFile && <UploadImageInput handleFile={this.handleFile} />}
 
-          {this.renderPreview()}
+          { this.renderPreview()}
 
           <form onSubmit={this.handleSubmit} className="post-form">
             <div className="inputs">
