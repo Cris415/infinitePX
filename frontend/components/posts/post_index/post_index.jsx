@@ -20,11 +20,9 @@ class PostIndex extends React.Component {
 
   render(){
     return (
-      <div>
-        <ul>
-          {this.renderItems()}
-        </ul>
-      </div>
+      <ul className="post-index">
+        {this.renderItems()}
+      </ul>
     )
   }
 
