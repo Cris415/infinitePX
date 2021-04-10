@@ -1,22 +1,10 @@
+.form-container {
+  position: relative;
+}
+
 .post-form {
   width: 40rem;
-  align-self: right;
 
-
-  .image-preview {
-    img {
-      display: block;
-      padding: 2px;
-      border: 2px solid $color-active-2;
-      height: 19rem;
-    }
-    span {
-      display: block;
-      font-size: 1.2rem;
-      margin-top: 2px;
-      color: $color-grey-dark-2;
-    }
-  }
   .inputs {
     padding: 2.5rem;
     input, textarea {
@@ -46,5 +34,71 @@
         color: $color-active-2;
       }
     }
+  }
+}
+
+.image-upload {
+  // background-color: $color-grey-light-1;
+  background-color: rgba(154, 234, 34, 0.455);
+  position: absolute;
+  top:0;
+  left: 0;
+  height: 100vh;
+  width: 100vw;;
+  z-index: 10;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+
+  label {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 2.2rem;
+    font-weight: 600;
+    margin-top: 10rem;
+
+    svg{
+      font-size: 4rem;
+      margin-bottom: 2.5rem;
+    }
+
+  .file-input::before {
+    margin-top: 1rem;
+    transform: translateX(45%);
+    }
+  }
+
+  .upload-requirements{
+    background-color: $color-grey-light-2;
+    padding: 2rem;
+    margin-top: 3rem;
+    p{
+      margin-bottom: 0.5rem;
+    }
+
+    h3 {
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+    }
+  }
+
+} 
+
+
+.image-preview {
+  img {
+    display: block;
+    padding: 2px;
+    border: 2px solid $color-active-2;
+    height: 19rem;
+  }
+  span {
+    display: block;
+    font-size: 1.2rem;
+    margin-top: 2px;
+    color: $color-grey-dark-2;
   }
 }
