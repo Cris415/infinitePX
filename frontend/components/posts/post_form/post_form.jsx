@@ -1,7 +1,6 @@
 import React from 'react';
 import { withRouter, Link } from 'react-router-dom';
-import { faArrowUp } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import UploadImageInput from './upload_image_input';
 
 class PostForm extends React.Component {
   constructor(props){
@@ -58,11 +57,10 @@ class PostForm extends React.Component {
         <img src={this.state.photoUrl} />
         <span>image title goes here</span>
       </div>
-    ) : null;
+    ) : <div>{' '}</div>;
   }
 
   render(){
-
     return (
       <div>
         <div className="header-small">
@@ -70,25 +68,7 @@ class PostForm extends React.Component {
         </div>
 
         <div className="form-container">
-          <div className="image-upload">
-            <label>
-              <FontAwesomeIcon icon={faArrowUp} />
-              Upload a photo
-              <input
-                type="file"
-                accept="image/jpeg"
-                className="file-input"
-                required
-                onChange={this.handleFile}
-              />
-            </label>
-
-            <div className="upload-requirements">
-              <h3>Photo requirements</h3>
-              <p>.jpg only</p>
-              <p>Max. photo dimensions are 200MP/megapixels</p>
-            </div>
-          </div>
+          {!this.state.photoFile && <UploadImageInput handleFile={this.handleFile} />}
 
           {this.renderPreview()}
 
@@ -109,7 +89,7 @@ class PostForm extends React.Component {
                 <textarea
                   value={this.state.description}
                   onChange={this.handleChange("description")}
-                  placeholder="e.g. Low angle view of a young bulldog skateboarding near the beach with a striking sunset"
+                  placeholder="e.g. Low angle view of a young bulldog skateboarding near a beach with a striking sunset"
                   required
                 />
               </label>
