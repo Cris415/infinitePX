@@ -1,5 +1,6 @@
 import React from 'react';
-import { withRouter, Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
+import ImagePreview from './image_preview';
 import UploadImageInput from './upload_image_input';
 
 class PostForm extends React.Component {
@@ -16,7 +17,7 @@ class PostForm extends React.Component {
     const file = e.currentTarget.files[0];
     const fileReader = new FileReader();
     
-    fileReader.onloadend = ()=>{
+    fileReader.onloadend = () => {
       this.setState({ photoFile: file,  photoUrl: fileReader.result })
     }
     if (file) {
@@ -51,15 +52,6 @@ class PostForm extends React.Component {
     }
   }
 
-  renderPreview(){
-    return this.state.photoUrl ? (
-      <div className="image-preview">
-        <img src={this.state.photoUrl} />
-        <span>{this.state.photoFile.name.split('.')[0]}</span>
-      </div>
-    ) : null;
-  }
-
   render(){
     return (
       <div>
@@ -70,7 +62,7 @@ class PostForm extends React.Component {
         <div className="form-container">
           {!this.state.photoFile && <UploadImageInput handleFile={this.handleFile} />}
 
-          { this.renderPreview()}
+          {<ImagePreview photoUrl={this.state.photoUrl} photoFile={this.state.photoFile} />}
 
           <form onSubmit={this.handleSubmit} className="post-form">
             <div className="inputs">
@@ -117,4 +109,4 @@ class PostForm extends React.Component {
   }
 }
 
-export default withRouter(PostForm);
+export default PostForm;
