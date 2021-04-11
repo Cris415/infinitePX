@@ -1,6 +1,6 @@
 class Post < ApplicationRecord
   validates :description, :title, :user_id, presence: true
-  validates :title, uniqueness: { scope: :user_id, message: "cannot create identical titles" }
+  validates :title, uniqueness: { scope: :user_id, message: "cannot be identical to other titles" }
 
   validate :ensure_photo
 

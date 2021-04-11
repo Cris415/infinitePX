@@ -16,9 +16,18 @@ class PostForm extends React.Component {
   handleFile(e){
     const file = e.currentTarget.files[0];
     const fileReader = new FileReader();
-    
     fileReader.onloadend = () => {
-      this.setState({ photoFile: file,  photoUrl: fileReader.result })
+      let [name, extension] = file.name.split(".");
+      extension = extension.toLowerCase();
+
+      // If the extensions don't match the following, state will not be set.
+      if ( extension !== "jpg" &&  extension !== "jpeg" ) return;
+
+      this.setState({
+        photoFile: file,
+        photoUrl: fileReader.result,
+        title: name,
+      });
     }
     if (file) {
       fileReader.readAsDataURL(file);
@@ -62,7 +71,7 @@ class PostForm extends React.Component {
         <div className="form-container">
           {!this.state.photoFile && <UploadImageInput handleFile={this.handleFile} />}
 
-          {<ImagePreview photoUrl={this.state.photoUrl} photoFile={this.state.photoFile} />}
+          {<ImagePreview photoUrl={this.state.photoUrl} title={this.state.title} />}
 
           <form onSubmit={this.handleSubmit} className="post-form">
             <div className="inputs">

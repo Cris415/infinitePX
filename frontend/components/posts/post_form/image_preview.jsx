@@ -1,11 +1,11 @@
 import React from 'react';
 
-const ImagePreview = ({photoUrl, photoFile}) => {
+const ImagePreview = ({photoUrl, title}) => {
   return(
     photoUrl ? (
       <div className="image-preview">
         <img src={photoUrl} />
-        <span>{photoFile.name.split('.')[0]}</span>
+        <span>{title}</span>
       </div>
     ) : null
   )

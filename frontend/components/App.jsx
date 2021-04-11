@@ -13,26 +13,28 @@ import Feed from './feed';
 import PostShowContainer from './posts/post_show/post_show_container';
 import PostFormContainer from './posts/post_form/post_form_container';
 
-// import UploadImage from './posts/post_form/upload_image';
+const App = () => {
+  return (
+    <div>
+      <header>
+        <Logo />
+        <UserInfoContainer />
+      </header>
 
-const App = () => (
-  <div>
-    <header>
-      <Logo />
-      <UserInfoContainer />
-    </header>
+      <Switch>
+        <AuthRoute path="/" exact component={Splash} />
+        <ProtectedRoute path="/feed" component={Feed} />
+        <AuthRoute path="/login" component={LoginFormContainer} />
+        <AuthRoute path="/signup" component={SignupFormContainer} />
+        <ProtectedRoute path="/posts/new" exact component={PostFormContainer} />
+        <ProtectedRoute path="/posts/:postId" component={PostShowContainer} />
 
-    <Switch>
-      <AuthRoute path="/" exact component={Splash} />
-      <ProtectedRoute path="/feed" component={Feed} />
-      <AuthRoute path="/login" component={LoginFormContainer} />
-      <AuthRoute path="/signup" component={SignupFormContainer} />
-      <ProtectedRoute path="/posts/new" exact component={PostFormContainer} />
-      <ProtectedRoute path="/posts/:postId" component={PostShowContainer} />
+        <PageNotFound />
+      </Switch>
+    </div>
+  );
+}
 
-      <PageNotFound />
-    </Switch>
-  </div>
-);
+
 
 export default App;
