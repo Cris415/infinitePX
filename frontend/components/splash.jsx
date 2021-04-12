@@ -9,8 +9,8 @@ const Splash = () => {
     <div className="splash">
       <div className="splash-hero">
         <img
-          src="assets/andrew-small-EfhCUc_fjrU-unsplash.jpg"
-          alt="hero image banana"
+          src={window.heroImg}
+          alt="hero image flower"
         />
         <div className="splash-hero-copy">
           <h1>Welcome to infinitePx</h1>
