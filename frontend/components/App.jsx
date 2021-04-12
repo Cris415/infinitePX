@@ -11,7 +11,7 @@ import PageNotFound from './error/page_not_found.jsx';
 import Splash from './splash';
 import Feed from './feed';
 import PostShowContainer from './posts/post_show/post_show_container';
-import PostFormContainer from './posts/post_form/post_form_container';
+import UploadPostFormContainer from './posts/post_form/upload_post_form_container';
 
 const App = () => {
   return (
@@ -26,7 +26,7 @@ const App = () => {
         <ProtectedRoute path="/feed" component={Feed} />
         <AuthRoute path="/login" component={LoginFormContainer} />
         <AuthRoute path="/signup" component={SignupFormContainer} />
-        <ProtectedRoute path="/posts/new" exact component={PostFormContainer} />
+        <ProtectedRoute path="/posts/new" exact component={UploadPostFormContainer} />
         <ProtectedRoute path="/posts/:postId" component={PostShowContainer} />
 
         <PageNotFound />

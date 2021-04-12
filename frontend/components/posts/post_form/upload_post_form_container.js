@@ -9,11 +9,11 @@ const mapStateToProps = state => ({
   post: {title: '', description: '', photoFile: null, photoUrl: null},
   currentUser: state.session.id,
   errors: state.errors.posts
-})
+});
 
 const mapDispatchToProps = dispatch => ({
   processForm: (post, redirectCallback) => dispatch(createPost(post, redirectCallback)),
   clearErrors: () => dispatch(clearErrors())
-})
+});
 
-export default connect(mapStateToProps, mapDispatchToProps)(PostForm)
+export default connect(mapStateToProps, mapDispatchToProps)(PostForm);
