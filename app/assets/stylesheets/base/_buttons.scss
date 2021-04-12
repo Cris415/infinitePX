@@ -15,6 +15,12 @@ a.link-btn {
     background-color: $color-grey-light-3;
     color: black;
   }
+  &-big {
+    background-color: $color-primary;
+    padding: 1.8rem 7rem;
+    border: none;
+    font-size: 2rem;
+  }
 }
 
 .btn-inverse {
