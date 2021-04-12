@@ -1,5 +1,5 @@
 class Api::PostsController < ApplicationController
-  before_action :require_login, only: [:create]
+  before_action :require_login, only: [:create, :destroy, :update]
 
   def index
     @posts = Post.all
@@ -19,7 +19,29 @@ class Api::PostsController < ApplicationController
     end
   end
 
+  def update
+    @post = Post.find_by(id: params[:id])
+    if @post && @post.update(post_params)
+      render :show
+    elsif !@post
+      render json: ['Could not find post'], status: 400
+    else
+      render json: @post.errors.full_messages, status: 400
+    end
+  end
+
+  def destroy 
+    @post = Post.find_by(id: params[:id])
+    if @post
+      @post.destroy
+      render :show
+    else
+      render json: ['Could not find post'], status: 400
+    end
+  end
+
   private
+  
   def post_params
     params.require(:post).permit(:title, :description, :user_id, :photo)
   end 
