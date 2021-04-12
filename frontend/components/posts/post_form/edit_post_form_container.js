@@ -1,10 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import PostForm from './post_form';
-import { fetchPost } from '../../../actions/post_actions';
+import { fetchPost, editPost } from '../../../actions/post_actions';
 import { clearErrors } from '../../../actions/error_actions';
-//  we would import editPost ^ but I have to make it first
-
 
 class EditPost extends React.Component {  
   constructor(props){

@@ -21,3 +21,21 @@ export const createPost = post => (
     processData: false
   })
 );
+
+export const editPost = post => (
+  $.ajax({
+    method: 'PUT',
+    url: `/api/posts/${post.id}`,
+    data: post,
+    contentType: false,
+    processData: false
+  })
+);
+
+
+export const deletePost = postId => (
+  $.ajax({
+    method: 'DELETE',
+    url: `/api/posts/${postId}`
+  })
+)

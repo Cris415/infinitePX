@@ -38,4 +38,12 @@ export const createPost = (post, redirectCallback) => (dispatch) => (
     .fail((errs) => dispatch(receivePostErrors(errs.responseJSON)))
 );
 
+export const editPost = (post) => dispatch => (
+  PostAPI.editPost(post).then(post => dispatch(receivePost(post)))
+  .fail(errs => dispatch(receivePostErrors(errs.responseJSON)))
+)
 
+export const deletePost = (postId) => dispatch => (
+  PostAPI.deletePost(postId).then(post => dispatch(removePost(post.id)))
+  .fail(errs => dispatch(receivePostErrors(errs.responseJSON)))
+)
