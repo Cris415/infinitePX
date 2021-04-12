@@ -1,0 +1,14 @@
+.image-preview {
+  img {
+    display: block;
+    padding: 2px;
+    border: 2px solid $color-active-2;
+    height: 19rem;
+  }
+  span {
+    display: block;
+    font-size: 1.2rem;
+    margin-top: 2px;
+    color: $color-grey-dark-2;
+  }
+}

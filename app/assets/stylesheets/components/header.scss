@@ -1,8 +1,14 @@
 header {
+  position: sticky;
+  box-sizing: border-box;
+  top: 0;
+  width: 100%;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
+
+  z-index: 11;
 
   background-color: $color-primary;
   font-size: 1.6rem;
@@ -31,9 +37,16 @@ header {
     }
   }
 
-
+  .button-medium svg{
+    margin-right: 0.5rem;
+  }
 }
 
+
+.shadow {
+  -webkit-box-shadow: 0px 13px 11px -8px rgba(0,0,0,0.45); 
+  box-shadow: 0px 13px 11px -8px rgba(0,0,0,0.45);
+}
 
 
 

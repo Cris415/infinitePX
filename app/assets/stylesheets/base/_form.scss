@@ -1,0 +1,47 @@
+form {
+  background-color: $color-primary;
+  border: $border;
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+
+  label {
+    width: 90%;
+    color: $color-grey-dark-2;
+  }
+
+  input, textarea{
+    width: 100%;
+  }
+
+  label input[type=text] {
+    margin-bottom: 1.5rem;
+  }
+
+  input[type=text], input[type=password], textarea {
+    margin-top: 1rem;
+    border-radius: 5px;
+    border: $border;
+    padding: 1.5rem;
+    font-size: 1.6rem;
+
+    &::placeholder {
+      color: $color-grey-dark-1;
+      line-height: 1.6;
+    }
+  }
+
+  textarea {
+    padding: 0.9rem 1.5rem;
+    resize: none;
+    font-family: inherit;
+    font-size: 1.4rem;
+    overflow: auto;
+    height: 5.5rem
+  }
+
+  .errors {
+    padding-top: 5px;
+  }
+
+}

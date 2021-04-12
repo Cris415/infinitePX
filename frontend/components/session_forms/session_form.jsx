@@ -94,11 +94,11 @@ class SessionForm extends React.Component {
           <ul className="errors">{this.renderErrors()}</ul>
           <input
             type="submit"
-            className="button"
+            className="btn submit-btn"
             value={this.props.formType === "login" ? "Log in" : "Sign up"}
           />
           <br/>
-          <button className="button" onClick={this.handleDemoLogin}>Demo Log in</button>
+          <button className="btn btn-inverse" onClick={this.handleDemoLogin}>Demo Log in</button>
 
           {this.renderLink()}
         </form>

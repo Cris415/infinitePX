@@ -1,0 +1,93 @@
+a.link-btn {
+  &:hover  {
+    background-color: $color-primary;
+    color: $color-active;
+  }
+}
+
+.btn {
+  border-radius: 10rem;
+  border: 2px solid black;
+  padding: 0.5rem 1.5rem;
+  font-weight: 600;
+  cursor: pointer;
+  &:hover{
+    background-color: $color-grey-light-3;
+    color: black;
+  }
+  &-medium {
+    padding: 1.3rem 2.0rem;
+  }
+  &-big {
+    background-color: $color-primary;
+    padding: 1.8rem 7rem;
+    border: none;
+    font-size: 2rem;
+  }
+  &-delete {
+    font-size: inherit;
+    width: 100%;
+    border: 2px solid $color-active;
+    background-color: $color-primary;
+    color: $color-active;
+    padding: 1.5rem 0;
+
+    &:hover {
+      border: 2px solid rgb(213, 53, 53);
+      color: rgb(213, 53, 53);
+      background-color: inherit;
+    }
+  }
+}
+
+.btn-inverse {
+  background-color: $color-primary;
+  &:hover {
+    background-color: $color-active;
+    color: $color-primary;
+  }
+}
+
+input[type="submit"].submit-btn {
+  font-size: 1.6rem;
+  background-color: $color-active;
+  color: $color-primary;
+  border: none;
+  padding: 1.5rem 0;
+  cursor: pointer;
+  outline: none;
+  
+  &:hover{
+    background-color: $color-active-2;
+  }
+}
+.file-input {
+  display: inline-block;
+  color: transparent;
+  outline: none;
+
+  &::-webkit-file-upload-button  {
+    visibility: hidden;
+  }
+
+  &::before {
+    color: $color-primary;
+    content: 'Select Photo';
+    display: inline-block;
+    background: $color-active;
+    border-radius: 10rem;
+    padding: 1.5rem 2rem;
+    outline: none;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 1.6rem;
+  }
+
+  &:hover::before {
+    background-color: $color-active-2;
+
+  }
+  &:active::before {
+    background: $color-active-3;
+  }
+}

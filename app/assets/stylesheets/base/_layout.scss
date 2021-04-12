@@ -1,0 +1,30 @@
+// Not the main header
+.header {
+  text-align: left;
+  background-color: $color-primary;
+  padding: 3.5rem;
+
+  h1 {
+    font-size: 3.5rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+  }
+  p {
+    color: $color-grey-dark-2;
+    font-size: 1.6rem;
+  }
+}
+
+.header-small{
+  box-sizing: border-box;
+  width: 100%;
+  text-align: left;
+  background-color: $color-primary;
+  padding: 1.5rem 6rem;
+
+  h2 {
+    font-size: 2rem;
+    font-weight: 600;
+
+  }
+}
