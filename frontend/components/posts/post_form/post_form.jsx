@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
 import ImagePreview from './image_preview';
 import UploadImageInput from './upload_image_input';
 
@@ -44,10 +44,16 @@ class PostForm extends React.Component {
     const formData = new FormData();
     formData.append('post[title]', this.state.title);
     formData.append('post[description]', this.state.description);
-    formData.append('post[userId]', this.props.currentUser);
+    if (this.props.formType === 'Upload') {
+      formData.append('post[userId]', this.props.currentUser);
+    }
 
     if (this.state.photoFile) {
       formData.append('post[photo]', this.state.photoFile);
+    }
+
+    if (this.props.formType ==='Edit' && this.state.id){
+      formData.append("post[postId]", this.state.id);
     }
    
     this.props.processForm(formData, (postId) =>
@@ -69,7 +75,7 @@ class PostForm extends React.Component {
         </div>
 
         <div className="form-container">
-          {!this.state.photoFile && <UploadImageInput handleFile={this.handleFile} />}
+          {(!this.state.photoFile && this.props.formType !== 'Edit') && <UploadImageInput handleFile={this.handleFile} />}
 
           {<ImagePreview photoUrl={this.state.photoUrl} title={this.state.title} />}
 
@@ -103,7 +109,7 @@ class PostForm extends React.Component {
             </ul>
 
             <div className="buttons">
-              <Link to="/">Cancel</Link>
+              <Link to={this.props.formType === 'Upload' ? "/" : `/posts/${this.props.match.params.postId}`}>Cancel</Link>
 
               <input
                 className="btn submit-btn"
@@ -118,4 +124,4 @@ class PostForm extends React.Component {
   }
 }
 
-export default PostForm;
+export default withRouter(PostForm);

@@ -36,15 +36,16 @@ class EditPost extends React.Component {
 }
 
 const mapStateToProps = (state, ownProps) => ({
-  post: state.entities.posts[ownProps.match.params.postId],
   formType: 'Edit',
+  post: state.entities.posts[ownProps.match.params.postId],
   errors: state.errors.posts
 });
 
-const mapDispatchToProps = (dispatch) => ({
-  processForm: post => dispatch(editPost(post)),
+const mapDispatchToProps = (dispatch, ownProps) => ({
+  processForm: (post, redirectCallback) =>
+  dispatch(editPost(post, redirectCallback)),
   clearErrors: () => dispatch(clearErrors()),
-  fetchPost: () => dispatch(fetchPost)
+  fetchPost: () => dispatch(fetchPost(ownProps.match.params.postId)),
 });
 
-connect(mapStateToProps, mapDispatchToProps)(EditPost);
+export default connect(mapStateToProps, mapDispatchToProps)(EditPost);

@@ -22,15 +22,17 @@ export const createPost = post => (
   })
 );
 
-export const editPost = post => (
-  $.ajax({
-    method: 'PUT',
-    url: `/api/posts/${post.id}`,
-    data: post,
+export const editPost = formData => {
+  const postId = formData.get("post[postId]");
+
+  return $.ajax({
+    method: "PUT",
+    url: `/api/posts/${postId}`,
+    data: formData,
     contentType: false,
-    processData: false
-  })
-);
+    processData: false,
+  });
+}
 
 
 export const deletePost = postId => (
