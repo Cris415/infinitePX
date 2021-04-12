@@ -21,7 +21,10 @@ class Api::PostsController < ApplicationController
 
   def update
     @post = Post.find_by(id: params[:id])
-    if @post && @post.update(post_params)
+
+    if current_user.id != @post.user_id
+      render json: ['Unauthorized action'], status: 401
+    elsif @post && @post.update(post_params)
       render :show
     elsif !@post
       render json: ['Could not find post'], status: 400
@@ -32,7 +35,10 @@ class Api::PostsController < ApplicationController
 
   def destroy 
     @post = Post.find_by(id: params[:id])
-    if @post
+
+    if current_user.id != @post.user_id
+      render json: ['Unauthorized action'], status: 401
+    elsif @post
       @post.destroy
       render :show
     else

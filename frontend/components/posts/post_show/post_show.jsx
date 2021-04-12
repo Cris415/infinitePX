@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 class PostShow extends React.Component {
   constructor(props){
@@ -10,8 +11,8 @@ class PostShow extends React.Component {
 
   render(){
     if (!this.props.post ) return <div></div>;
-    
-    const {title, description, createdAt} = this.props.post;
+
+    const { title, description, createdAt } = this.props.post;
     const {author} = this.props;
     const date = new Date(createdAt);
 
@@ -22,15 +23,21 @@ class PostShow extends React.Component {
         </div>
         <div className="info-container">
           <div className="img-info">
-            <h2>{title}</h2>
-            <p className="author">by {author.username}</p>
+            <div className="img-info-main">
+              <h2>{title}</h2>
+              <p className="author">by {author.username}</p>
+            </div>
 
             <div className="date-info">
               <strong>Uploaded: </strong>
               <span> {date.toLocaleDateString()} </span>
             </div>
             <p className="description"> {description} </p>
+            
+
+            {this.props.currentUserId === author.id && <Link className="edit" to={`${this.props.match.params.postId}/edit`}>Edit Photo</Link>}
           </div>
+
         </div>
       </div>
     );

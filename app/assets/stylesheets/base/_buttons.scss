@@ -15,11 +15,28 @@ a.link-btn {
     background-color: $color-grey-light-3;
     color: black;
   }
+  &-medium {
+    padding: 1.3rem 2.0rem;
+  }
   &-big {
     background-color: $color-primary;
     padding: 1.8rem 7rem;
     border: none;
     font-size: 2rem;
+  }
+  &-delete {
+    font-size: inherit;
+    width: 100%;
+    border: 2px solid $color-active;
+    background-color: $color-primary;
+    color: $color-active;
+    padding: 1.5rem 0;
+
+    &:hover {
+      border: 2px solid rgb(213, 53, 53);
+      color: rgb(213, 53, 53);
+      background-color: inherit;
+    }
   }
 }
 
@@ -73,8 +90,4 @@ input[type="submit"].submit-btn {
   &:active::before {
     background: $color-active-3;
   }
-}
-
-.btn-medium {
-  padding: 1.3rem 2.0rem;
 }

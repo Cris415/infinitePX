@@ -7,10 +7,12 @@ class PostForm extends React.Component {
   constructor(props){
     super(props);
 
+    this.props.post.edited = false;
     this.state = this.props.post;
 
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleFile = this.handleFile.bind(this);
+    this.handleDelete = this.handleDelete.bind(this);
   }
 
   handleFile(e){
@@ -63,8 +65,16 @@ class PostForm extends React.Component {
 
   handleChange(label){
     return (e) => {
+      if (!this.state.edited) {
+        this.setState({ edited: true });
+      }
       this.setState({ [label] : e.currentTarget.value })
     }
+  }
+
+  handleDelete(e){
+    e.preventDefault();
+    this.props.deletePost().then(() => this.props.history.push(`/`));
   }
 
   render(){
@@ -100,6 +110,8 @@ class PostForm extends React.Component {
                   required
                 />
               </label>
+
+              {this.props.formType === 'Edit'  && <button className="btn btn-delete" onClick={this.handleDelete} > Delete photo</button>}
             </div>
 
             <ul className="errors">
@@ -108,15 +120,17 @@ class PostForm extends React.Component {
               ))}
             </ul>
 
+           {(this.props.formType === 'Edit' && this.state.edited)  && (
             <div className="buttons">
               <Link to={this.props.formType === 'Upload' ? "/" : `/posts/${this.props.match.params.postId}`}>Cancel</Link>
-
+                
               <input
                 className="btn submit-btn"
                 type="submit"
-                value={this.props.formType}
+                value={this.props.formType === "Edit" ? 'Save changes' : this.props.formType  }
               />
             </div>
+           )}
           </form>
         </div>
       </div>
