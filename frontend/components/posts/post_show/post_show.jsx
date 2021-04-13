@@ -35,7 +35,7 @@ class PostShow extends React.Component {
             <p className="description"> {description} </p>
             
 
-            {this.props.currentUserId === author.id && <Link className="edit" to={`${this.props.match.params.postId}/edit`}>Edit Photo</Link>}
+            {this.props.currentUserId === author.id && <Link className="edit" to={`/${this.props.match.params.postId}/edit`}>Edit Photo</Link>}
           </div>
 
         </div>
