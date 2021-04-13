@@ -120,7 +120,7 @@ class PostForm extends React.Component {
               ))}
             </ul>
 
-           {(this.props.formType === 'Edit' && this.state.edited)  && (
+           {((this.props.formType === 'Edit' && this.state.edited) || this.props.formType === 'Upload')  && (
             <div className="buttons">
               <Link to={this.props.formType === 'Upload' ? "/" : `/posts/${this.props.match.params.postId}`}>Cancel</Link>
                 
