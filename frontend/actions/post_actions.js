@@ -54,6 +54,6 @@ export const editPost = (post, redirectCallback) => (dispatch) =>
     .fail((errs) => dispatch(receivePostErrors(errs.responseJSON)));
 
 export const deletePost = (postId) => dispatch => (
-  postAPI.deletePost(postId).then(post => dispatch(removePost(post.id)))
-  .fail(errs => dispatch(receivePostErrors(errs.responseJSON)))
+  postAPI.deletePost(postId).then(() => dispatch(removePost(postId))
+  ).fail(errs => dispatch(receivePostErrors(errs.responseJSON)))
 )
