@@ -5,7 +5,7 @@ import { receivePosts } from './post_actions';
 export const RECEIVE_USER = "RECEIVE_USER";
 export const RECEIVE_USER_ERRORS = "RECEIVE_USER_ERRORS";
 
-export const receiveUser = user => ({
+export const receiveUser = ({user}) => ({
   type: RECEIVE_USER,
   user
 });

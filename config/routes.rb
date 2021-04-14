@@ -4,7 +4,7 @@ Rails.application.routes.draw do
     resources :users, only: [:create, :show] do
       resources :posts, only: [:index]
     end
-    # resources :posts, only: [:create, :index, :show, :delete, :put]
+    resources :follows, only: [:create, :destroy]
     resources :posts, except: [:new, :edit] 
     resource :session, only: [:create, :destroy]
   end
