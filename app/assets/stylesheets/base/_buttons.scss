@@ -11,6 +11,8 @@ a.link-btn {
   padding: 0.5rem 1.5rem;
   font-weight: 600;
   cursor: pointer;
+  outline: none;
+  
   &:hover{
     background-color: $color-grey-light-3;
     color: black;
