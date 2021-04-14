@@ -13,6 +13,7 @@ import Feed from './feed';
 import PostShowContainer from './posts/post_show/post_show_container';
 import UploadPostFormContainer from './posts/post_form/upload_post_form_container';
 import EditPostForm from './posts/post_form/edit_post_form_container';
+import UserProfileContainer from './user_profile/user_profile_container';
 
 const App = () => {
   return (
@@ -30,6 +31,7 @@ const App = () => {
         <ProtectedRoute path="/posts/new" exact component={UploadPostFormContainer} />
         <ProtectedRoute path="/posts/:postId" exact component={PostShowContainer} />
         <ProtectedRoute path="/posts/:postId/edit" component={EditPostForm} />
+        <ProtectedRoute path="/users/:userId" component={UserProfileContainer} />
 
         <PageNotFound />
       </Switch>

@@ -25,7 +25,9 @@ class PostShow extends React.Component {
           <div className="img-info">
             <div className="img-info-main">
               <h2>{title}</h2>
-              <p className="author">by {author.username}</p>
+              <p className="author">
+                by <Link to={`/users/${author.id}`} > {author.username}</Link>
+              </p>
             </div>
 
             <div className="date-info">
@@ -33,11 +35,16 @@ class PostShow extends React.Component {
               <span> {date.toLocaleDateString()} </span>
             </div>
             <p className="description"> {description} </p>
-            
 
-            {this.props.currentUserId === author.id && <Link className="edit" to={`/${this.props.match.params.postId}/edit`}>Edit Photo</Link>}
+            {this.props.currentUserId === author.id && (
+              <Link
+                className="edit"
+                to={`/${this.props.match.params.postId}/edit`}
+              >
+                Edit Photo
+              </Link>
+            )}
           </div>
-
         </div>
       </div>
     );

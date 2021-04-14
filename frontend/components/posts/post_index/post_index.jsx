@@ -7,8 +7,11 @@ class PostIndex extends React.Component {
   }
 
   componentDidMount(){
-    this.props.fetchPosts();
+    if (this.props.type !== "userIndex"){
+      this.props.fetchPosts();
+    }
   }
+
   renderItems() {
     return this.props.posts.map((post) => {
       const author = this.props.users[post.userId].username;
