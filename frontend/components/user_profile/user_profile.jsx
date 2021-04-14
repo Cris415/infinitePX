@@ -14,11 +14,11 @@ class UserProfile extends React.Component {
     if (!this.props.user && this.props.posts) return null;
     const users = {[this.props.user.id]: this.props.user }
     return (
-      <div>
-        <div className="header">
+      <div className="user-profile">
+        <div className="header user-profile-header">
           {this.props.user.username}
         </div>
-        <PostIndex posts={this.props.posts} users={users} type="userIndex" />
+        <PostIndex posts={this.props.posts} users={users} indexType="userIndex" />
       </div>
     )
   }

@@ -7,16 +7,21 @@ class PostIndex extends React.Component {
   }
 
   componentDidMount(){
-    if (this.props.type !== "userIndex"){
+    if (this.props.indexType !== "userIndex"){
       this.props.fetchPosts();
     }
   }
 
   renderItems() {
-    return this.props.posts.map((post) => {
-      const author = this.props.users[post.userId].username;
+    const { posts, users, indexType} = this.props
+    return posts.map((post) => {
+      const author = users[post.userId].username;
       return (
-        <PostIndexItem key={post.id} post={post} author={author} />
+        <PostIndexItem
+          key={post.id}
+          post={post}
+          author={indexType === "userIndex" ? "" : author }
+        />
       );
     });
   }
