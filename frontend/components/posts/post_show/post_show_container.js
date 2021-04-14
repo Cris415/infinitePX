@@ -7,7 +7,9 @@ import { postAuthorSelector } from '../../../selectors/post_author_selector';
 const mapStateToProps = (state, ownProps) => ({
   post: state.entities.posts[ownProps.match.params.postId],
   author: postAuthorSelector(state, ownProps.match.params.postId),
-  currentUserId: state.session.id
+  currentUserId: state.session.id,
+  errors: state.errors.posts,
+  loading: state.ui.loading
 });
 
 const mapDispatchToProps = (dispatch, ownProps) => ({

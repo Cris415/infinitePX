@@ -5,6 +5,9 @@ export const RECEIVE_POST = 'RECEIVE_POST';
 export const RECEIVE_POST_ERRORS = 'RECEIVE_POST_ERRORS';
 export const REMOVE_POST = "REMOVE_POST";
 
+export const START_LOADING_ALL_POSTS = "START_LOADING_ALL_POSTS"
+export const START_LOADING_SINGLE_POST = "START_LOADING_SINGLE_POST"
+
 export const receivePostErrors = (errors) => ({
   type: RECEIVE_POST_ERRORS,
   errors
@@ -27,13 +30,20 @@ export const removePost = postId => ({
   postId
 })
 
-export const fetchPosts = () => dispatch => (
-  postAPI.fetchPosts().then(posts => dispatch(receivePosts(posts)))
-);
+export const fetchPosts = () => dispatch => {
+  dispatch({ type: START_LOADING_ALL_POSTS });
+  postAPI.fetchPosts().then(posts => dispatch(receivePosts(posts)));
+}
 
-export const fetchPost = postId => dispatch => (
-  postAPI.fetchPost(postId).then(post => dispatch(receivePost(post)))
-);
+
+export const fetchPost = postId => dispatch => {
+  dispatch({ type: START_LOADING_SINGLE_POST });
+  postAPI
+    .fetchPost(postId)
+    .then((post) => dispatch(receivePost(post)))
+    .fail((err) => dispatch(receivePostErrors(err.responseJSON)));
+}
+
 
 export const createPost = (post, redirectCallback) => (dispatch) => (
     postAPI

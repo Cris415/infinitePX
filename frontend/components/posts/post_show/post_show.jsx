@@ -1,5 +1,6 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
+import Spinner from '../../../util/spinner';
 
 class PostShow extends React.Component {
   constructor(props){
@@ -16,8 +17,13 @@ class PostShow extends React.Component {
     const {author} = this.props;
     const date = new Date(createdAt);
 
+    if (this.props.loading) return <Spinner />;
+
     return (
       <div className="post-show">
+        
+        {this.props.errors.length > 0 ? <Redirect to="/" /> : null }
+
         <div className="img-section">
           <img src={this.props.post.photoUrl} alt={title} />
         </div>

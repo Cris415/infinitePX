@@ -1,5 +1,6 @@
 import React from 'react';
 import PostIndexItem from './post_index_item';
+import Spinner from '../../../util/spinner';
 
 class PostIndex extends React.Component {
   constructor(props){
@@ -27,6 +28,7 @@ class PostIndex extends React.Component {
   }
 
   render(){
+    if (this.props.loading) return <Spinner />;
     return (
       <ul className="post-index">
         {this.renderItems()}

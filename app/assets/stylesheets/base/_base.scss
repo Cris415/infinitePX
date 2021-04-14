@@ -32,4 +32,15 @@ a {
   min-height: 1.9rem;
   display: inline-block;
 }
+.spinner{
+  width: 100vw;
+  height: 95vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 
+.fa-spinner{
+  font-size: 10rem;
+  color: $color-active;
+}
