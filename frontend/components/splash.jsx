@@ -20,8 +20,8 @@ const Splash = () => {
           </Link>
         </div>
         <div className="credits">
-          <h3>Photo Credit</h3>
-          <p> unsplash.com: Andrew Small</p>
+          <h3>Photo by</h3>
+          <p> Andrew Small (unsplash.com)</p>
         </div>
       </div>
 
