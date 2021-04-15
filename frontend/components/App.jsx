@@ -15,19 +15,27 @@ import UserProfileContainer from './user_profile/user_profile_container';
 import PageNotFound from './error/page_not_found.jsx';
 import Splash from './splash';
 import Feed from './feed';
+import Discover from './discover';
 import Footer from './footer';
+import { Link } from 'react-router-dom';
 
 const App = () => {
   return (
     <div>
       <header>
-        <Logo />
+        <div>
+          <Logo />
+          <Link className="header-link" to="/discover" >Discover</Link>
+        </div>
+
+
         <UserInfoContainer />
       </header>
 
       <Switch>
         <AuthRoute path="/" exact component={Splash} />
         <ProtectedRoute path="/feed" component={Feed} />
+        <ProtectedRoute path="/discover" component={Discover} />
         <AuthRoute path="/login" component={LoginFormContainer} />
         <AuthRoute path="/signup" component={SignupFormContainer} />
         <ProtectedRoute path="/posts/new" exact component={UploadPostFormContainer} />

@@ -34,9 +34,7 @@ const UserInfo = props => {
         ];
 
   return (
-    <div>
       <ul className="auth-btns">{renderInfo()}</ul>
-    </div>
   );
 }
 

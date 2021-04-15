@@ -88,6 +88,21 @@ input[type="submit"].submit-btn {
     background-color: $color-active-2;
   }
 }
+// ONLY IN FIREFOX?
+// ::file-selector-button {
+//   color: $color-primary;
+//   content: 'Select Photo';
+//   display: inline-block;
+//   background: $color-active;
+//   border-radius: 10rem;
+//   padding: 1.5rem 2rem;
+//   border: none;
+//   outline: none;
+//   cursor: pointer;
+//   font-weight: 600;
+//   font-size: 1.6rem;
+// }
+
 .file-input {
   display: inline-block;
   color: transparent;
@@ -109,11 +124,10 @@ input[type="submit"].submit-btn {
     font-weight: 600;
     font-size: 1.6rem;
   }
-
   &:hover::before {
     background-color: $color-active-2;
-
   }
+
   &:active::before {
     background: $color-active-3;
   }
