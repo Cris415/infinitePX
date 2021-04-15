@@ -34,5 +34,4 @@ export const signup = user => dispatch => (
   sessionAPI.signup(user)
     .then(user => dispatch(receiveCurrentUser(user)))
     .fail(err => dispatch(receiveSessionErrors(err.responseJSON)))
-
 );
