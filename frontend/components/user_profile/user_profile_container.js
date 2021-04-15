@@ -11,7 +11,7 @@ const mapStateToProps = (state, ownProps) => ({
 
 const mapDispatchToProps = (dispatch, ownProps) => ({
   fetchUserPosts: () => {
-    return dispatch(fetchUserPosts(ownProps.match.params.userId))},
+    return dispatch(fetchUserPosts(ownProps.match.params.userId))}
 });
 
 

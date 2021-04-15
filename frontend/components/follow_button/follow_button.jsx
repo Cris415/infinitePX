@@ -15,11 +15,18 @@ class FollowButton extends React.Component {
   handleClick(e){
     e.preventDefault();
     if (this.state.following ) {
-      this.props.deleteFollow().then(() => this.setState({following: false}))
+      this.props.deleteFollow().then(() => {
+        this.setState({following: false})
+        this.props.fetchUser();
+      })
       
     } else {
-      this.props.createFollow().then(() => this.setState({following: true}))
+      this.props.createFollow().then(() => {
+        this.setState({following: true})
+        this.props.fetchUser();
+      })
     }
+  
   }
 
   render(){

@@ -21,31 +21,30 @@ import { Link } from 'react-router-dom';
 
 const App = () => {
   return (
-    <div>
+    <div className="app">
       <header>
         <div>
           <Logo />
           <Link className="header-link" to="/discover" >Discover</Link>
         </div>
-
-
         <UserInfoContainer />
       </header>
+      
+      <main className="content">
+        <Switch>
+          <AuthRoute path="/" exact component={Splash} />
+          <ProtectedRoute path="/feed" component={Feed} />
+          <ProtectedRoute path="/discover" component={Discover} />
+          <AuthRoute path="/login" component={LoginFormContainer} />
+          <AuthRoute path="/signup" component={SignupFormContainer} />
+          <ProtectedRoute path="/posts/new" exact component={UploadPostFormContainer} />
+          <ProtectedRoute path="/posts/:postId" exact component={PostShowContainer} />
+          <ProtectedRoute path="/posts/:postId/edit" component={EditPostForm} />
+          <ProtectedRoute path="/users/:userId" component={UserProfileContainer} />
 
-      <Switch>
-        <AuthRoute path="/" exact component={Splash} />
-        <ProtectedRoute path="/feed" component={Feed} />
-        <ProtectedRoute path="/discover" component={Discover} />
-        <AuthRoute path="/login" component={LoginFormContainer} />
-        <AuthRoute path="/signup" component={SignupFormContainer} />
-        <ProtectedRoute path="/posts/new" exact component={UploadPostFormContainer} />
-        <ProtectedRoute path="/posts/:postId" exact component={PostShowContainer} />
-        <ProtectedRoute path="/posts/:postId/edit" component={EditPostForm} />
-        <ProtectedRoute path="/users/:userId" component={UserProfileContainer} />
-
-        <PageNotFound />
-      </Switch>
-
+          <PageNotFound />
+        </Switch>
+      </main>
       <Footer />
     </div>
   );

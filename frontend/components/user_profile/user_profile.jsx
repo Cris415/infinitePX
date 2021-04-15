@@ -19,6 +19,7 @@ class UserProfile extends React.Component {
       <div className="user-profile">
         <div className="header user-profile-header">
           {this.props.user.username}
+          <div className="user-profile-count">Followers: {this.props.user.followersCount}</div>
           <FollowButtonContainer user={this.props.user} />
         </div>
           <PostIndex
