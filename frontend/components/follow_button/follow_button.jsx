@@ -23,9 +23,13 @@ class FollowButton extends React.Component {
   }
 
   render(){
+    const followingStr = this.state.following ? 'Unfollow' : 'Follow';
+    
+    // Return null if the user is viewing their own page
+    if (this.props.currentUser.id === this.props.user.id) return null;
     return (
-      <button className="btn" onClick={this.handleClick}>
-        {this.state.following ? 'Unfollow' : 'Follow'}
+      <button className={`btn btn-${followingStr.toLowerCase()}`} onClick={this.handleClick}>
+        {followingStr}
       </button>
     )
   }

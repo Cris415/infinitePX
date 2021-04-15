@@ -19,13 +19,13 @@ class UserProfile extends React.Component {
       <div className="user-profile">
         <div className="header user-profile-header">
           {this.props.user.username}
-          <FollowButtonContainer user={this.props.user}/>
+          <FollowButtonContainer user={this.props.user} />
         </div>
-        <PostIndex
-          posts={this.props.posts}
-          users={user}
-          indexType="userIndex"
-        />
+          <PostIndex
+            posts={this.props.posts}
+            users={user}
+            indexType="userIndex"
+          />
       </div>
     );
   }

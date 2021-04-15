@@ -35,9 +35,34 @@ a.link-btn {
     padding: 1.5rem 0;
 
     &:hover {
-      border: 2px solid rgb(213, 53, 53);
-      color: rgb(213, 53, 53);
+      border: 2px solid $color-error;
+      color: $color-error;
       background-color: inherit;
+    }
+  }
+
+  &-unfollow{
+    font-size: 1.6rem;
+    color: $color-grey-dark-2;
+    border-color: $color-active;
+    background-color: $color-primary;
+    
+    &:hover {
+      border: 2px solid $color-error;
+      color: $color-error;
+      background-color: inherit;
+    }
+  }
+  &-follow {
+    font-size: 1.6rem;
+    padding: 0.7rem 2.5rem;
+    background-color: $color-active;
+    border: none;
+    color: $color-primary;
+
+    &:hover{
+      background-color: $color-active-2;
+      color: $color-primary;
     }
   }
 }
