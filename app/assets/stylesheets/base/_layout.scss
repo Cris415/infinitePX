@@ -28,3 +28,22 @@
 
   }
 }
+
+
+.footer {
+  color: $color-grey-dark-1;
+  width: 90%;
+  border-top: solid 1px $color-grey-light-3;
+  margin: 2.5rem auto;
+  
+  display: flex;
+  justify-content: space-between;
+  align-self: center;
+
+  padding: 2rem 0;
+
+  a {
+    color: inherit;
+  }
+
+}

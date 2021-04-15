@@ -7,13 +7,15 @@ import { AuthRoute, ProtectedRoute } from "../util/route_util";
 import UserInfoContainer from './header/user_info_container';
 import LoginFormContainer from './session_forms/login_form_container';
 import SignupFormContainer from './session_forms/signup_form_container';
-import PageNotFound from './error/page_not_found.jsx';
-import Splash from './splash';
-import Feed from './feed';
 import PostShowContainer from './posts/post_show/post_show_container';
 import UploadPostFormContainer from './posts/post_form/upload_post_form_container';
 import EditPostForm from './posts/post_form/edit_post_form_container';
 import UserProfileContainer from './user_profile/user_profile_container';
+
+import PageNotFound from './error/page_not_found.jsx';
+import Splash from './splash';
+import Feed from './feed';
+import Footer from './footer';
 
 const App = () => {
   return (
@@ -35,6 +37,8 @@ const App = () => {
 
         <PageNotFound />
       </Switch>
+
+      <Footer />
     </div>
   );
 }
