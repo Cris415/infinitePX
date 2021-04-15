@@ -82,4 +82,25 @@
       }
     }
   }
+
+  .call-to-action{
+    background-color: rgb(69, 69, 125);
+    color: white;
+    padding: 5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content:space-evenly; 
+    height: 22rem;
+    p {
+      font-weight: 400;
+      list-style: 2;
+      width: 50%;
+      text-align: center;
+    }
+    h1 {
+      font-size: 3.2rem;
+      font-weight: 700;
+    }
+  }
 }

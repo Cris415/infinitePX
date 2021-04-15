@@ -58,6 +58,18 @@ const Splash = () => {
           </div>
         </div>
       </div>
+
+      <div className="call-to-action">
+        <h1>Join our community today</h1>
+        <p>
+          Do you love photography? Want to constantly stay inspired and be
+          surrounded by millions of like-minded creators? Then sign-up today and
+          get rewarded for your love of photography.
+        </p>
+        <Link className="btn btn-big" to="/signup">
+          Sign Up
+        </Link>
+      </div>
     </div>
   );
 }
