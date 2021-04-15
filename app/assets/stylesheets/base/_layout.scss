@@ -31,6 +31,11 @@
 
 
 .footer {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  
   color: $color-grey-dark-1;
   width: 90%;
   border-top: solid 1px $color-grey-light-3;

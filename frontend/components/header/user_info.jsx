@@ -1,41 +1,57 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { faArrowUp } from "@fortawesome/free-solid-svg-icons";
+
+import { faArrowUp, faUser } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 
-const UserInfo = props => {
-  const handleLogout = (e) => {
-    e.preventDefault();
-    props.logout();
+class UserInfo extends React.Component {
+  constructor(props){
+    super(props)
+    this.handleLogout = this.handleLogout.bind(this);
   }
 
-  const renderInfo = () =>
-    props.currentUser
-      ? [
-          <li key="logout">
-            <a onClick={handleLogout}>Logout</a>
-          </li>,
-          <li key="createPost">
-            <Link to="/posts/new" className="upload-btn btn btn-medium">
-              <FontAwesomeIcon icon={faArrowUp} /> Upload
-            </Link>
-          </li>,
-        ]
-      : [
-          <li key="login">
-            <Link to="/login">Log in</Link>
-          </li>,
-          <li key="signup">
-            <Link to="/signup" className="btn link-btn">
-              Sign up
-            </Link>
-          </li>,
-        ];
+  handleLogout(e) {
+    e.preventDefault();
+    this.props.logout();
+  }
 
-  return (
-      <ul className="auth-btns">{renderInfo()}</ul>
-  );
+  renderInfo() {
+   return this.props.currentUser
+     ? [
+         <li key="dropdown" className="dropdown">
+           <FontAwesomeIcon icon={faUser} />
+           <ul className="dropdown-list">
+             <li key="profile">
+               <Link to={`/users/${this.props.currentUser.id}`}>Profile</Link>
+             </li>
+             <li key="logout" className="logout">
+               <a onClick={this.handleLogout}>Logout</a>
+             </li>
+           </ul>
+         </li>,
+         <li key="createPost">
+           <Link to="/posts/new" className="upload-btn btn btn-medium">
+             <FontAwesomeIcon icon={faArrowUp} /> Upload
+           </Link>
+         </li>,
+       ]
+     : [
+         <li key="login">
+           <Link to="/login">Log in</Link>
+         </li>,
+         <li key="signup">
+           <Link to="/signup" className="btn link-btn">
+             Sign up
+           </Link>
+         </li>,
+       ];
+  }
+  render(){
+    return (
+      <ul className="auth-btns">{this.renderInfo()}</ul>
+    )
+  }
 }
 
 export default UserInfo;
