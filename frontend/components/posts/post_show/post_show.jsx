@@ -1,6 +1,8 @@
 import React from 'react';
 import { Link, Redirect } from 'react-router-dom';
 import Spinner from '../../../util/spinner';
+import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 class PostShow extends React.Component {
   constructor(props){
@@ -21,10 +23,12 @@ class PostShow extends React.Component {
 
     return (
       <div className="post-show">
-        
-        {this.props.errors.length > 0 ? <Redirect to="/" /> : null }
+        {this.props.errors.length > 0 ? <Redirect to="/" /> : null}
 
         <div className="img-section">
+          <Link to="/" className="img-section-back-btn">
+            <FontAwesomeIcon icon={faArrowLeft} />
+          </Link>
           <img src={this.props.post.photoUrl} alt={title} />
         </div>
         <div className="info-container">
@@ -32,7 +36,7 @@ class PostShow extends React.Component {
             <div className="img-info-main">
               <h2>{title}</h2>
               <p className="author">
-                by <Link to={`/users/${author.id}`} > {author.username}</Link>
+                by <Link to={`/users/${author.id}`}> {author.username}</Link>
               </p>
             </div>
 

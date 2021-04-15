@@ -132,3 +132,17 @@ input[type="submit"].submit-btn {
     background: $color-active-3;
   }
 }
+
+.img-section-back-btn {
+  color: $color-primary;
+  border-radius: 50%;
+  padding: 1rem;
+  align-self: flex-start;
+  justify-self: flex-start;
+  font-size: 2.4rem;
+
+  &:hover{
+    color: $color-primary;
+    background-color: $color-grey-dark-2;
+  }
+}
