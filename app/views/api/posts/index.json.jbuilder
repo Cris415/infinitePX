@@ -7,7 +7,7 @@
 
   json.users do
     json.set! post.user.id  do
-      json.extract! post.user, :id, :username
+      json.partial! "api/users/user", user: post.user
     end
   end
 end

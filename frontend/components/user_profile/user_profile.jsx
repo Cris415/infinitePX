@@ -1,6 +1,8 @@
 import React from 'react';
 import PostIndex from '../posts/post_index/post_index';
 
+import FollowButtonContainer from '../follow_button/follow_button_container';
+
 class UserProfile extends React.Component {
   constructor(props){
     super(props);
@@ -12,15 +14,22 @@ class UserProfile extends React.Component {
 
   render(){
     if (!this.props.user && this.props.posts) return null;
-    const users = {[this.props.user.id]: this.props.user }
+    const user = {[this.props.user.id]: this.props.user }
     return (
       <div className="user-profile">
         <div className="header user-profile-header">
           {this.props.user.username}
+
+          <FollowButtonContainer user={this.props.user}/>
+          
         </div>
-        <PostIndex posts={this.props.posts} users={users} indexType="userIndex" />
+        <PostIndex
+          posts={this.props.posts}
+          users={user}
+          indexType="userIndex"
+        />
       </div>
-    )
+    );
   }
 }
 

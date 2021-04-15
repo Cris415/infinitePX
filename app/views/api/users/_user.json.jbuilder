@@ -1,9 +1,3 @@
-# json.user do
-  json.extract! user, :id, :username
-# end
+json.extract! user, :id, :username
 
-json.follows do
-  user.follows
-  # json.extract! user.followers, :id, :follower_id
-  # json.extract! user.followers, :follower_id
-end
+json.follows user.group_of_follows.pluck(:followed_id)

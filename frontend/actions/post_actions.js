@@ -13,13 +13,13 @@ export const receivePostErrors = (errors) => ({
   errors
 })
 
-export const receivePosts = ({posts, users}) => ({
+export const receivePosts = ({ posts, users }) => ({
   type: RECEIVE_POSTS,
   posts,
   users
 });
 
-export const receivePost = ({post, user}) => ( {
+export const receivePost = ({post, user}) => ({
   type: RECEIVE_POST,
   post,
   user
