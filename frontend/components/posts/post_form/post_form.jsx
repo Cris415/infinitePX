@@ -35,6 +35,9 @@ class PostForm extends React.Component {
       fileReader.readAsDataURL(file);
     }
   }
+  componentDidMount(){
+    window.scrollTo(0, 0);
+  }
 
   componentWillUnmount(){
     this.props.clearErrors();

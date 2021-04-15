@@ -7,9 +7,16 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 class PostShow extends React.Component {
   constructor(props){
     super(props);
+
+    this.handleGoBack = this.handleGoBack.bind(this);
   }
   componentDidMount(){
+    window.scrollTo(0, 0);
     this.props.fetchPost();
+  }
+
+  handleGoBack(){
+    this.props.history.goBack()
   }
 
   render(){
@@ -26,9 +33,10 @@ class PostShow extends React.Component {
         {this.props.errors.length > 0 ? <Redirect to="/" /> : null}
 
         <div className="img-section">
-          <Link to="/" className="img-section-back-btn">
+
+          <div onClick={this.handleGoBack} className="img-section-back-btn">
             <FontAwesomeIcon icon={faArrowLeft} />
-          </Link>
+          </div>
           <img src={this.props.post.photoUrl} alt={title} />
         </div>
         <div className="info-container">
@@ -49,7 +57,7 @@ class PostShow extends React.Component {
             {this.props.currentUserId === author.id && (
               <Link
                 className="edit"
-                to={`/${this.props.match.params.postId}/edit`}
+                to={`/posts/${this.props.match.params.postId}/edit`}
               >
                 Edit Photo
               </Link>

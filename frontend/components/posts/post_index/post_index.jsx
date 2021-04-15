@@ -8,6 +8,7 @@ class PostIndex extends React.Component {
   }
 
   componentDidMount(){
+    window.scrollTo(0, 0);
     if (this.props.indexType !== "userIndex"){
       this.props.fetchPosts();
     }
