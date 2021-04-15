@@ -29,6 +29,7 @@ class PostIndex extends React.Component {
 
   render(){
     if (this.props.loading) return <Spinner />;
+    if (this.props.posts.length === 0) return <div className="empty-feed">Welcome to infinitePX! <br/> Follow other photographers to get started</div>
     return (
       <ul className="post-index">
         {this.renderItems()}
