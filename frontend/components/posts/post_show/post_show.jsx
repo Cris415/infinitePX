@@ -1,12 +1,22 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
+import Spinner from '../../../util/spinner';
+import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 class PostShow extends React.Component {
   constructor(props){
     super(props);
+
+    this.handleGoBack = this.handleGoBack.bind(this);
   }
   componentDidMount(){
+    window.scrollTo(0, 0);
     this.props.fetchPost();
+  }
+
+  handleGoBack(){
+    this.props.history.goBack()
   }
 
   render(){
@@ -16,16 +26,26 @@ class PostShow extends React.Component {
     const {author} = this.props;
     const date = new Date(createdAt);
 
+    if (this.props.loading) return <Spinner />;
+
     return (
       <div className="post-show">
+        {this.props.errors.length > 0 ? <Redirect to="/" /> : null}
+
         <div className="img-section">
+
+          <div onClick={this.handleGoBack} className="img-section-back-btn">
+            <FontAwesomeIcon icon={faArrowLeft} />
+          </div>
           <img src={this.props.post.photoUrl} alt={title} />
         </div>
         <div className="info-container">
           <div className="img-info">
             <div className="img-info-main">
               <h2>{title}</h2>
-              <p className="author">by {author.username}</p>
+              <p className="author">
+                by <Link to={`/users/${author.id}`}> {author.username}</Link>
+              </p>
             </div>
 
             <div className="date-info">
@@ -33,11 +53,16 @@ class PostShow extends React.Component {
               <span> {date.toLocaleDateString()} </span>
             </div>
             <p className="description"> {description} </p>
-            
 
-            {this.props.currentUserId === author.id && <Link className="edit" to={`/${this.props.match.params.postId}/edit`}>Edit Photo</Link>}
+            {this.props.currentUserId === author.id && (
+              <Link
+                className="edit"
+                to={`/posts/${this.props.match.params.postId}/edit`}
+              >
+                Edit Photo
+              </Link>
+            )}
           </div>
-
         </div>
       </div>
     );

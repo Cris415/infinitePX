@@ -25,11 +25,23 @@ a {
 }
 
 .errors {
-  color: rgb(195, 30, 30);
+  color: $color-error;
   font-size: 1.4rem;
   margin: 0;
   padding: 0;
-  min-height: 1.9rem;
+  min-height: 2rem;
   display: inline-block;
 }
 
+.spinner{
+  width: 100vw;
+  height: 95vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.fa-spinner{
+  font-size: 10rem;
+  color: $color-active;
+}

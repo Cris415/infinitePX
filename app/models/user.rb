@@ -8,8 +8,24 @@ class User < ApplicationRecord
   after_initialize :ensure_session_token
 
   has_many :posts,
-  foreign_key: :user_id,
-  class_name: :Post
+    foreign_key: :user_id,
+    class_name: :Post
+
+  has_many :group_of_follows,
+    foreign_key: :follower_id,
+    class_name: :Follow
+
+  has_many :group_of_followers,
+    foreign_key: :followed_id,
+    class_name: :Follow
+
+  has_many :followers,
+    through: :group_of_followers,
+    source: :follower
+
+  has_many :follows,
+    through: :group_of_follows,
+    source: :followed
 
   def self.find_by_credentials(username, password)
     user = User.find_by(username: username)

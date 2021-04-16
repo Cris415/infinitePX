@@ -1,0 +1,19 @@
+.user-profile {
+  &-header{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    font-size: 2.4rem;
+    font-weight: 700;
+    button {
+      margin-top: 1.5rem;
+    }
+  }
+  &-count{
+    font-size: 1.4rem;
+    color: $color-grey-dark-3;
+    font-weight: 400;
+    margin-top: 0.5rem;
+  }
+}

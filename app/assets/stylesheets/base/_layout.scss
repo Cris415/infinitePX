@@ -1,3 +1,35 @@
+.app {
+  position: relative;
+}
+main.content {
+  min-height: 100vh;
+  display: block;
+  padding-bottom: 100px; 
+}
+
+.footer {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  
+  height: 10rem;
+  width: 90%;
+  
+  color: $color-grey-dark-1;
+  border-top: solid 1px $color-grey-light-3;
+  
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  align-self: center;
+
+  a {
+    color: inherit;
+  }
+
+}
+
 // Not the main header
 .header {
   text-align: left;
@@ -28,3 +60,5 @@
 
   }
 }
+
+

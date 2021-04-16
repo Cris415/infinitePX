@@ -2,11 +2,21 @@ class Api::PostsController < ApplicationController
   before_action :require_login, only: [:create, :destroy, :update]
 
   def index
-    @posts = Post.all
+    if params.has_key?(:user_id)
+      @posts = Post.where(user_id: params[:user_id])
+    else
+      @posts = Post.all
+    end
+    render :index
   end
 
   def show
     @post = Post.find_by(id: params[:id])
+    if @post 
+      render :show
+    else
+      render json: ['not found'], status: 404
+    end
   end
 
   def create

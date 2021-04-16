@@ -1,67 +1,53 @@
-.post-index-item {
-  background-color: $color-grey-light-2;
+.index-item {
   margin-right: 1rem;
   margin-top: 1rem;
+  position: relative;
+  box-sizing: border-box;
+  overflow: hidden;
 
-  &:last-child{
-    margin-right: 0;
+  &-image-link{
+      display: inline-block;
+      height: 30rem;
+
+    img {
+      height: 100%;
+    }
   }
 
-  a img {
-    height: 100%;
-  }
-
-  a {
-    position: relative;
-    display: inline-block;
-    height: 30rem;
-  }
-
-  .img-info {
+  &-heading {
     box-sizing: border-box;
     position: absolute;
-    top: 0;
-    left: 0;
-    height: 100%;
+
+    padding: 1rem;
     width: 100%;
-    transition: all ease-in 0.5s;
+    
+    transition: all ease-out 0.2s;
+    left: 0;
     opacity: 0;
 
-    &:hover {
-      opacity: 100%;
-    }
-    font-weight: 400;
 
-
-    h2 {
-      box-sizing: border-box;
-      position: absolute;
-      top: 0;
-      left: 0;
-
-      padding: 1rem;
-      color: white;
-      width: 100%;
-      
-      background: rgb(0,0,0);
-      background: linear-gradient(180deg, rgba(0,0,0,0.55) 18%, rgba(0,0,0,0.25) 50%, rgba(255,255,255,0) 100%);
-    }
-
-    p {
-      box-sizing: border-box;
-      position: absolute;
-      left: 0;
-      bottom: 0;
-
-      padding: 1rem;
-      width: 100%;
-
-      color: white;
-      background: rgb(0,0,0);
-      background: linear-gradient(0deg, rgba(0,0,0,0.55) 18%, rgba(0,0,0,0.25) 50%, rgba(255,255,255,0) 100%);
-    }
-    
+    color: white;
+    background: rgb(0,0,0);
   }
 
+  &:hover > &-top {
+    opacity: 100;
+    top: 0;
+  }
 
+  &:hover > &-bottom {
+    opacity: 100;
+    bottom: 0.3rem;
+  }
+
+  &-top {
+    top: -0.3rem;
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0.30) 18%, rgba(0,0,0,0.20) 50%, rgba(255,255,255,0) 100%);
+  }
+
+  &-bottom {
+    bottom: -0.3rem;
+    background: linear-gradient(0deg, rgba(0,0,0,0.30) 18%, rgba(0,0,0,0.20) 50%, rgba(255,255,255,0) 100%);
+  }
+  
 }
