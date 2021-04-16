@@ -33,7 +33,11 @@ class PostIndex extends React.Component {
     if (this.props.posts.length === 0) return (
       <div className="empty-feed">
         <h1>Welcome to infinitePX! </h1>
-        <p>Follow other photographers to get started</p>
+        {this.props.indexType === "userIndex" ? (
+          <p>Upload a photo to get started</p>
+          ):(
+          <p>Follow other photographers to get started</p>
+        )}
       </div>
     );
     return (

@@ -9,12 +9,12 @@ user1 = User.create!(
 )
 
 user2 = User.create!(
-  username: 'Ansel',
+  username: 'Diane',
   password: 'password'
 )
 
 user3 = User.create!(
-  username: 'Henri',
+  username: 'Robert',
   password: 'password'
 )
 
@@ -22,6 +22,11 @@ user4 = User.create!(
   username: 'Annie',
   password: 'password'
 )
+
+Follow.create({followed_id: user4.id, follower_id: user3.id})
+Follow.create({followed_id: user4.id, follower_id: user2.id})
+Follow.create({followed_id: user2.id, follower_id: user3.id})
+Follow.create({followed_id: user3.id, follower_id: user1.id})
 
 file1 = URI.open('https://infinitepx-seeds.s3-us-west-1.amazonaws.com/daytona.jpeg')
 file2 = URI.open('https://infinitepx-seeds.s3-us-west-1.amazonaws.com/moon.jpeg')
