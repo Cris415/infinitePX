@@ -66,20 +66,19 @@ file3 = URI.open('https://infinitepx-seeds.s3-us-west-1.amazonaws.com/basketball
 file4 = URI.open('https://infinitepx-seeds.s3-us-west-1.amazonaws.com/architecture.JPG')
 file5 = URI.open('https://infinitepx-seeds.s3-us-west-1.amazonaws.com/daytona2.jpeg')
 file6 = URI.open('https://infinitepx-seeds.s3-us-west-1.amazonaws.com/fire.jpeg')
-file7 = URI.open('https://infinitepx-seeds.s3-us-west-1.amazonaws.com/frozenguy.jpeg')
+file7 = URI.open('https://infinitepx-seeds.s3-us-west-1.amazonaws.com/frozenguy.JPG')
 file8 = URI.open('https://infinitepx-seeds.s3-us-west-1.amazonaws.com/goldengate.jpeg')
 file9 = URI.open('https://infinitepx-seeds.s3-us-west-1.amazonaws.com/flower.jpeg')
 file10 = URI.open('https://infinitepx-seeds.s3-us-west-1.amazonaws.com/sunset.jpeg')
-file11 = URI.open('https://infinitepx-seeds.s3-us-west-1.amazonaws.com/transamerica.jpeg')
+file11 = URI.open('https://infinitepx-seeds.s3-us-west-1.amazonaws.com/transamerica.JPG')
 file12 = URI.open('https://infinitepx-seeds.s3-us-west-1.amazonaws.com/underdock.jpeg')
-file13 = URI.open('https://infinitepx-seeds.s3-us-west-1.amazonaws.com/watergate.jpeg')
-file14 = URI.open('https://infinitepx-seeds.s3-us-west-1.amazonaws.com/windows.jpeg')
+file13 = URI.open('https://infinitepx-seeds.s3-us-west-1.amazonaws.com/watergate.JPG')
+file14 = URI.open('https://infinitepx-seeds.s3-us-west-1.amazonaws.com/windows.JPG')
 
-# diane robert annie steve edward alfred irving cindy
+
 post1 = Post.new(title:'Sunset in Daytona Beach', description: 'Sunset at Daytona Beach near Hilton Hotel.',  user_id: diane.id)
-post2 
+post2 =Post.new(title:'Moon', description: 'Captured in the evening.',  user_id: robert.id)
 post3 = Post.new(title:'Basketball hoop', description: 'View of the silhouette a of a basketball hoop.',  user_id: annie.id  )
-
 post4 = Post.new(title:'Guggenheim', description: 'Looking up at the inside the Guggenheim museum.',  user_id: steve.id)
 post5 = Post.new(title:'The beach', description: 'Panorama of the beach in the morning.',  user_id: diane.id  )
 post6 = Post.new(title:'Let there be Light', description: 'Closeup of a candle wich.',  user_id: alfred.id  )
@@ -98,14 +97,14 @@ post3.photo.attach(io: file3, filename: 'basketballhoop.JPG')
 post4.photo.attach(io: file4, filename: 'architecture.JPG')
 post5.photo.attach(io: file5, filename: 'daytona2.jpeg')
 post6.photo.attach(io: file6, filename: 'fire.jpeg')
-post7.photo.attach(io: file7, filename: 'frozenguy.jpeg')
+post7.photo.attach(io: file7, filename: 'frozenguy.JPG')
 post8.photo.attach(io: file8, filename: 'goldengate.jpeg')
 post9.photo.attach(io: file9, filename: 'flower.jpeg')
 post10.photo.attach(io: file10, filename: 'sunset.jpeg')
-post11.photo.attach(io: file11, filename: 'transamerica.jpeg')
+post11.photo.attach(io: file11, filename: 'transamerica.JPG')
 post12.photo.attach(io: file12, filename: 'underdock.jpeg')
-post13.photo.attach(io: file13, filename: 'watergate.jpeg')
-post14.photo.attach(io: file14, filename: 'windows.jpeg')
+post13.photo.attach(io: file13, filename: 'watergate.JPG')
+post14.photo.attach(io: file14, filename: 'windows.JPG')
 
 post1.save!
 post2.save!
