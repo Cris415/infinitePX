@@ -3,14 +3,12 @@
   height: 4rem;
   border-radius: 50%;
   background-color: $color-grey-light-3;
-  margin-right: 2rem;
+  position: relative;
 
   svg{
     padding-left: 35%;
     padding-top: 30%;
   }
-
-  position: relative;
 
   .dropdown-list {
     display: none;
@@ -29,8 +27,8 @@
       font-weight: 400;
       font-size: 1.4rem;
       text-align: center;
-
     }
+
     li {
       box-sizing: border-box;
       width: 100%;

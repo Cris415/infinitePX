@@ -17,7 +17,6 @@ import Splash from './splash';
 import Feed from './feed';
 import Discover from './discover';
 import Footer from './footer';
-import { Link } from 'react-router-dom';
 
 const App = () => {
   return (
@@ -25,7 +24,7 @@ const App = () => {
       <header>
         <div>
           <Logo />
-          <Link className="header-link" to="/discover" >Discover</Link>
+
         </div>
         <UserInfoContainer />
       </header>

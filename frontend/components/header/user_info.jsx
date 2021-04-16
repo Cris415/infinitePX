@@ -18,7 +18,11 @@ class UserInfo extends React.Component {
 
   renderInfo() {
    return this.props.currentUser
-     ? [
+     ? [ <li key="discover">
+           <Link className="header-link" to="/discover">
+             Discover
+           </Link>
+         </li>,
          <li key="dropdown" className="dropdown">
            <FontAwesomeIcon icon={faUser} />
            <ul className="dropdown-list">
