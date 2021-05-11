@@ -1,0 +1,22 @@
+.no-drinks{
+  box-sizing: border-box;
+  background: linear-gradient(to bottom, rgba(28,93,153,1) 0%, #0e7e82 50%, rgba(0,39,65,1) 100%);
+  width: 100vw;
+  height: 60vh;
+  font-size: 36px;
+  text-align: center;
+  padding: 150px 0;
+}
+
+.search-bar{
+  border-radius: 100px;
+  padding: 10px;
+  background-color: rgb(220, 220, 220);
+  input[type='text'] {
+    padding-left: 8px;
+  }
+  input[type='submit'] {
+    font-size: 16px;
+    text-transform: capitalize;
+  }
+}
