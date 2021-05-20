@@ -41,3 +41,10 @@ export const deletePost = postId => (
     url: `/api/posts/${postId}`
   })
 )
+
+export const searchPosts = (searchTerm) => {
+  return $.ajax({
+    method: 'get',
+    url: `/api/search/?query=${searchTerm}` 
+  });
+};

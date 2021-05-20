@@ -9,7 +9,7 @@ class PostIndex extends React.Component {
 
   componentDidMount(){
     window.scrollTo(0, 0);
-    if (this.props.indexType !== "userIndex"){
+    if (this.props.indexType === undefined){
       this.props.fetchPosts();
     }
   }
@@ -28,16 +28,35 @@ class PostIndex extends React.Component {
     }).reverse();
   }
 
+  renderNoPosts(){
+    if (this.props.indexType === 'userIndex') {
+      return (
+        <div>
+          <h1>Welcome to infinitePX! </h1>
+          <p>Upload a photo to get started!</p>;
+        </div>
+      );
+    } else if (this.props.indexType === 'searchIndex') {
+      return (
+        <div>
+          <p>No results for {this.props.searchTerm}</p>
+        </div>
+      );
+    } else {
+      return (
+        <div>
+          <h1>Welcome to infinitePX! </h1>
+          <p>Follow other photographers to get started!</p>;
+        </div>
+      )
+    }
+  }
+
   render(){
     if (this.props.loading) return <Spinner />;
     if (this.props.posts.length === 0) return (
       <div className="empty-feed">
-        <h1>Welcome to infinitePX! </h1>
-        {this.props.indexType === "userIndex" ? (
-          <p>Upload a photo to get started</p>
-          ):(
-          <p>Follow other photographers to get started</p>
-        )}
+        {this.renderNoPosts()}
       </div>
     );
     return (

@@ -6,10 +6,12 @@ const mapDispatchToProps = (dispatch) => ({
   searchPosts: (searchTerm) => dispatch(searchPosts(searchTerm)),
 });
 
-const mapStateToProps = (state) => ({
-  searchType: "bar",
-  preloadedSearch: "",
-});
+const mapStateToProps = (state, ownProps) => {
+ return {
+   searchType: "searchPage",
+   preloadedSearch: ownProps.searchTerm,
+ };
+};
 
 
 export default connect(mapStateToProps, mapDispatchToProps)(SearchBar);

@@ -66,4 +66,9 @@ export const editPost = (post, redirectCallback) => (dispatch) =>
 export const deletePost = (postId) => dispatch => (
   postAPI.deletePost(postId).then(() => dispatch(removePost(postId))
   ).fail(errs => dispatch(receivePostErrors(errs.responseJSON)))
-)
+);
+
+export const searchPosts = (searchTerm) => (dispatch) =>
+  postAPI
+    .searchPosts(searchTerm)
+    .then((posts) => dispatch(receivePosts(posts)));

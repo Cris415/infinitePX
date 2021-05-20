@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
 import { withRouter } from 'react-router-dom';
+import { faSearch } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 function SearchBar(props) {
-  const [searchTerm, setSearchTerm] = useState('');
+  const [searchTerm, setSearchTerm] = useState(props.preloadedSearch);
 
   function handleChange(e) {
     setSearchTerm(e.target.value);
@@ -11,23 +13,27 @@ function SearchBar(props) {
   function handleSubmit(e){
     e.preventDefault();
     if (searchTerm.length > 0){
-      props.searchDrinks(searchTerm);
-      setSearchTerm('');
-      props.history.push(`/results`);
+      props.searchPosts(searchTerm);
+      if (props.searchType === "bar") setSearchTerm('');
+      props.history.push(`/results/${searchTerm}`);
     }
-    
   }
 
   return (
-    <form onSubmit={handleSubmit} className="search-bar">
+    <form onSubmit={handleSubmit} id="search-bar" className={props.searchType}>
+      {props.searchType === "bar" && <FontAwesomeIcon icon={faSearch} />}
       <input
         type="text"
         name="search"
-        placeholder="Search Drinks!"
+        placeholder="Search InfinitePx"
         onChange={handleChange}
         value={searchTerm}
       />
-      <input type="submit" value="Search" />
+      {props.searchType === "searchPage" && (
+        <button className="search-button">
+          <FontAwesomeIcon icon={faSearch} />
+        </button>
+      )}
     </form>
   );
 

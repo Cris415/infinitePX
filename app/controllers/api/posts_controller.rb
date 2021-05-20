@@ -58,7 +58,7 @@ class Api::PostsController < ApplicationController
 
   def search
     @posts = Post.where("lower(title) LIKE ? ", "%#{params[:query].downcase}%")
-    render :index
+   render :index
   end
 
   private
