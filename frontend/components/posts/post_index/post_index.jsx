@@ -1,6 +1,7 @@
 import React from 'react';
 import PostIndexItem from './post_index_item';
 import Spinner from '../../../util/spinner';
+import {Link} from 'react-router-dom';
 
 class PostIndex extends React.Component {
   constructor(props){
@@ -33,7 +34,13 @@ class PostIndex extends React.Component {
       return (
         <div>
           <h1>Welcome to infinitePX! </h1>
-          <p>Upload a photo to get started!</p>;
+          {this.props.currentUserId === +Object.keys(this.props.users)[0] ? (
+            <p>
+              <Link to="/posts/new">Upload</Link> a photo to get started!
+            </p>
+          ) : (
+            <p>This user has not uploaded a photo!</p>
+          )}
         </div>
       );
     } else if (this.props.indexType === 'searchIndex') {
@@ -46,9 +53,12 @@ class PostIndex extends React.Component {
       return (
         <div>
           <h1>Welcome to infinitePX! </h1>
-          <p>Follow other photographers to get started!</p>;
+          <p>
+            Checkout and follow other photographers on the{' '}
+            <Link to="/discover">Discover</Link> page to get started!
+          </p>
         </div>
-      )
+      );
     }
   }
 
