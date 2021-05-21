@@ -36,10 +36,10 @@ class SessionForm extends React.Component {
 
   renderHeader() {
     return this.props.formType === "login" ? (
-      <h1>Log in to infinitePx</h1>
+      <h1>Log in to InfinitePx</h1>
     ) : (
       <div>
-        <h1>Join infinitePx</h1>
+        <h1>Join InfinitePx</h1>
         <p>Discover, share incredible photos, and gain global exposure.</p>
       </div>
     );

@@ -33,7 +33,7 @@ class PostIndex extends React.Component {
     if (this.props.indexType === 'userIndex') {
       return (
         <div>
-          <h1>Welcome to infinitePX! </h1>
+          <h1>Welcome to InfinitePX! </h1>
           {this.props.currentUserId === +Object.keys(this.props.users)[0] ? (
             <p>
               <Link to="/posts/new">Upload</Link> a photo to get started!
@@ -52,7 +52,7 @@ class PostIndex extends React.Component {
     } else {
       return (
         <div>
-          <h1>Welcome to infinitePX! </h1>
+          <h1>Welcome to InfinitePX! </h1>
           <p>
             Checkout and follow other photographers on the{' '}
             <Link to="/discover">Discover</Link> page to get started!

@@ -1,8 +1,8 @@
-# infinitePx
+# InfinitePx
 
-infinitePx is a clone of 500px, a website for photographers to showcase their portfolio to others.
+InfinitePx is a clone of 500px, a website for photographers to showcase their portfolio to others.
 
-[infinitePx live](https://infinitepx.herokuapp.com/)
+[InfinitePx live](https://infinitepx.herokuapp.com/)
 
 ## Features
 
@@ -35,5 +35,5 @@ infinitePx is a clone of 500px, a website for photographers to showcase their po
 
 **Deployment**
 
-* Heroku to deliver infinitePx
+* Heroku to deliver InfinitePx
 * AWS to store uploaded photos
