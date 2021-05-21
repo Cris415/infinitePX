@@ -8,7 +8,7 @@ const Splash = () => {
   return (
     <div className="splash">
       <div className="splash-hero">
-        <img src={window.heroImg} alt="hero image flower" />
+        <img src={window.splash} alt="hero image flower" />
         <div className="splash-hero-copy">
           <h1>Welcome to infinitePx</h1>
           <p>
@@ -21,7 +21,7 @@ const Splash = () => {
         </div>
         <div className="credits">
           <h3>Photo by</h3>
-          <p> Andrew Small (unsplash.com)</p>
+          <p> Cristian Reynoso</p>
         </div>
       </div>
 
