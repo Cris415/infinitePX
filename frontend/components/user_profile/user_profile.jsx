@@ -10,10 +10,12 @@ class UserProfile extends React.Component {
 
   componentDidMount(){
     this.props.fetchUserPosts();
+    this.props.fetchUser();
   }
 
   render(){
-    if (!this.props.user && this.props.posts) return null;
+    // if (!this.props.user && this.props.posts) return null;
+    if (!this.props.user ) return null;
     const user = {[this.props.user.id]: this.props.user }
     return (
       <div className="user-profile">
@@ -26,6 +28,7 @@ class UserProfile extends React.Component {
             posts={this.props.posts}
             users={user}
             indexType="userIndex"
+            currentUserId={this.props.currentUserId}
           />
       </div>
     );

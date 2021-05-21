@@ -8,9 +8,9 @@ const Splash = () => {
   return (
     <div className="splash">
       <div className="splash-hero">
-        <img src={window.heroImg} alt="hero image flower" />
+        <img src={window.splash} alt="hero image flower" />
         <div className="splash-hero-copy">
-          <h1>Welcome to infinitePx</h1>
+          <h1>Welcome to InfinitePx</h1>
           <p>
             Get inspired with incredible photos from diverse styles and genres
             around the world. We're not guided by fads—just great photography.
@@ -21,12 +21,12 @@ const Splash = () => {
         </div>
         <div className="credits">
           <h3>Photo by</h3>
-          <p> Andrew Small (unsplash.com)</p>
+          <p> Cristian Reynoso</p>
         </div>
       </div>
 
       <div className="features">
-        <h1>What makes infinitePx Different</h1>
+        <h1>What makes InfinitePx Different</h1>
         <div className="feature-items">
           <div className="feature-item">
             <FontAwesomeIcon icon={faSeedling} />

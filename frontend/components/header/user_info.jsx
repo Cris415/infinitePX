@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import SearchContainer  from '../search/SearchContainer';
 
 import { faArrowUp, faUser } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -18,7 +19,11 @@ class UserInfo extends React.Component {
 
   renderInfo() {
    return this.props.currentUser
-     ? [ <li key="discover">
+     ? [
+         <li key="search">
+           <SearchContainer />
+         </li>,
+         <li key="discover">
            <Link className="header-link" to="/discover">
              Discover
            </Link>

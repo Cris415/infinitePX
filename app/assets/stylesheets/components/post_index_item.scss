@@ -8,9 +8,11 @@
   &-image-link{
       display: inline-block;
       height: 30rem;
-
+      width: 30rem;
     img {
       height: 100%;
+      width: 100%;
+      object-fit: cover;
     }
   }
 
