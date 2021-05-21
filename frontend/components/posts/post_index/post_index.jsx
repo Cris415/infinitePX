@@ -70,9 +70,11 @@ class PostIndex extends React.Component {
       </div>
     );
     return (
-      <ul className="post-index">
-        {this.renderItems()}
-      </ul>
+      <div className="post-index">
+        <ul className="post-gallery">
+          {this.renderItems()}
+        </ul>
+      </div>
     )
   }
 

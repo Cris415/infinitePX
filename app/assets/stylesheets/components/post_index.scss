@@ -1,6 +1,13 @@
-.post-index{
+.post-index {
   display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
+  box-sizing: border-box;
+  width: 100%;
   padding: 1rem 6.5rem;
+  ul.post-gallery {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+  }
 }
+

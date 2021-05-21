@@ -38,12 +38,17 @@
       color: $color-grey-dark-2;
       font-size: 1.2rem;
       display: flex;
+      width: 25rem;
+      
       position: absolute;
       bottom: 2rem;
       right: 0.5rem;
-      width: 25rem;
+      p {
+        height: 100%;
+      }
       
       h3 {
+        padding: 2px;
         margin-right: 0.5rem;
       }
     }
