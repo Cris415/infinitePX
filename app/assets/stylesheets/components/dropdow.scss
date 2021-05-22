@@ -2,12 +2,14 @@
   width: 4rem;
   height: 4rem;
   border-radius: 50%;
-  background-color: $color-grey-light-3;
+  background-color: $color-grey-dark-1;
   position: relative;
 
   svg{
-      padding-left: 32%;
-      padding-top: 27%;
+      padding-left: 30%;
+      padding-top: 25%;
+      color: $color-grey-light-1;
+      font-size: 1.8rem;
   }
 
   .dropdown-list {

@@ -1,12 +1,31 @@
 .comment{
-  &-list {
+  &-container {
     background-color: $color-primary;
     width: 30%;
     padding: 2rem;
   }
+  &-list {
+    // background-color: $color-primary;
+    // width: 30%;
+    // padding: 2rem;
+  }
+  &-content-item{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 3px;
+    div{
+      cursor: pointer;
+      font-size: 1.4rem;
+      &:hover{
+        color: $color-error;
+      }
+    }
+  }
   &-item{
     display: flex;
     justify-content: space-between;
+    margin-bottom: 3rem;
   }
   &-info-container {
     width: 100%;
@@ -14,7 +33,8 @@
     align-items: center;
   }
   &-user-info {
-    margin-left: 2rem;
+    width: 100%;
+    margin-left: 1rem;
   }
   &-date {
     font-size: 1.2rem;
@@ -24,14 +44,46 @@
   &-img {
     width: 4rem;
     height: 4rem;
+    min-width: 4rem;
     border-radius: 50%;
-    background-color: $color-grey-light-3;
+    background-color: $color-grey-dark-1;
     position: relative;
+    box-sizing: border-box;
       svg {
-        padding-left: 32%;
-        padding-top: 27%;
+      padding-left: 30%;
+      padding-top: 25%;
+      color: $color-grey-light-1;
+      font-size: 1.8rem;
     }
   }
+  &-form {
+    border: none;
+    margin-bottom: 2rem;
+    &-input {
+      margin: 0;
+      box-sizing: border-box;
+    }
+  }
+  &-btns{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items:  center;
+    justify-content: flex-end;
+    margin-top: 1rem;
+    & .btn.submit-btn{
+      padding: 0.5rem 3.5rem;
+    }
+
+    div {
+      padding: 0 1rem;
+      display: inline;
+      color: $color-active;
+      font-weight: 700;
+      cursor: pointer;
+    }
+  }
+
 }
 
 

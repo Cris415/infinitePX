@@ -62,7 +62,7 @@
 }
 
 
-@media only screen and (max-width: 850px) {
+@media only screen and (max-width: 950px) {
   .info-container {
     box-sizing: border-box;
     flex-direction: column;
@@ -73,10 +73,11 @@
 
     width: 100%;
   }
-  .comment-list{
-    box-sizing: inherit;
 
+  .comment-container{
+    box-sizing: inherit;
     margin-top: 2rem;
+
     width: 100%;
   }
 }

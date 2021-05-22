@@ -4,6 +4,7 @@ import Spinner from '../../../util/spinner';
 import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import CommentIndexContainer from "../../comments/comment_index_container";
+import CreateCommentContainer from '../../comments/create_comment_container';
 
 class PostShow extends React.Component {
   constructor(props){
@@ -63,7 +64,10 @@ class PostShow extends React.Component {
               </Link>
             )}
           </div>
-          <CommentIndexContainer />
+          <div className="comment-container">
+            <CreateCommentContainer />
+            <CommentIndexContainer />
+          </div>
         </div>
       </div>
     );

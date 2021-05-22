@@ -6,10 +6,14 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 class CommentIndex extends React.Component {
   constructor(props){
     super(props);
+    this.handleDelete = this.handleDelete.bind(this);
   }
 
   componentDidMount(){
     this.props.fetchPostComments();
+  }
+  handleDelete(id){
+    this.props.deleteComment(id);
   }
 
   renderComments(){
@@ -22,20 +26,35 @@ class CommentIndex extends React.Component {
               <FontAwesomeIcon icon={faUser} />
             </div>
             <div className="comment-user-info">
-              <Link className="comment-usernmae" to={`/users/${comment.authorId}`}>
-                {this.props.users[comment.authorId].username}
-              </Link>
-              <p className="comment-content">{comment.comment}</p>
+              <div className="comment-content-item">
+                <Link
+                  className="comment-username"
+                  to={`/users/${comment.authorId}`}
+                >
+                  {this.props.users[comment.authorId].username}
+                </Link>
+                <p className="comment-date">{date}</p>
+              </div>
+              <div className="comment-content-item">
+                <p className="comment-content">{comment.comment}</p>
+                {this.props.currentUserId === comment.authorId && (
+                  <div
+                    className="comment-delete"
+                    onClick={() => this.handleDelete(comment.id)}
+                  >
+                    delete
+                  </div>
+                )}
+              </div>
             </div>
           </div>
-          <p className="comment-date">{date}</p>
         </div>
       );
     })
   }
 
   render(){
-    if(!this.props.comments) return null;
+    if(!this.props.comments ) return null;
     return(
       <ul className="comment-list">
         {this.renderComments()}

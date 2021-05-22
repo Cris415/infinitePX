@@ -18,8 +18,9 @@ class Api::CommentsController < ApplicationController
   end
 
   def create
-    comment_params['author_id'] = current_user.id
-    @comment = Comment.new(comment_params)
+    newComment = comment_params;
+    newComment['author_id'] = current_user.id
+    @comment = Comment.new(newComment)
     if @comment.save
       render :show
     else
@@ -43,7 +44,9 @@ class Api::CommentsController < ApplicationController
 
   def destroy
     @comment = Comment.find_by(id: params[:id])
-
+    print "comment"
+    print @comment
+    # if current_user.id != @comment[author_id]
     if current_user.id != @comment.author_id
       render json: ['Unauthorized action'], status: 401
     elsif @comment
