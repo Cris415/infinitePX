@@ -19,6 +19,10 @@ class User < ApplicationRecord
     foreign_key: :followed_id,
     class_name: :Follow
 
+  has_many :comments,
+    foreign_key: :author_id,
+    class_name: :Comments
+
   has_many :followers,
     through: :group_of_followers,
     source: :follower

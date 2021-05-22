@@ -8,6 +8,10 @@ class Post < ApplicationRecord
   foreign_key: :user_id,
   class_name: :User
 
+  has_many :comments,
+  foreign_key: :post_id,
+  class_name: :Comment
+
   has_one_attached :photo
 
   def ensure_photo
