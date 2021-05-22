@@ -1,0 +1,37 @@
+.comment{
+  &-list {
+    background-color: $color-primary;
+    width: 30%;
+    padding: 2rem;
+  }
+  &-item{
+    display: flex;
+    justify-content: space-between;
+  }
+  &-info-container {
+    width: 100%;
+    display: flex;
+    align-items: center;
+  }
+  &-user-info {
+    margin-left: 2rem;
+  }
+  &-date {
+    font-size: 1.2rem;
+    color: $color-grey-dark-2;
+    align-self: center;
+  }
+  &-img {
+    width: 4rem;
+    height: 4rem;
+    border-radius: 50%;
+    background-color: $color-grey-light-3;
+    position: relative;
+      svg {
+        padding-left: 32%;
+        padding-top: 27%;
+    }
+  }
+}
+
+

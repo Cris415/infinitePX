@@ -16,12 +16,14 @@
   }
   .info-container {
     padding: 2rem 10rem;
-
+    display: flex;
+    justify-content: space-around;
   }
 
   .img-info {
     background-color: $color-primary;
-    width: 70rem;
+    // width: 70rem;
+    width: 55%;
     height: 20rem;
     padding: 3rem;
 
@@ -57,4 +59,24 @@
 
   }
   
+}
+
+
+@media only screen and (max-width: 850px) {
+  .info-container {
+    box-sizing: border-box;
+    flex-direction: column;
+    width: 100%;
+  }
+  .post-show .img-info {
+    box-sizing: inherit;
+
+    width: 100%;
+  }
+  .comment-list{
+    box-sizing: inherit;
+
+    margin-top: 2rem;
+    width: 100%;
+  }
 }
