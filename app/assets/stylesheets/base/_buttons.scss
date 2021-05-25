@@ -75,7 +75,8 @@ a.link-btn {
   }
 }
 
-input[type="submit"].submit-btn {
+
+.submit-btn {
   font-size: 1.6rem;
   background-color: $color-active;
   color: $color-primary;
@@ -146,3 +147,15 @@ input[type="submit"].submit-btn {
     background-color: $color-grey-dark-2;
   }
 }
+
+
+
+button:disabled {
+  background-color: $color-grey-dark-1;
+  &:hover{
+    background-color: $color-grey-dark-1;
+    color: white;
+    cursor: default;
+  }
+}
+

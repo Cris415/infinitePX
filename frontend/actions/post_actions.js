@@ -11,7 +11,7 @@ export const START_LOADING_SINGLE_POST = "START_LOADING_SINGLE_POST"
 export const receivePostErrors = (errors) => ({
   type: RECEIVE_POST_ERRORS,
   errors
-})
+});
 
 export const receivePosts = ({ posts, users }) => ({
   type: RECEIVE_POSTS,
