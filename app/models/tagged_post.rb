@@ -1,0 +1,2 @@
+class TaggedPost < ApplicationRecord
+end
