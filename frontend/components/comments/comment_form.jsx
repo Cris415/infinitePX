@@ -1,4 +1,7 @@
 import React from 'react';
+import { faUser } from "@fortawesome/free-solid-svg-icons";
+import { faComment as farComment } from "@fortawesome/free-regular-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 class CommentForm extends React.Component {
   constructor(props) {
@@ -8,6 +11,7 @@ class CommentForm extends React.Component {
     this.toggleButtons = this.toggleButtons.bind(this);
     this.handleInput = this.handleInput.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleCancel = this.handleCancel.bind(this);
   }
 
   toggleButtons() {
@@ -26,17 +30,28 @@ class CommentForm extends React.Component {
     }
   }
 
+  handleCancel(){
+    this.setState({comment: ''});
+    this.toggleButtons();
+  }
+
   renderButtons() {
-    return (
-      <div className="comment-btns">
-        <div className="" onClick={this.toggleButtons}>
-          Cancel
+    if (this.state.showButtons || this.state.comment.length > 0) {
+      return (
+        <div className="comment-btns">
+          <div className="" onClick={this.handleCancel}>
+            Cancel
+          </div>
+          <button
+            className="btn submit-btn"
+            onClick={this.handleSubmit}
+            disabled={this.state.comment.length === 0}
+          >
+            Submit
+          </button>
         </div>
-        <button className="btn submit-btn" onClick={this.handleSubmit}>
-          Submit
-        </button>
-      </div>
-    );
+      );
+    }
   }
 
   handleInput(e) {
@@ -45,17 +60,22 @@ class CommentForm extends React.Component {
 
   render() {
     return (
-      <form action="" className="comment-form" onClick={this.toggleButtons}>
-        <input
-          className="comment-form-input"
-          type="text"
-          name=""
-          id=""
-          onChange={this.handleInput}
-          placeholder="Add a commment"
-          value={this.state.comment}
-        />
-        {this.state.showButtons && this.renderButtons()}
+      <form action="" className="comment-form">
+        <div className="comment-input-container">
+          <div className="comment-img">
+            <FontAwesomeIcon icon={faUser} />
+          </div>
+          <div className="comment-form-input" onClick={this.toggleButtons}>
+            <FontAwesomeIcon icon={farComment} />
+            <input
+              type="text"
+              onChange={this.handleInput}
+              placeholder="Add a commment"
+              value={this.state.comment}
+            />
+          </div>
+        </div>
+        {this.renderButtons()}
       </form>
     );
   }

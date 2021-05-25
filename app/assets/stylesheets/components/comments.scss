@@ -5,9 +5,7 @@
     padding: 2rem;
   }
   &-list {
-    // background-color: $color-primary;
-    // width: 30%;
-    // padding: 2rem;
+    margin-top: 2rem;
   }
   &-content-item{
     width: 100%;
@@ -34,7 +32,6 @@
   }
   &-user-info {
     width: 100%;
-    margin-left: 1rem;
   }
   &-date {
     font-size: 1.2rem;
@@ -42,6 +39,7 @@
     align-self: center;
   }
   &-img {
+    margin-right: 1rem;
     width: 4rem;
     height: 4rem;
     min-width: 4rem;
@@ -56,12 +54,34 @@
       font-size: 1.8rem;
     }
   }
+  &-input-container {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
   &-form {
     border: none;
     margin-bottom: 2rem;
-    &-input {
+    &-input{
+      width: 85%;
+
+      border: $border;
+      border-radius: 5px;
+      padding: 1.5rem;
+      font-size: 1.6rem;
+      svg {
+        margin-right: 1rem;
+        color: $color-grey-dark-3;
+      }
+    }
+    input[type=text]{
+      width: 85%;
+      border: none;
+      padding: 0;
+      outline: none;
       margin: 0;
-      box-sizing: border-box;
+      box-sizing: border-box;      
     }
   }
   &-btns{
@@ -84,6 +104,24 @@
     }
   }
 
+  &-zero {
+    margin: 6rem 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    svg {
+      color: black;
+      font-size: 4.4rem;
+    }
+    font-size: 1.6rem;
+  }
+
 }
 
 
+@media only screen and (max-width: 950px) {
+
+  .comment-input-container {
+    justify-content: space-around;
+  }
+}

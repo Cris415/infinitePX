@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import {  faUser } from "@fortawesome/free-solid-svg-icons";
+import { faComment as farComment } from "@fortawesome/free-regular-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 class CommentIndex extends React.Component {
@@ -50,15 +51,31 @@ class CommentIndex extends React.Component {
           </div>
         </div>
       );
-    })
+    }).reverse();
+  }
+
+  renderEmptyCommentsMessage(){
+    if (this.props.comments.length === 0) {
+      return (<li className="comment-zero">
+        <FontAwesomeIcon icon={farComment} />
+        <br />
+        No comments yet
+      </li> )
+    } else {
+      return null;
+    }
+
   }
 
   render(){
     if(!this.props.comments ) return null;
-    return(
+    return(<div>
+      <strong>{this.props.comments.length} Comments</strong>
       <ul className="comment-list">
         {this.renderComments()}
+        {this.renderEmptyCommentsMessage()}
       </ul>
+    </div>
     )
 
   }

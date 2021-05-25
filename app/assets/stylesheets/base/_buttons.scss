@@ -147,3 +147,15 @@ a.link-btn {
     background-color: $color-grey-dark-2;
   }
 }
+
+
+
+button:disabled {
+  background-color: $color-grey-dark-1;
+  &:hover{
+    background-color: $color-grey-dark-1;
+    color: white;
+    cursor: default;
+  }
+}
+
