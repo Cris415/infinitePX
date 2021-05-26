@@ -59,7 +59,6 @@ class Api::TagsController < ApplicationController
     elsif tagged 
       tagged.destroy
       render '/api/posts/show'
-
     else
       render json: ['Could not find post'], status: 400
     end
