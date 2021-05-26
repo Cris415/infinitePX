@@ -10,17 +10,13 @@ class Api::TagsController < ApplicationController
         return 
       end
 
-      puts post
       @tags = post.tags
-      render :index
     elsif params.has_key?(:query)
-      tag = Tag.find_by({name: params[:query]})
-      @posts = tag.posts
-      render '/api/posts/index'
+      @tags = Tag.where("lower(name) LIKE ? ", "%#{params[:query].downcase}%")
     else
       @tags = Tag.all
-      render :index
     end
+    render :index
   end
 
   def create
