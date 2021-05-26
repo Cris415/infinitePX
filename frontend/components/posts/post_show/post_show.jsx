@@ -5,6 +5,8 @@ import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import CommentIndexContainer from "../../comments/comment_index_container";
 import CreateCommentContainer from '../../comments/create_comment_container';
+import TagIndexContainer from '../../tags/tag_index_container';
+import TagIndex from '../../tags/tag_index';
 
 class PostShow extends React.Component {
   constructor(props){
@@ -54,6 +56,8 @@ class PostShow extends React.Component {
               <span> {date.toLocaleDateString()} </span>
             </div>
             <p className="description"> {description} </p>
+
+            <TagIndex tags={this.props.tags} />
 
             {this.props.currentUserId === author.id && (
               <Link

@@ -9,7 +9,7 @@ const tagsReducer = (state = {}, action) => {
     case RECEIVE_POST:
     case RECEIVE_TAGS:
       if (action.tags === undefined) {
-        return state;
+        return {};
       }
       return action.tags;
     case REMOVE_TAG:
