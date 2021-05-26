@@ -57,7 +57,18 @@ class Api::PostsController < ApplicationController
   end
 
   def search
-    @posts = Post.where("lower(title) LIKE ? ", "%#{params[:query].downcase}%")
+    by_name = Post.where("lower(title) LIKE ? ", "%#{params[:query].downcase}%")
+    
+    tag = Tag.find_by({name: params[:query]})
+    if tag 
+      by_tag = tag.posts
+    else
+      by_tag = []
+    end
+    
+    post_arr = [].concat(by_tag, by_name)
+    @posts = Post.where(id: post_arr.map(&:id))
+
    render :index
   end
 

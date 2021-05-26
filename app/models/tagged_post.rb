@@ -1,5 +1,5 @@
 class TaggedPost < ApplicationRecord
-  validates :post_id, uniqueness: { scope: :tag_id, messages: "cannot tag the same post twice with the same tag"}
+  validates :tag_id, uniqueness: { scope: :post_id }
 
   belongs_to :post,
   foreign_key: :post_id,
