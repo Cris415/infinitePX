@@ -1,0 +1,22 @@
+.tag {
+  &-list {
+    display: flex;
+    width: 100%;
+    flex-wrap: wrap;
+    margin: 3rem 0;
+    &-item {
+      color: $color-grey-dark-3;
+      padding: 1rem 0.5rem;
+      border-radius: 5px;
+      border: 1px $color-grey-dark-3 solid;
+      margin-right: 3px;
+      margin-bottom: 3px;
+
+      &:hover {
+        color: $color-active;
+        border-color: $color-active;
+        cursor: pointer;
+      }
+    }
+  }
+}
