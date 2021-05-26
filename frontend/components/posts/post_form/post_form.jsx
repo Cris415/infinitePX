@@ -84,7 +84,7 @@ class PostForm extends React.Component {
     return (
       <div>
         <div className="header-small">
-          <h2>{this.props.formType}</h2>
+          <h2>{this.props.formType === 'Edit' ? 'Photo manager' : this.props.formType}</h2>
         </div>
 
         <div className="form-container">

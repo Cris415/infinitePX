@@ -4,7 +4,6 @@ import { RECEIVE_POST } from "../actions/post_actions";
 const tagsReducer = (state = {}, action) => {
   Object.freeze(state);
   const newState = Object.assign({}, state);
-  console.log(action)
   switch (action.type) {
     case RECEIVE_POST:
     case RECEIVE_TAGS:
