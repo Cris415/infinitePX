@@ -18,7 +18,7 @@ export const addTags = tags => dispatch => (
   .then(post => dispatch(receiveTags(post)))
 )
 
-export const removeTag = (tagId, postId) => dispatch => (
+export const deleteTag = (tagId, postId) => dispatch => (
   tagAPI.deleteTag(tagId, postId)
   .then(() => dispatch(removeTag(tagId)))
 )
