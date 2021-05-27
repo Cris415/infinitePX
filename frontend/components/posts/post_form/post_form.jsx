@@ -2,6 +2,7 @@ import React from 'react';
 import { Link, withRouter } from 'react-router-dom';
 import ImagePreview from './image_preview';
 import UploadImageInput from './upload_image_input';
+import TagFormContainer from '../../tags/tag_form_container';
 
 class PostForm extends React.Component {
   constructor(props){
@@ -116,6 +117,8 @@ class PostForm extends React.Component {
 
               {this.props.formType === 'Edit'  && <button className="btn btn-delete" onClick={this.handleDelete} > Delete photo</button>}
             </div>
+
+            <TagFormContainer />
 
             <ul className="errors">
               {this.props.errors.map((err, i) => (
