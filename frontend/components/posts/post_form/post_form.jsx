@@ -36,6 +36,7 @@ class PostForm extends React.Component {
       fileReader.readAsDataURL(file);
     }
   }
+
   componentDidMount(){
     window.scrollTo(0, 0);
   }
@@ -62,8 +63,10 @@ class PostForm extends React.Component {
       formData.append("post[postId]", this.state.id);
     }
    
-    this.props.processForm(formData, (postId) =>
+    this.props.processForm(formData, (postId) => {
       this.props.history.push(`/posts/${postId}`)
+      this.props.addTags({tag:{ tags: this.state.tags.join(","), postId }});
+      }
     );
   }
 
@@ -82,6 +85,7 @@ class PostForm extends React.Component {
   }
 
   render(){
+    // console.log(this.state.tags.join(','))
     return (
       <div>
         <div className="header-small">
@@ -118,7 +122,7 @@ class PostForm extends React.Component {
               {this.props.formType === 'Edit'  && <button className="btn btn-delete" onClick={this.handleDelete} > Delete photo</button>}
             </div>
 
-            <TagFormContainer />
+            <TagFormContainer tags={this.state.tags} addTagPost={(tag) => this.setState({tags: [...this.state.tags, tag]})}/>
 
             <ul className="errors">
               {this.props.errors.map((err, i) => (

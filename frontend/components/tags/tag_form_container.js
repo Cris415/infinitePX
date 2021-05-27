@@ -5,15 +5,14 @@ import TagForm from './tag_form';
 
 const mapStateToProps = (state, ownProps) => {
   return {
-    tags: state.entities.tags,
     post: state.entities.posts[ownProps.match.params.postId]
   }
 }
 const mapDispatchToProps = (dispatch, ownProps) => {
   return {
     deleteTag: (tagId) =>
-      dispatch(deleteTag(tagId, ownProps.match.params.postId)),
-    addTags: (tags) => dispatch(addTags(tags))
+    dispatch(deleteTag(tagId, ownProps.match.params.postId)),
+    // addTags: (tags) => dispatch(addTags(tags))
   };
 }
 
