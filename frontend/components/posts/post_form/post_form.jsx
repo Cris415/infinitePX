@@ -103,7 +103,7 @@ class PostForm extends React.Component {
     return (
       <TagFormContainer
         tags={formattedTags}
-        addTagPost={(tag) => this.setState({ tags: [...tags, tag] })}
+        addTagPost={(tag) => this.setState({ tags: [...tags, tag], edited: true })}
       />
     );
   }

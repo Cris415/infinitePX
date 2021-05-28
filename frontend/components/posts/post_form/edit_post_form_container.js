@@ -20,7 +20,7 @@ class EditPost extends React.Component {
   render(){
     if (!this.props.post) return null
     
-    const {formType, processForm, clearErrors, errors, post, currentUserId, deletePost, tags} = this.props;
+    const {formType, processForm, clearErrors, errors, post, currentUserId, deletePost, tags, addTags} = this.props;
     let preloadedPost = post;
     preloadedPost['originalTags'] = tags;
     preloadedPost['tags'] = [];
@@ -39,6 +39,7 @@ class EditPost extends React.Component {
           errors={errors}
           post={preloadedPost}
           deletePost={deletePost}
+          addTags={addTags}
         />
       </div>
     );
