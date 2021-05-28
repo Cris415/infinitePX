@@ -56,7 +56,7 @@ class PostShow extends React.Component {
             </div>
             <p className="description"> {description} </p>
 
-            <TagIndex tags={this.props.tags} />
+            <TagIndex tags={this.props.tags.map(tag => tag.name)} />
 
             {this.props.currentUserId === author.id && (
               <Link

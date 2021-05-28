@@ -26,9 +26,9 @@ class TagForm extends React.Component {
   render(){
     return (
       <div className="tag-form">
-        <TagIndex tags={ this.props.tags.map((tag, i) => ({id: i, name: tag })) } /> 
         <input type="text" value={this.state.name} onChange={this.handleChange}/>
         <button onClick={this.handleAddTag}>Add Tag</button>
+        <TagIndex tags={ this.props.tags } /> 
       </div>
     )
   }

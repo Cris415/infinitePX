@@ -1,13 +1,16 @@
 import React from 'react';
 
 function TagIndex(props){
+  // tags should be an array of strings
   function renderListItems(){
-    return props.tags.map(tag => <li key={tag.id} className="tag-list-item"> {tag.name} </li> )
+    return props.tags.map((tag, i) => <li key={`${tag}-${i}`} className="tag-list-item"> {tag} </li> )
   }
 
-  return (<ul className="tag-list"> 
+  return (
+  <ul className="tag-list"> 
     {renderListItems()}
-  </ul>)
+  </ul>
+  )
 }
 
 export default TagIndex;

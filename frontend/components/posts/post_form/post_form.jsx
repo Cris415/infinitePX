@@ -84,18 +84,69 @@ class PostForm extends React.Component {
     this.props.deletePost().then(() => this.props.history.push(`/`));
   }
 
+  renderDeleteButton(){
+    return (
+      this.props.formType === "Edit" && (
+        <div className="btn btn-delete" onClick={this.handleDelete}>
+          Delete photo
+        </div>
+      )
+    );
+  }
+
+  renderTagForm(){     
+    let { tags, originalTags } = this.state;
+    const { formType } = this.props;
+    console.log(tags, originalTags)
+
+    let formattedTags = formType === "Edit" ? [...originalTags.map(tag => tag.name), ...tags] : tags    
+    return (
+      <TagFormContainer
+        tags={formattedTags}
+        addTagPost={(tag) => this.setState({ tags: [...tags, tag] })}
+      />
+    );
+  }
+
+  renderErrors(){
+    return (
+      <ul className="errors">
+        {this.props.errors.map((err, i) => (
+          <li key={i}>{err}</li>
+        ))}
+      </ul>
+    );
+  }
+
+  renderSubmitCancelButtons(){
+    const { formType } = this.props;
+    const linkRoute = formType === "Upload" ? "/" : `/posts/${this.props.match.params.postId}`;
+    const submitBtnName = formType === "Edit" ? "Save changes" : formType
+ 
+    if ((formType === "Edit" && this.state.edited) || formType === "Upload") {
+      return (
+        <div className="buttons">
+          <Link to={linkRoute}>Cancel</Link>
+            <input className="btn submit-btn" type="submit" value={submitBtnName} />
+        </div>
+      );
+    } 
+  }
+
   render(){
-    // console.log(this.state.tags.join(','))
+    const { photoFile, title, description, photoUrl } = this.state;
     return (
       <div>
         <div className="header-small">
-          <h2>{this.props.formType === 'Edit' ? 'Photo manager' : this.props.formType}</h2>
+          <h2>{this.props.formType === "Edit" ? "Photo manager" : this.props.formType}</h2>
         </div>
 
         <div className="form-container">
-          {(!this.state.photoFile && this.props.formType !== 'Edit') && <UploadImageInput handleFile={this.handleFile} />}
+          {!photoFile && this.props.formType !== "Edit" && (
+            <UploadImageInput handleFile={this.handleFile} />
+          )}
 
-          {<ImagePreview photoUrl={this.state.photoUrl} title={this.state.title} />}
+          <ImagePreview photoUrl={photoUrl} title={title} />
 
           <form onSubmit={this.handleSubmit} className="post-form">
             <div className="inputs">
@@ -103,7 +154,7 @@ class PostForm extends React.Component {
                 Title
                 <input
                   type="text"
-                  value={this.state.title}
+                  value={title}
                   onChange={this.handleChange("title")}
                   required
                 />
@@ -112,35 +163,19 @@ class PostForm extends React.Component {
               <label>
                 Description
                 <textarea
-                  value={this.state.description}
+                  value={description}
                   onChange={this.handleChange("description")}
                   placeholder="e.g. Low angle view of a young bulldog skateboarding near a beach with a striking sunset"
                   required
                 />
               </label>
 
-              {this.props.formType === 'Edit'  && <button className="btn btn-delete" onClick={this.handleDelete} > Delete photo</button>}
+              {this.renderDeleteButton()}
+              {this.renderTagForm()}
             </div>
+            {this.renderErrors()}
 
-            <TagFormContainer tags={this.state.tags} addTagPost={(tag) => this.setState({tags: [...this.state.tags, tag]})}/>
-
-            <ul className="errors">
-              {this.props.errors.map((err, i) => (
-                <li key={i}>{err}</li>
-              ))}
-            </ul>
-
-           {((this.props.formType === 'Edit' && this.state.edited) || this.props.formType === 'Upload')  && (
-            <div className="buttons">
-              <Link to={this.props.formType === 'Upload' ? "/" : `/posts/${this.props.match.params.postId}`}>Cancel</Link>
-                
-              <input
-                className="btn submit-btn"
-                type="submit"
-                value={this.props.formType === "Edit" ? 'Save changes' : this.props.formType  }
-              />
-            </div>
-           )}
+            {this.renderSubmitCancelButtons()}
           </form>
         </div>
       </div>

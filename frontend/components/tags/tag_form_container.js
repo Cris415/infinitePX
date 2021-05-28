@@ -2,6 +2,7 @@ import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import { addTags, deleteTag } from "../../actions/tag_actions";
 import TagForm from './tag_form';
+// TODO: CLEANUP THIS FILE
 
 const mapStateToProps = (state, ownProps) => {
   return {
