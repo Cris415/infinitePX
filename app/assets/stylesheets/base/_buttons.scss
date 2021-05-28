@@ -33,7 +33,8 @@ a.link-btn {
     background-color: $color-primary;
     color: $color-active;
     padding: 1.5rem 0;
-
+    text-align: center;
+    
     &:hover {
       border: 2px solid $color-error;
       color: $color-error;
