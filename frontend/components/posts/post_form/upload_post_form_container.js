@@ -18,6 +18,7 @@ const mapDispatchToProps = (dispatch) => ({
   dispatch(createPost(post, redirectCallback)),
   clearErrors: () => dispatch(clearErrors()),
   addTags: (tags) => dispatch(addTags(tags)),
+  deleteTag: (tagId, postId) => dispatch(deleteTag(tagId, postId))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(PostForm);

@@ -10,7 +10,6 @@ import { clearErrors } from '../../../actions/error_actions';
 class EditPost extends React.Component {  
   constructor(props){
     super(props);
-
   }
 
   componentDidMount(){
@@ -20,29 +19,17 @@ class EditPost extends React.Component {
   render(){
     if (!this.props.post) return null
     
-    const {formType, processForm, clearErrors, errors, post, currentUserId, deletePost, tags, addTags} = this.props;
+    const {post, currentUserId, tags} = this.props;
     let preloadedPost = post;
     preloadedPost['originalTags'] = tags;
     preloadedPost['tags'] = [];
+
     // redirect if user is not author
     if (currentUserId !== post.userId) {
       return <Redirect to={`/posts/${this.props.match.params.postId}`} />;
     }
 
-    // TODO: just pass {...this.props} 
-    return (
-      <div>
-        <PostForm
-          formType={formType}
-          processForm={processForm}
-          clearErrors={clearErrors}
-          errors={errors}
-          post={preloadedPost}
-          deletePost={deletePost}
-          addTags={addTags}
-        />
-      </div>
-    );
+    return <PostForm  {...this.props}  />
   }
 }
 
@@ -61,6 +48,7 @@ const mapDispatchToProps = (dispatch, ownProps) => ({
   fetchPost: () => dispatch(fetchPost(ownProps.match.params.postId)),
   deletePost: () => dispatch(deletePost(ownProps.match.params.postId)),
   addTags: (tags) => dispatch(addTags(tags)),
+  deleteTag: (tagId, postId) => dispatch(deleteTag(tagId, postId)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(EditPost);
