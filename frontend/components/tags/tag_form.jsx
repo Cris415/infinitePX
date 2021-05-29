@@ -8,6 +8,7 @@ class TagForm extends React.Component {
 
     this.handleChange = this.handleChange.bind(this);
     this.handleAddTag = this.handleAddTag.bind(this);
+    this.handleRemoveTag = this.handleRemoveTag.bind(this);
   }
 
   handleChange(e){
@@ -23,12 +24,17 @@ class TagForm extends React.Component {
     }
   }
 
+  handleRemoveTag(e){
+    e.preventDefault();
+    this.props.action(e.currentTarget.innerHTML);
+  }
+
   render(){
     return (
       <div className="tag-form">
         <input type="text" value={this.state.name} onChange={this.handleChange}/>
         <button onClick={this.handleAddTag}>Add Tag</button>
-        <TagIndex tags={ this.props.tags } /> 
+        <TagIndex tags={ this.props.tags } action={this.handleRemoveTag} /> 
       </div>
     )
   }

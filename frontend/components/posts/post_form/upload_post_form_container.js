@@ -8,7 +8,7 @@ import { addTags, deleteTag } from "../../../actions/tag_actions";
 
 const mapStateToProps = state => ({
   formType: 'Upload',
-  post: {title: '', description: '', photoFile: null, photoUrl: null, tags: []},
+  post: {title: '', description: '', photoFile: null, photoUrl: null, tags: [], displayTags:[]},
   currentUser: state.session.id,
   errors: state.errors.posts
 });

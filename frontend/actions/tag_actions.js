@@ -20,7 +20,9 @@ export const addTags = tags => dispatch => (
 
 export const deleteTag = (tagId, postId) => dispatch => (
   tagAPI.deleteTag(tagId, postId)
-  .then(() => dispatch(removeTag(tagId)))
+  .then((post) => {
+    dispatch(receiveTags(post))
+  })
 )
 
 export const searchTags = (searchTerm) => dispatch => (

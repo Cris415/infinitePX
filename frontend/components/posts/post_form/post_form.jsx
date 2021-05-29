@@ -2,7 +2,7 @@ import React from 'react';
 import { Link, withRouter } from 'react-router-dom';
 import ImagePreview from './image_preview';
 import UploadImageInput from './upload_image_input';
-import TagFormContainer from '../../tags/tag_form_container';
+import TagForm from "../../tags/tag_form";
 
 class PostForm extends React.Component {
   constructor(props){
@@ -66,6 +66,12 @@ class PostForm extends React.Component {
     this.props.processForm(formData, (postId) => {
       this.props.history.push(`/posts/${postId}`)
       this.props.addTags({tag:{ tags: this.state.tags.join(","), postId }});
+      if (this.props.formType === 'Edit'){
+        const removeTagsIds = this.state.removeTags.map((removeTag) =>
+            this.props.tags.find((tag) => tag.name === removeTag).id);
+
+        removeTagsIds.forEach(id => this.props.deleteTag(id, this.state.id))
+      }
       }
     );
   }
@@ -95,15 +101,39 @@ class PostForm extends React.Component {
   }
 
   renderTagForm(){     
-    let { tags, originalTags } = this.state;
-    const { formType } = this.props;
-    console.log(tags, originalTags)
+    let { tags, preloadedTags, displayTags, removeTags } = this.state;
+    const action = (clickedTag) => {
+      // remove tag from state
+      // Add tag to a delete array  
+      const filteredTags = tags.filter((tag) => tag !== clickedTag);
+      this.setState({ displayTags: displayTags.filter((tag) => tag !== clickedTag)});
 
-    let formattedTags = formType === "Edit" ? [...originalTags.map(tag => tag.name), ...tags] : tags    
+      // only add tags to remove if they are preloaded
+      // since an api call is needed to remove those tags
+      if (preloadedTags.includes(clickedTag)) {
+        this.setState(
+          {
+            tags: filteredTags,
+            removeTags: [...removeTags, clickedTag],
+            edited: true 
+          }
+        );
+      } else {
+        this.setState({ tags: filteredTags, edited: true });
+      }
+    }
+
     return (
-      <TagFormContainer
-        tags={formattedTags}
-        addTagPost={(tag) => this.setState({ tags: [...tags, tag], edited: true })}
+      <TagForm
+        tags={displayTags}
+        addTagPost={(tag) =>
+          this.setState({
+            tags: [...tags, tag],
+            displayTags: [...displayTags, tag],
+            edited: true,
+          })
+        }
+        action={action}
       />
     );
   }
@@ -142,9 +172,8 @@ class PostForm extends React.Component {
         </div>
 
         <div className="form-container">
-          {!photoFile && this.props.formType !== "Edit" && (
-            <UploadImageInput handleFile={this.handleFile} />
-          )}
+          {!(photoFile || this.props.formType === "Edit") && 
+            <UploadImageInput handleFile={this.handleFile} /> }
 
           <ImagePreview photoUrl={photoUrl} title={title} />
 
@@ -173,8 +202,8 @@ class PostForm extends React.Component {
               {this.renderDeleteButton()}
               {this.renderTagForm()}
             </div>
-            {this.renderErrors()}
 
+            {this.renderErrors()}
             {this.renderSubmitCancelButtons()}
           </form>
         </div>

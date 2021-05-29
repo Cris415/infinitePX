@@ -20,9 +20,13 @@ class EditPost extends React.Component {
     if (!this.props.post) return null
     
     const {post, currentUserId, tags} = this.props;
-    let preloadedPost = post;
-    preloadedPost['originalTags'] = tags;
-    preloadedPost['tags'] = [];
+    const formattedTags = tags.map((tag) => tag.name);
+    
+    post["preloadedTags"] = formattedTags;
+    post["displayTags"] = formattedTags;
+
+    post['tags'] = [];
+    post['removeTags'] = [];
 
     // redirect if user is not author
     if (currentUserId !== post.userId) {
