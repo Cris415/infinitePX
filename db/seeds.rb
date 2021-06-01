@@ -7,29 +7,35 @@ Comment.delete_all
 Tag.delete_all
 TaggedPost.delete_all
 
-tagNames = ['architecture', 'building', 'vibes','iconic', 'bougie', 'destination', 
+####### CREATE TAGS #######
+
+tagNames = ['architecture', 'building', 'vibes','iconic', 'destination', 
   'mood', 'vacay', 'perspectives','view','unfiltered','angles','inspiration',
   'views','landscape','portrait','process','panoramic','panorama','skyline',
-  'cityscape','nature','natural','urban','rural','life','plants','garden',
-  'wonders','wonder','still life','food','pets','suburban','skyscraper','bridge'
-  ,'desert','rainforest','jungle','sunrise','dawn','dusk','sunset','stadium'
+  'cityscape','nature','natural','urban','rural','life','plants',
+  'wonders','wonder','still life','food','suburban','skyscraper','bridge',
+  'rainforest','jungle','sunrise','dawn','dusk','sunset','stadium',
   'mugshot','filtered','garden','lake','river','ocean','beach','flower','love',
   'scene','scenic','attitude','altitude','snow','rain','sun','moon','stars','sky',
   'green','art','sculpture','museum','office','library','street','church',
   'concert','home','house','hotel','joy','earth','toys','breakfast','lunch',
-  'dinner','snack','dessert','thirsty'
+  'dinner','snack','desert','thirsty', 'editing',
   'headshot','cover','professional','amateur','sponsored','free','boy','girl',
   'baby','daddy','dad','mother','father','brother','sister','daughter','son',
   'mom','mommy', 'pet','pets','troublemaker','trouble','perception','scenes',
-  'peek','glance','photograph','moments','moment','icon','artistic','artist','art',
-  'headshot','showstopper','showstopping','brilliant','focused','sharp',
-  'black and white', 'before and after','now and then'
+  'peek','glance','photograph','moments','moment','icon','artistic','artist',
+  'showstopper','showstopping','brilliant','focused','sharp',
+  'black and white', 'before and after','now and then', 'no people', 'outdoors', 
+  'travel destinations', 'travel', 'tree', 'plant', 'sunlight', 'fog', 'grass',
+  'horizontal', 'city', 'shadow', 'nightscape', 'basktball', 'flag', 'macro',
+  'mountains', 'water', 'details', 'abstract', 'dog', 'milk', 'coffee', 'close up'
 ]
 
 tagNames.each do |name|
-  Tag.create!(name)
+  Tag.create!({name: name})
 end
 
+####### CREATE USERS #######
 
 demo = User.create!(
   username: 'demo_user',
@@ -93,6 +99,8 @@ jazz = User.create!(
   password: 'password'
 )
 
+####### CREATE FOLLOW #######
+
 Follow.create({followed_id: annie.id, follower_id: robert.id})
 Follow.create({followed_id: annie.id, follower_id: diane.id})
 Follow.create({followed_id: diane.id, follower_id: robert.id})
@@ -130,6 +138,7 @@ Follow.create({followed_id: drew.id, follower_id: edward.id})
 Follow.create({followed_id: cindy.id, follower_id: amy.id})
 Follow.create({followed_id: jazz.id, follower_id: diane.id})
 
+####### IMPORT IMAGES #######
 
 file1 = URI.open('https://infinitepx-seeds.s3-us-west-1.amazonaws.com/daytona.jpeg')
 file2 = URI.open('https://infinitepx-seeds.s3-us-west-1.amazonaws.com/moon.jpeg')
@@ -145,7 +154,6 @@ file11 = URI.open('https://infinitepx-seeds.s3-us-west-1.amazonaws.com/transamer
 file12 = URI.open('https://infinitepx-seeds.s3-us-west-1.amazonaws.com/underdock.jpeg')
 file13 = URI.open('https://infinitepx-seeds.s3-us-west-1.amazonaws.com/watergate.JPG')
 file14 = URI.open('https://infinitepx-seeds.s3-us-west-1.amazonaws.com/windows.JPG')
-
 file15 = URI.open('https://infinitepx-seeds.s3-us-west-1.amazonaws.com/bike.jpg')
 file16 = URI.open('https://infinitepx-seeds.s3-us-west-1.amazonaws.com/building.JPG')
 file17 = URI.open('https://infinitepx-seeds.s3-us-west-1.amazonaws.com/camilo.jpeg')
@@ -167,6 +175,8 @@ file32 = URI.open('https://infinitepx-seeds.s3-us-west-1.amazonaws.com/rufino2.J
 file33 = URI.open('https://infinitepx-seeds.s3-us-west-1.amazonaws.com/statue.jpeg')
 
 
+####### CREATE POSTS #######
+
 post1 = Post.new(title:'Sunset in Daytona Beach', description: 'Sunset at Daytona Beach near Hilton Hotel.',  user_id: diane.id)
 post2 = Post.new(title:'Moon', description: 'Captured in the evening.',  user_id: robert.id)
 post3 = Post.new(title:'Basketball hoop', description: 'View of the silhouette a of a basketball hoop.',  user_id: annie.id  )
@@ -181,7 +191,6 @@ post11 = Post.new(title:'Transamerica Tower', description: 'Looking up at the Tr
 post12 = Post.new(title:'Underneath a dock', description: 'Love the lines made by this dock.',  user_id: cindy.id  )
 post13 = Post.new(title:'Scandal', description: "Famous hotel in the nation's capital.",  user_id: cindy.id  )
 post14 = Post.new(title:'Untitled', description: 'windows.',  user_id: alfred.id  )
-
 post15 = Post.new(title:'Frozen Bike', description: 'A chill morning at the National Gallery of Art',  user_id: jazz.id  )
 post16 = Post.new(title:'Church in the Wild', description: 'Walking around Palo Alto, when I spotted this interesting looking church.',  user_id: drew.id  )
 post17 = Post.new(title:'Laser eyes', description: 'Camilo probably wants a treat!',  user_id: amy.id  )
@@ -196,7 +205,7 @@ post25 = Post.new(title:'Looking up At the Flag', description: 'A flag hanging d
 post26 = Post.new(title:'Closeup on Nature', description: 'A close up photo of a lily flower',  user_id: amy.id  )
 post27 = Post.new(title:'Magenta Magic', description: 'Photo of a vibrant lily flower',  user_id: amy.id  )
 post28 = Post.new(title:'Lime', description: 'Macro still of a dried up lime',  user_id: jazz.id  )
-post29 = Post.new(title:'Mars', description: 'Ocean Beach in San Francisco',  user_id: diane.id  )
+post29 = Post.new(title:'Mars', description: 'Ocean Beach in San Francisco, edited a bit :)',  user_id: diane.id  )
 post30 = Post.new(title:'Carrying the Weight of the World', description: 'Statue near Rockefeller Center in NYC',  user_id: robert.id  )
 post31 = Post.new(title:'Loving Eyes', description: 'Rufino waiting for a treat',  user_id: jazz.id  )
 post32 = Post.new(title:'Treats', description: 'Just got woke up from a nap',  user_id: jazz.id  )
@@ -259,7 +268,7 @@ post19.save!
 post20.save!
 post21.save!
 post22.save!
-post23.save!
+# post23.save!
 post24.save!
 post25.save!
 post26.save!
@@ -270,6 +279,8 @@ post30.save!
 post31.save!
 post32.save!
 post33.save!
+
+###### COMMENTS #######
 
 Comment.create!({post_id: post1.id, author_id: diane.id, comment: 'Loving the beach theme'})
 Comment.create!({post_id: post2.id, author_id: annie.id, comment: 'Love seeing pictures of the moon'})
@@ -290,17 +301,169 @@ Comment.create!({post_id: post16.id, author_id: robert.id, comment: 'What a cool
 Comment.create!({post_id: post17.id, author_id: steve.id, comment: 'What a cute dog!'})
 Comment.create!({post_id: post18.id, author_id: edward.id, comment: 'What an ideal image of the Capitol Building'})
 Comment.create!({post_id: post19.id, author_id: alfred.id, comment: 'Love the angle this was taken at.'})
-Comment.create!({post_id: post20.id, author_id: irving.id, comment: 'wow'})
-Comment.create!({post_id: post21.id, author_id: cindy.id, comment: 'wow'})
-Comment.create!({post_id: post22.id, author_id: amy.id, comment: 'wow'})
-Comment.create!({post_id: post23.id, author_id: drew.id, comment: 'wow'})
-Comment.create!({post_id: post24.id, author_id: john.id, comment: 'wow'})
-Comment.create!({post_id: post25.id, author_id: kate.id, comment: 'wow'})
-Comment.create!({post_id: post26.id, author_id: jazz.id, comment: 'wow'})
-Comment.create!({post_id: post27.id, author_id: diane.id, comment: 'wow'})
-Comment.create!({post_id: post28.id, author_id: annie.id, comment: 'wow'})
-Comment.create!({post_id: post29.id, author_id: robert.id, comment: 'wow'})
-Comment.create!({post_id: post30.id, author_id: steve.id, comment: 'wow'})
-Comment.create!({post_id: post31.id, author_id: edward.id, comment: 'wow'})
-Comment.create!({post_id: post32.id, author_id: alfred.id, comment: 'wow'})
-Comment.create!({post_id: post33.id, author_id: jazz.id, comment: 'wow'})
+Comment.create!({post_id: post21.id, author_id: cindy.id, comment: 'Loving the vibes'})
+Comment.create!({post_id: post22.id, author_id: amy.id, comment: 'Loving the detail in the frosting!'})
+Comment.create!({post_id: post22.id, author_id: drew.id, comment: 'This is making me hungry'})
+Comment.create!({post_id: post24.id, author_id: john.id, comment: 'Now I miss San Francisco'})
+Comment.create!({post_id: post25.id, author_id: kate.id, comment: 'Super vibrant colors'})
+Comment.create!({post_id: post26.id, author_id: jazz.id, comment: 'Loving the details of the flower'})
+Comment.create!({post_id: post27.id, author_id: diane.id, comment: 'Awesome colors'})
+Comment.create!({post_id: post28.id, author_id: annie.id, comment: 'Really cool details and colors'})
+Comment.create!({post_id: post29.id, author_id: robert.id, comment: 'Looks like another planet'})
+Comment.create!({post_id: post30.id, author_id: steve.id, comment: 'Loving the composition'})
+Comment.create!({post_id: post31.id, author_id: edward.id, comment: 'Beautiful light and composition'})
+Comment.create!({post_id: post32.id, author_id: alfred.id, comment: 'awww'})
+Comment.create!({post_id: post33.id, author_id: jazz.id, comment: 'awesome'})
+
+
+####### LINK TAGS AND POSTS #######
+
+TaggedPost.create({post_id: post1.id, tag_id: Tag.find_by({name: 'beach'}).id})
+TaggedPost.create({post_id: post1.id, tag_id: Tag.find_by({name: 'view'}).id})
+TaggedPost.create({post_id: post1.id, tag_id: Tag.find_by({name: 'travel destinations'}).id})
+
+TaggedPost.create({post_id: post2.id, tag_id: Tag.find_by({name: 'moon'}).id})
+TaggedPost.create({post_id: post2.id, tag_id: Tag.find_by({name: 'sky'}).id})
+TaggedPost.create({post_id: post2.id, tag_id: Tag.find_by({name: 'iconic'}).id})
+
+TaggedPost.create({post_id: post3.id, tag_id: Tag.find_by({name: 'basktball'}).id})
+TaggedPost.create({post_id: post3.id, tag_id: Tag.find_by({name: 'city'}).id})
+TaggedPost.create({post_id: post3.id, tag_id: Tag.find_by({name: 'sunset'}).id})
+TaggedPost.create({post_id: post3.id, tag_id: Tag.find_by({name: 'vibes'}).id})
+
+TaggedPost.create({post_id: post4.id, tag_id: Tag.find_by({name: 'architecture'}).id})
+TaggedPost.create({post_id: post4.id, tag_id: Tag.find_by({name: 'building'}).id})
+TaggedPost.create({post_id: post4.id, tag_id: Tag.find_by({name: 'iconic'}).id})
+
+TaggedPost.create({post_id: post5.id, tag_id: Tag.find_by({name: 'beach'}).id})
+TaggedPost.create({post_id: post5.id, tag_id: Tag.find_by({name: 'ocean'}).id})
+TaggedPost.create({post_id: post5.id, tag_id: Tag.find_by({name: 'landscape'}).id})
+TaggedPost.create({post_id: post5.id, tag_id: Tag.find_by({name: 'scenic'}).id})
+
+TaggedPost.create({post_id: post6.id, tag_id: Tag.find_by({name: 'wonder'}).id})
+TaggedPost.create({post_id: post6.id, tag_id: Tag.find_by({name: 'art'}).id})
+TaggedPost.create({post_id: post6.id, tag_id: Tag.find_by({name: 'mood'}).id})
+
+TaggedPost.create({post_id: post7.id, tag_id: Tag.find_by({name: 'architecture'}).id})
+TaggedPost.create({post_id: post7.id, tag_id: Tag.find_by({name: 'street'}).id})
+TaggedPost.create({post_id: post7.id, tag_id: Tag.find_by({name: 'moment'}).id})
+TaggedPost.create({post_id: post7.id, tag_id: Tag.find_by({name: 'glance'}).id})
+
+TaggedPost.create({post_id: post8.id, tag_id: Tag.find_by({name: 'architecture'}).id})
+TaggedPost.create({post_id: post8.id, tag_id: Tag.find_by({name: 'icon'}).id})
+TaggedPost.create({post_id: post8.id, tag_id: Tag.find_by({name: 'wonder'}).id})
+
+TaggedPost.create({post_id: post9.id, tag_id: Tag.find_by({name: 'details'}).id})
+TaggedPost.create({post_id: post9.id, tag_id: Tag.find_by({name: 'flower'}).id})
+TaggedPost.create({post_id: post9.id, tag_id: Tag.find_by({name: 'plants'}).id})
+TaggedPost.create({post_id: post9.id, tag_id: Tag.find_by({name: 'life'}).id})
+
+TaggedPost.create({post_id: post10.id, tag_id: Tag.find_by({name: 'sunset'}).id})
+TaggedPost.create({post_id: post10.id, tag_id: Tag.find_by({name: 'landscape'}).id})
+TaggedPost.create({post_id: post10.id, tag_id: Tag.find_by({name: 'dusk'}).id})
+
+TaggedPost.create({post_id: post11.id, tag_id: Tag.find_by({name: 'architecture'}).id})
+TaggedPost.create({post_id: post11.id, tag_id: Tag.find_by({name: 'angles'}).id})
+TaggedPost.create({post_id: post11.id, tag_id: Tag.find_by({name: 'street'}).id})
+TaggedPost.create({post_id: post11.id, tag_id: Tag.find_by({name: 'icon'}).id})
+
+TaggedPost.create({post_id: post12.id, tag_id: Tag.find_by({name: 'ocean'}).id})
+TaggedPost.create({post_id: post12.id, tag_id: Tag.find_by({name: 'beach'}).id})
+
+TaggedPost.create({post_id: post13.id, tag_id: Tag.find_by({name: 'architecture'}).id})
+TaggedPost.create({post_id: post13.id, tag_id: Tag.find_by({name: 'icon'}).id})
+TaggedPost.create({post_id: post13.id, tag_id: Tag.find_by({name: 'black and white'}).id})
+
+TaggedPost.create({post_id: post14.id, tag_id: Tag.find_by({name: 'abstract'}).id})
+TaggedPost.create({post_id: post14.id, tag_id: Tag.find_by({name: 'art'}).id})
+TaggedPost.create({post_id: post14.id, tag_id: Tag.find_by({name: 'architecture'}).id})
+TaggedPost.create({post_id: post14.id, tag_id: Tag.find_by({name: 'museum'}).id})
+
+TaggedPost.create({post_id: post15.id, tag_id: Tag.find_by({name: 'museum'}).id})
+TaggedPost.create({post_id: post15.id, tag_id: Tag.find_by({name: 'architecture'}).id})
+TaggedPost.create({post_id: post15.id, tag_id: Tag.find_by({name: 'moment'}).id})
+TaggedPost.create({post_id: post15.id, tag_id: Tag.find_by({name: 'street'}).id})
+
+TaggedPost.create({post_id: post16.id, tag_id: Tag.find_by({name: 'building'}).id})
+TaggedPost.create({post_id: post16.id, tag_id: Tag.find_by({name: 'architecture'}).id})
+TaggedPost.create({post_id: post16.id, tag_id: Tag.find_by({name: 'angles'}).id})
+
+TaggedPost.create({post_id: post17.id, tag_id: Tag.find_by({name: 'dog'}).id})
+TaggedPost.create({post_id: post17.id, tag_id: Tag.find_by({name: 'black and white'}).id})
+TaggedPost.create({post_id: post17.id, tag_id: Tag.find_by({name: 'sharp'}).id})
+TaggedPost.create({post_id: post17.id, tag_id: Tag.find_by({name: 'pet'}).id})
+
+TaggedPost.create({post_id: post18.id, tag_id: Tag.find_by({name: 'architecture'}).id})
+TaggedPost.create({post_id: post18.id, tag_id: Tag.find_by({name: 'icon'}).id})
+TaggedPost.create({post_id: post18.id, tag_id: Tag.find_by({name: 'no people'}).id})
+TaggedPost.create({post_id: post18.id, tag_id: Tag.find_by({name: 'city'}).id})
+TaggedPost.create({post_id: post18.id, tag_id: Tag.find_by({name: 'building'}).id})
+
+TaggedPost.create({post_id: post19.id, tag_id: Tag.find_by({name: 'building'}).id})
+TaggedPost.create({post_id: post19.id, tag_id: Tag.find_by({name: 'city'}).id})
+TaggedPost.create({post_id: post19.id, tag_id: Tag.find_by({name: 'architecture'}).id})
+TaggedPost.create({post_id: post19.id, tag_id: Tag.find_by({name: 'no people'}).id})
+
+TaggedPost.create({post_id: post20.id, tag_id: Tag.find_by({name: 'still life'}).id})
+TaggedPost.create({post_id: post20.id, tag_id: Tag.find_by({name: 'food'}).id})
+TaggedPost.create({post_id: post20.id, tag_id: Tag.find_by({name: 'milk'}).id})
+TaggedPost.create({post_id: post20.id, tag_id: Tag.find_by({name: 'coffee'}).id})
+
+TaggedPost.create({post_id: post21.id, tag_id: Tag.find_by({name: 'vibes'}).id})
+TaggedPost.create({post_id: post21.id, tag_id: Tag.find_by({name: 'home'}).id})
+TaggedPost.create({post_id: post21.id, tag_id: Tag.find_by({name: 'house'}).id})
+
+TaggedPost.create({post_id: post22.id, tag_id: Tag.find_by({name: 'food'}).id})
+TaggedPost.create({post_id: post22.id, tag_id: Tag.find_by({name: 'desert'}).id})
+TaggedPost.create({post_id: post22.id, tag_id: Tag.find_by({name: 'close up'}).id})
+TaggedPost.create({post_id: post22.id, tag_id: Tag.find_by({name: 'macro'}).id})
+TaggedPost.create({post_id: post22.id, tag_id: Tag.find_by({name: 'joy'}).id})
+
+TaggedPost.create({post_id: post24.id, tag_id: Tag.find_by({name: 'architecture'}).id})
+TaggedPost.create({post_id: post24.id, tag_id: Tag.find_by({name: 'ocean'}).id})
+TaggedPost.create({post_id: post24.id, tag_id: Tag.find_by({name: 'iconic'}).id})
+
+TaggedPost.create({post_id: post25.id, tag_id: Tag.find_by({name: 'building'}).id})
+TaggedPost.create({post_id: post25.id, tag_id: Tag.find_by({name: 'iconic'}).id})
+TaggedPost.create({post_id: post25.id, tag_id: Tag.find_by({name: 'flag'}).id})
+
+TaggedPost.create({post_id: post26.id, tag_id: Tag.find_by({name: 'close up'}).id})
+TaggedPost.create({post_id: post26.id, tag_id: Tag.find_by({name: 'macro'}).id})
+TaggedPost.create({post_id: post26.id, tag_id: Tag.find_by({name: 'flower'}).id})
+TaggedPost.create({post_id: post26.id, tag_id: Tag.find_by({name: 'wonder'}).id})
+TaggedPost.create({post_id: post26.id, tag_id: Tag.find_by({name: 'plant'}).id})
+
+TaggedPost.create({post_id: post27.id, tag_id: Tag.find_by({name: 'flower'}).id})
+TaggedPost.create({post_id: post27.id, tag_id: Tag.find_by({name: 'macro'}).id})
+TaggedPost.create({post_id: post27.id, tag_id: Tag.find_by({name: 'close up'}).id})
+TaggedPost.create({post_id: post27.id, tag_id: Tag.find_by({name: 'plant'}).id})
+TaggedPost.create({post_id: post27.id, tag_id: Tag.find_by({name: 'details'}).id})
+
+TaggedPost.create({post_id: post28.id, tag_id: Tag.find_by({name: 'close up'}).id})
+TaggedPost.create({post_id: post28.id, tag_id: Tag.find_by({name: 'macro'}).id})
+TaggedPost.create({post_id: post28.id, tag_id: Tag.find_by({name: 'green'}).id})
+TaggedPost.create({post_id: post28.id, tag_id: Tag.find_by({name: 'food'}).id})
+TaggedPost.create({post_id: post28.id, tag_id: Tag.find_by({name: 'details'}).id})
+
+TaggedPost.create({post_id: post29.id, tag_id: Tag.find_by({name: 'ocean'}).id})
+TaggedPost.create({post_id: post29.id, tag_id: Tag.find_by({name: 'beach'}).id})
+TaggedPost.create({post_id: post29.id, tag_id: Tag.find_by({name: 'editing'}).id})
+
+TaggedPost.create({post_id: post30.id, tag_id: Tag.find_by({name: 'architecture'}).id})
+TaggedPost.create({post_id: post30.id, tag_id: Tag.find_by({name: 'travel'}).id})
+TaggedPost.create({post_id: post30.id, tag_id: Tag.find_by({name: 'skyscraper'}).id})
+TaggedPost.create({post_id: post30.id, tag_id: Tag.find_by({name: 'urban'}).id})
+
+TaggedPost.create({post_id: post31.id, tag_id: Tag.find_by({name: 'pet'}).id})
+TaggedPost.create({post_id: post31.id, tag_id: Tag.find_by({name: 'pets'}).id})
+TaggedPost.create({post_id: post31.id, tag_id: Tag.find_by({name: 'dog'}).id})
+TaggedPost.create({post_id: post31.id, tag_id: Tag.find_by({name: 'black and white'}).id})
+
+TaggedPost.create({post_id: post32.id, tag_id: Tag.find_by({name: 'pet'}).id})
+TaggedPost.create({post_id: post32.id, tag_id: Tag.find_by({name: 'pets'}).id})
+TaggedPost.create({post_id: post32.id, tag_id: Tag.find_by({name: 'dog'}).id})
+
+TaggedPost.create({post_id: post33.id, tag_id: Tag.find_by({name: 'black and white'}).id})
+TaggedPost.create({post_id: post33.id, tag_id: Tag.find_by({name: 'museum'}).id})
+TaggedPost.create({post_id: post33.id, tag_id: Tag.find_by({name: 'art'}).id})
+TaggedPost.create({post_id: post33.id, tag_id: Tag.find_by({name: 'sculpture'}).id})
