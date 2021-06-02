@@ -1,36 +1,38 @@
-import React from 'react';
-import PostIndexItem from './post_index_item';
-import Spinner from '../../../util/spinner';
-import {Link} from 'react-router-dom';
+import React from "react";
+import PostIndexItem from "./post_index_item";
+import Spinner from "../../../util/spinner";
+import { Link } from "react-router-dom";
 
 class PostIndex extends React.Component {
-  constructor(props){
+  constructor(props) {
     super(props);
   }
 
-  componentDidMount(){
+  componentDidMount() {
     window.scrollTo(0, 0);
-    if (this.props.indexType === undefined){
+    if (this.props.indexType === undefined) {
       this.props.fetchPosts();
     }
   }
 
   renderItems() {
-    const { posts, users, indexType} = this.props
-    return posts.map((post) => {
-      const author = users[post.userId].username;
-      return (
-        <PostIndexItem
-          key={post.id}
-          post={post}
-          author={indexType === "userIndex" ? "" : author }
-        />
-      );
-    }).reverse();
+    const { posts, users, indexType } = this.props;
+    return posts
+      .map((post) => {
+        const author = users[post.userId].username;
+        return (
+          <PostIndexItem
+            key={post.id}
+            post={post}
+            author={indexType === "userIndex" ? "" : author}
+          />
+        );
+      })
+      .reverse();
   }
 
-  renderNoPosts(){
-    if (this.props.indexType === 'userIndex') {
+  renderNoPosts() {
+    if (this.props.indexType === "userIndex") {
       return (
         <div>
           <h1>Welcome to InfinitePX! </h1>
@@ -43,7 +45,7 @@ class PostIndex extends React.Component {
           )}
         </div>
       );
-    } else if (this.props.indexType === 'searchIndex') {
+    } else if (this.props.indexType === "searchIndex") {
       return (
         <div>
           <p>No results for {this.props.searchTerm}</p>
@@ -54,7 +56,7 @@ class PostIndex extends React.Component {
         <div>
           <h1>Welcome to InfinitePX! </h1>
           <p>
-            Checkout and follow other photographers on the{' '}
+            Checkout and follow other photographers on the{" "}
             <Link to="/discover">Discover</Link> page to get started!
           </p>
         </div>
@@ -62,22 +64,21 @@ class PostIndex extends React.Component {
     }
   }
 
-  render(){
+  render() {
     if (this.props.loading) return <Spinner />;
-    if (this.props.posts.length === 0) return (
-      <div className="empty-feed">
-        {this.renderNoPosts()}
-      </div>
-    );
+    if (this.props.posts.length === 0)
+      return <div className="empty-feed">{this.renderNoPosts()}</div>;
     return (
       <div className="post-index">
-        <ul className="post-gallery">
-          {this.renderItems()}
-        </ul>
+        <div className="post-container">
+          {this.props.indexType === "searchIndex" && (
+            <p className="search-info">{`${this.props.searchTerm} Photos`}</p>
+          )}
+          <ul className="post-gallery">{this.renderItems()}</ul>
+        </div>
       </div>
-    )
+    );
   }
-
 }
 
 export default PostIndex;

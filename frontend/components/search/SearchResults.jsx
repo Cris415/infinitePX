@@ -1,18 +1,15 @@
-import React from 'react';
-import { connect } from 'react-redux'
-import PostIndex from '../posts/post_index/post_index';
-import SearchPageBarContainer from './SearchPageBarContainer';
+import React from "react";
+import { connect } from "react-redux";
+import PostIndex from "../posts/post_index/post_index";
+import SearchPageBarContainer from "./SearchPageBarContainer";
 
-function SearchResults(props){
-  return(
-    <div className="searchResults">
-      <div className="header">
-        <SearchPageBarContainer searchTerm={props.searchTerm}/>
-        {/* Results for {props.searchTerm} */}
-      </div>
-      <PostIndex {...props}  />
+function SearchResults(props) {
+  return (
+    <div>
+      <SearchPageBarContainer searchTerm={props.searchTerm} />
+      <PostIndex {...props} />
     </div>
-  )
+  );
 }
 
 const mapStateToProps = (state, ownProps) => ({

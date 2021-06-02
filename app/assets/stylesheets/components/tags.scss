@@ -11,6 +11,7 @@
       border: 1px $color-grey-dark-3 solid;
       margin-right: 3px;
       margin-bottom: 3px;
+      text-transform: capitalize;
 
       &:hover {
         color: $color-active;

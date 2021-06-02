@@ -1,39 +1,39 @@
-import React from 'react';
-import { Link, Redirect } from 'react-router-dom';
-import Spinner from '../../../util/spinner';
+import React from "react";
+import { Link, Redirect } from "react-router-dom";
+import Spinner from "../../../util/spinner";
 import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import CommentIndexContainer from "../../comments/comment_index_container";
-import CreateCommentContainer from '../../comments/create_comment_container';
-import TagIndex from '../../tags/tag_index';
+import CreateCommentContainer from "../../comments/create_comment_container";
+import TagIndex from "../../tags/tag_index";
 
 class PostShow extends React.Component {
-  constructor(props){
+  constructor(props) {
     super(props);
 
     this.handleGoBack = this.handleGoBack.bind(this);
     this.handleTagSearch = this.handleTagSearch.bind(this);
   }
-  componentDidMount(){
+  componentDidMount() {
     window.scrollTo(0, 0);
     this.props.fetchPost();
   }
 
-  handleGoBack(){
-    this.props.history.goBack()
+  handleGoBack() {
+    this.props.history.goBack();
   }
 
-  handleTagSearch(e){
+  handleTagSearch(e) {
     const searchTerm = e.currentTarget.innerHTML;
     this.props.searchPosts(searchTerm);
     this.props.history.push(`/results/${searchTerm}`);
   }
 
-  render(){
-    if (!this.props.post ) return <div></div>;
+  render() {
+    if (!this.props.post) return <div></div>;
 
     const { title, description, createdAt } = this.props.post;
-    const {author} = this.props;
+    const { author } = this.props;
     const date = new Date(createdAt);
 
     if (this.props.loading) return <Spinner />;
@@ -63,7 +63,10 @@ class PostShow extends React.Component {
             </div>
             <p className="description"> {description} </p>
 
-            <TagIndex tags={this.props.tags.map(tag => tag.name)}  action={this.handleTagSearch}/>
+            <TagIndex
+              tags={this.props.tags.map((tag) => tag.name)}
+              action={this.handleTagSearch}
+            />
 
             {this.props.currentUserId === author.id && (
               <Link
@@ -82,7 +85,6 @@ class PostShow extends React.Component {
       </div>
     );
   }
-
 }
 
 export default PostShow;
