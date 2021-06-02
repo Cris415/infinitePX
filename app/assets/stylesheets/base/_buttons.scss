@@ -26,6 +26,10 @@ a.link-btn {
     border: none;
     font-size: 2rem;
   }
+  &-upload:active{
+    color: $color-primary;
+    background-color: $color-secondary;
+  }
   &-delete {
     font-size: inherit;
     width: 100%;
