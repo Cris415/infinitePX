@@ -69,7 +69,7 @@ export const deletePost = (postId) => dispatch => (
   ).fail(errs => dispatch(receivePostErrors(errs.responseJSON)))
 );
 
-export const searchPosts = (searchTerm) => (dispatch) =>
+export const searchPosts = (searchTerm, type="query") => (dispatch) =>
   postAPI
-    .searchPosts(searchTerm)
+    .searchPosts(searchTerm, type)
     .then((posts) => dispatch(receivePosts(posts)));
