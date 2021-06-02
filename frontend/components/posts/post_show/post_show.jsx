@@ -12,6 +12,7 @@ class PostShow extends React.Component {
     super(props);
 
     this.handleGoBack = this.handleGoBack.bind(this);
+    this.handleTagSearch = this.handleTagSearch.bind(this);
   }
   componentDidMount(){
     window.scrollTo(0, 0);
@@ -20,6 +21,12 @@ class PostShow extends React.Component {
 
   handleGoBack(){
     this.props.history.goBack()
+  }
+
+  handleTagSearch(e){
+    const searchTerm = e.currentTarget.innerHTML;
+    this.props.searchPosts(searchTerm);
+    this.props.history.push(`/results/${searchTerm}`);
   }
 
   render(){
@@ -56,7 +63,7 @@ class PostShow extends React.Component {
             </div>
             <p className="description"> {description} </p>
 
-            <TagIndex tags={this.props.tags.map(tag => tag.name)}  action={() => console.log('perform search here!')}/>
+            <TagIndex tags={this.props.tags.map(tag => tag.name)}  action={this.handleTagSearch}/>
 
             {this.props.currentUserId === author.id && (
               <Link
