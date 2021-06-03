@@ -14,7 +14,8 @@ function TagIndex(props) {
         onClick={props.tagType === "show" ?  props.search(tag) : () => {}}
       >
         <span className="tag-list-item-content">
-          {tag.length > 28 ? tag.slice(0, 27) + '...' : tag}
+          {/* {tag.length > 28 ? tag.slice(0, 27) + '...' : tag} */}
+        {tag}
         </span>
         {props.tagType === "remove" && (
           <span onClick={props.remove(tag)} className="tag-list-item-icon" >
