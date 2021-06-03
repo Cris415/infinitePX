@@ -37,6 +37,7 @@ class TagForm extends React.Component {
           value={this.state.name}
           onChange={this.handleChange}
           placeholder="Type your own keywords here"
+          className="tag-form-input"
         />
         <button
           onClick={this.handleAddTag}

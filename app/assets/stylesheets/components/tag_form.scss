@@ -1,4 +1,18 @@
 .tag-form {
+  border: 1px solid $color-grey-light-3;
+  padding: 0 2rem 2rem 2rem;
+  border-radius: 5px;
+  margin-top: 0.5rem;
+
+  input[type=text].tag-form-input  {
+    padding-left: 0;
+    margin-bottom: 0;
+    border: none;
+  }
+  & .tag-list {
+    margin: 0;
+  }
+
   &-button {
     background-color: transparent;
     border:none;
@@ -6,7 +20,10 @@
     height: 0px;
   }
 
-  input {
-    margin-top: 0.5rem;
+  // Get this to work
+  // when input is on focus apply styling to parent class
+
+   input[type=text].tag-form-input:focus{
+    border: 1px solid $color-active;
   }
 }
