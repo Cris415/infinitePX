@@ -24,13 +24,14 @@ class TagForm extends React.Component {
     }
   }
 
-  handleRemoveTag(e) {
-    e.preventDefault();
-    this.props.action(e.currentTarget.innerHTML);
+  handleRemoveTag(tag) {
+    return (e) => {
+      e.preventDefault();
+      this.props.action(tag)
+    }
   }
 
   render() {
-    console.log(this.props.focus)
     return (
       <div
         className={`tag-form ${this.props.focus ? "focus" : ""}`}
@@ -42,13 +43,12 @@ class TagForm extends React.Component {
           onChange={this.handleChange}
           placeholder="Type your own keywords here"
           className="tag-form-input"
-          // onClick={this.setFocusTrue(true)}
         />
         <button
           onClick={this.handleAddTag}
           className="tag-form-button"
         ></button>
-        <TagIndex tags={this.props.tags} action={this.handleRemoveTag} />
+        <TagIndex tags={this.props.tags} remove={this.handleRemoveTag} tagType="remove" />
       </div>
     );
   }

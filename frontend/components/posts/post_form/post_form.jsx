@@ -40,7 +40,6 @@ class PostForm extends React.Component {
 
   componentDidMount() {
     window.scrollTo(0, 0);
-    this.setState({ tagFormFocus: false });
   }
 
   componentWillUnmount() {
@@ -228,7 +227,7 @@ class PostForm extends React.Component {
                 Keywords
                 {this.renderTagForm()}
               </label>
-              
+
               {this.renderDeleteButton()}
             </div>
 

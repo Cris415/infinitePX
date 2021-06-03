@@ -23,10 +23,12 @@ class PostShow extends React.Component {
     this.props.history.goBack();
   }
 
-  handleTagSearch(e) {
-    const searchTerm = e.currentTarget.innerHTML;
-    this.props.searchPosts(searchTerm);
-    this.props.history.push(`/results/${searchTerm}`);
+  handleTagSearch(tag) {
+    return () => {
+      const searchTerm = tag;
+      this.props.searchPosts(searchTerm);
+      this.props.history.push(`/results/${searchTerm}`);
+    };
   }
 
   render() {
@@ -65,7 +67,8 @@ class PostShow extends React.Component {
 
             <TagIndex
               tags={this.props.tags.map((tag) => tag.name)}
-              action={this.handleTagSearch}
+              search={this.handleTagSearch}
+              tagType="show"
             />
 
             {this.props.currentUserId === author.id && (
