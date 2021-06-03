@@ -25,6 +25,10 @@
     width: 55%;
     padding: 3rem;
 
+    .description {
+      word-wrap: break-word;
+    }
+
     .edit {
       display: inline-block;
       margin-top: 5rem;
