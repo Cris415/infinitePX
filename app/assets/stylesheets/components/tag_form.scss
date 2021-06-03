@@ -1,0 +1,12 @@
+.tag-form {
+  &-button {
+    background-color: transparent;
+    border:none;
+    width: 0px;
+    height: 0px;
+  }
+
+  input {
+    margin-top: 0.5rem;
+  }
+}

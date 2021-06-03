@@ -1,42 +1,50 @@
-import React from 'react';
-import TagIndex from './tag_index';
+import React from "react";
+import TagIndex from "./tag_index";
 
 class TagForm extends React.Component {
-  constructor(props){
+  constructor(props) {
     super(props);
-    this.state = {name: ''};
+    this.state = { name: "" };
 
     this.handleChange = this.handleChange.bind(this);
     this.handleAddTag = this.handleAddTag.bind(this);
     this.handleRemoveTag = this.handleRemoveTag.bind(this);
   }
 
-  handleChange(e){
+  handleChange(e) {
     e.preventDefault();
     this.setState({ name: e.currentTarget.value });
   }
 
-  handleAddTag(e){
+  handleAddTag(e) {
     e.preventDefault();
-    if (this.state.name.length > 1){
+    if (this.state.name.length > 1) {
       this.props.addTagPost(this.state.name.toLowerCase());
-      this.setState({name: ''});
+      this.setState({ name: "" });
     }
   }
 
-  handleRemoveTag(e){
+  handleRemoveTag(e) {
     e.preventDefault();
     this.props.action(e.currentTarget.innerHTML);
   }
 
-  render(){
+  render() {
     return (
       <div className="tag-form">
-        <input type="text" value={this.state.name} onChange={this.handleChange}/>
-        <button onClick={this.handleAddTag}>Add Tag</button>
-        <TagIndex tags={ this.props.tags } action={this.handleRemoveTag} /> 
+        <input
+          type="text"
+          value={this.state.name}
+          onChange={this.handleChange}
+          placeholder="Type your own keywords here"
+        />
+        <button
+          onClick={this.handleAddTag}
+          className="tag-form-button"
+        ></button>
+        <TagIndex tags={this.props.tags} action={this.handleRemoveTag} />
       </div>
-    )
+    );
   }
 }
 

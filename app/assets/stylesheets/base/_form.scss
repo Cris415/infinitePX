@@ -24,6 +24,14 @@ form {
     border: $border;
     padding: 1.5rem;
     font-size: 1.6rem;
+    font-family: inherit;
+    font-weight: 300;
+    outline: none;
+
+
+    &:focus {
+      border: 1px solid $color-active;
+    }
 
     &::placeholder {
       color: $color-grey-dark-1;
@@ -37,7 +45,7 @@ form {
     font-family: inherit;
     font-size: 1.4rem;
     overflow: auto;
-    height: 5.5rem
+    height: 6rem;   
   }
 
   .errors {
