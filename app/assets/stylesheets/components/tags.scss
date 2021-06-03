@@ -13,20 +13,20 @@
       margin-right: 0.8rem;
       margin-bottom: 1.2rem;
       text-transform: capitalize;
+      max-width: 25rem;
+
         &:hover {
           cursor: pointer;
         }
 
-      &-remove {
-        span {
-          position: relative;
-          margin-left: 1.5rem;
-          svg {
-            position: absolute;
-            top: 1px;
-            left: -9px;
-            color: $color-secondary;
-          }
+      &-icon {
+        position: relative;
+        margin-left: 1.5rem;
+        svg {
+          position: absolute;
+          top: 1px;
+          left: -9px;
+          color: $color-secondary;
         }
       }
       &-show {
@@ -35,6 +35,10 @@
           border-color: $color-active;
           cursor: pointer;
         }
+      }
+
+      &-content {
+        overflow: scroll;
       }
     }
 
