@@ -12,6 +12,14 @@ class Post < ApplicationRecord
   foreign_key: :post_id,
   class_name: :Comment
 
+  has_many :tagged_posts,
+    foreign_key: :post_id,
+    class_name: :TaggedPost
+  
+  has_many :tags,
+    through: :tagged_posts,
+    source: :tag
+
   has_one_attached :photo
 
   def ensure_photo

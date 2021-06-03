@@ -26,6 +26,10 @@ a.link-btn {
     border: none;
     font-size: 2rem;
   }
+  &-upload:active{
+    color: $color-primary;
+    background-color: $color-secondary;
+  }
   &-delete {
     font-size: inherit;
     width: 100%;
@@ -33,7 +37,8 @@ a.link-btn {
     background-color: $color-primary;
     color: $color-active;
     padding: 1.5rem 0;
-
+    text-align: center;
+    
     &:hover {
       border: 2px solid $color-error;
       color: $color-error;

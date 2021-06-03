@@ -1,4 +1,6 @@
 class Api::CommentsController < ApplicationController
+  before_action :require_login
+
   def index
     if params.has_key?(:post_id)
       @comments = Comment.where(post_id: params[:post_id])

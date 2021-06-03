@@ -1,10 +1,11 @@
-import React from 'react';
-import { Link, withRouter } from 'react-router-dom';
-import ImagePreview from './image_preview';
-import UploadImageInput from './upload_image_input';
+import React from "react";
+import { Link, withRouter } from "react-router-dom";
+import ImagePreview from "./image_preview";
+import UploadImageInput from "./upload_image_input";
+import TagForm from "../../tags/tag_form";
 
 class PostForm extends React.Component {
-  constructor(props){
+  constructor(props) {
     super(props);
 
     this.props.post.edited = false;
@@ -13,9 +14,10 @@ class PostForm extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleFile = this.handleFile.bind(this);
     this.handleDelete = this.handleDelete.bind(this);
+    this.setTagFocus = this.setTagFocus.bind(this);
   }
 
-  handleFile(e){
+  handleFile(e) {
     const file = e.currentTarget.files[0];
     const fileReader = new FileReader();
     fileReader.onloadend = () => {
@@ -23,82 +25,189 @@ class PostForm extends React.Component {
       extension = extension.toLowerCase();
 
       // If the extensions don't match the following, state will not be set.
-      if ( extension !== "jpg" &&  extension !== "jpeg" ) return;
+      if (extension !== "jpg" && extension !== "jpeg") return;
 
       this.setState({
         photoFile: file,
         photoUrl: fileReader.result,
         title: name,
       });
-    }
+    };
     if (file) {
       fileReader.readAsDataURL(file);
     }
   }
-  componentDidMount(){
+
+  componentDidMount() {
     window.scrollTo(0, 0);
   }
 
-  componentWillUnmount(){
+  componentWillUnmount() {
     this.props.clearErrors();
   }
 
-  handleSubmit(e){
+  handleSubmit(e) {
     e.preventDefault();
 
     const formData = new FormData();
-    formData.append('post[title]', this.state.title);
-    formData.append('post[description]', this.state.description);
-    if (this.props.formType === 'Upload') {
-      formData.append('post[userId]', this.props.currentUser);
+    formData.append("post[title]", this.state.title);
+    formData.append("post[description]", this.state.description);
+    if (this.props.formType === "Upload") {
+      formData.append("post[userId]", this.props.currentUser);
     }
 
     if (this.state.photoFile) {
-      formData.append('post[photo]', this.state.photoFile);
+      formData.append("post[photo]", this.state.photoFile);
     }
 
-    if (this.props.formType ==='Edit' && this.state.id){
+    if (this.props.formType === "Edit" && this.state.id) {
       formData.append("post[postId]", this.state.id);
     }
-   
-    this.props.processForm(formData, (postId) =>
-      this.props.history.push(`/posts/${postId}`)
-    );
+
+    this.props.processForm(formData, (postId) => {
+      this.props.history.push(`/posts/${postId}`);
+      this.props.addTags({ tag: { tags: this.state.tags.join(","), postId } });
+      if (this.props.formType === "Edit") {
+        // list of tags to be removed
+        // get their IDs
+        const removeTagsIds = this.state.removeTags.map(
+          (removeTag) =>
+            this.props.tags.find((tag) => tag.name === removeTag).id
+        );
+        // invoke deleteTag for each tag
+        removeTagsIds.forEach((id) => this.props.deleteTag(id, this.state.id));
+      }
+    });
   }
 
-  handleChange(label){
+  handleChange(label) {
     return (e) => {
       if (!this.state.edited) {
         this.setState({ edited: true });
       }
-      this.setState({ [label] : e.currentTarget.value })
-    }
+      this.setState({ [label]: e.currentTarget.value });
+    };
   }
 
-  handleDelete(e){
+  handleDelete(e) {
     e.preventDefault();
     this.props.deletePost().then(() => this.props.history.push(`/`));
   }
 
-  render(){
+  renderDeleteButton() {
+    return (
+      this.props.formType === "Edit" && (
+        <div className="btn btn-delete" onClick={this.handleDelete}>
+          Delete photo
+        </div>
+      )
+    );
+  }
+
+  setTagFocus(status) {
+    return (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      this.setState({ tagFormFocus: status });
+    };
+  }
+
+  renderTagForm() {
+    let { tags, preloadedTags, displayTags, removeTags } = this.state;
+    const action = (clickedTag) => {
+      // remove tag from state
+      // Add tag to a delete array
+      const filteredTags = tags.filter((tag) => tag !== clickedTag);
+      this.setState({
+        displayTags: displayTags.filter((tag) => tag !== clickedTag),
+      });
+
+      // only add tags to remove if they are preloaded
+      // since an api call is needed to remove those tags
+      if (preloadedTags && preloadedTags.includes(clickedTag)) {
+        this.setState({
+          tags: filteredTags,
+          removeTags: [...removeTags, clickedTag],
+          edited: true,
+        });
+      } else {
+        this.setState({ tags: filteredTags, edited: true });
+      }
+    };
+
+    return (
+      <TagForm
+        tags={displayTags}
+        addTagPost={(tag) =>
+          this.setState({
+            tags: [...tags, tag],
+            displayTags: [...displayTags, tag],
+            edited: true,
+          })
+        }
+        action={action}
+        focus={this.state.tagFormFocus}
+        setFocus={this.setTagFocus(true)}
+      />
+    );
+  }
+
+  renderErrors() {
+    return (
+      <ul className="errors">
+        {this.props.errors.map((err, i) => (
+          <li key={i}>{err}</li>
+        ))}
+      </ul>
+    );
+  }
+
+  renderSubmitCancelButtons() {
+    const { formType } = this.props;
+    const linkRoute =
+      formType === "Upload" ? "/" : `/posts/${this.props.match.params.postId}`;
+    const submitBtnName = formType === "Edit" ? "Save changes" : formType;
+
+    if ((formType === "Edit" && this.state.edited) || formType === "Upload") {
+      return (
+        <div className="buttons">
+          <Link to={linkRoute}>Cancel</Link>
+          <input
+            className="btn submit-btn"
+            type="submit"
+            value={submitBtnName}
+          />
+        </div>
+      );
+    }
+  }
+
+  render() {
+    const { photoFile, title, description, photoUrl } = this.state;
     return (
       <div>
         <div className="header-small">
-          <h2>{this.props.formType}</h2>
+          <h2>
+            {this.props.formType === "Edit"
+              ? "Photo manager"
+              : this.props.formType}
+          </h2>
         </div>
 
         <div className="form-container">
-          {(!this.state.photoFile && this.props.formType !== 'Edit') && <UploadImageInput handleFile={this.handleFile} />}
+          {!(photoFile || this.props.formType === "Edit") && (
+            <UploadImageInput handleFile={this.handleFile} />
+          )}
 
-          {<ImagePreview photoUrl={this.state.photoUrl} title={this.state.title} />}
+          <ImagePreview photoUrl={photoUrl} title={title} />
 
           <form onSubmit={this.handleSubmit} className="post-form">
-            <div className="inputs">
+            <div className="inputs" onClick={this.setTagFocus(false)}>
               <label>
                 Title
                 <input
                   type="text"
-                  value={this.state.title}
+                  value={title}
                   onChange={this.handleChange("title")}
                   required
                 />
@@ -107,33 +216,23 @@ class PostForm extends React.Component {
               <label>
                 Description
                 <textarea
-                  value={this.state.description}
+                  value={description}
                   onChange={this.handleChange("description")}
                   placeholder="e.g. Low angle view of a young bulldog skateboarding near a beach with a striking sunset"
                   required
                 />
               </label>
 
-              {this.props.formType === 'Edit'  && <button className="btn btn-delete" onClick={this.handleDelete} > Delete photo</button>}
+              <label>
+                Keywords
+                {this.renderTagForm()}
+              </label>
+
+              {this.renderDeleteButton()}
             </div>
 
-            <ul className="errors">
-              {this.props.errors.map((err, i) => (
-                <li key={i}>{err}</li>
-              ))}
-            </ul>
-
-           {((this.props.formType === 'Edit' && this.state.edited) || this.props.formType === 'Upload')  && (
-            <div className="buttons">
-              <Link to={this.props.formType === 'Upload' ? "/" : `/posts/${this.props.match.params.postId}`}>Cancel</Link>
-                
-              <input
-                className="btn submit-btn"
-                type="submit"
-                value={this.props.formType === "Edit" ? 'Save changes' : this.props.formType  }
-              />
-            </div>
-           )}
+            {this.renderErrors()}
+            {this.renderSubmitCancelButtons()}
           </form>
         </div>
       </div>

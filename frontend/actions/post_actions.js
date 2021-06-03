@@ -19,10 +19,11 @@ export const receivePosts = ({ posts, users }) => ({
   users
 });
 
-export const receivePost = ({post, user}) => ({
+export const receivePost = ({post, user, tags}) => ({
   type: RECEIVE_POST,
   post,
-  user
+  user,
+  tags
 });
 
 export const removePost = postId => ({
@@ -68,7 +69,7 @@ export const deletePost = (postId) => dispatch => (
   ).fail(errs => dispatch(receivePostErrors(errs.responseJSON)))
 );
 
-export const searchPosts = (searchTerm) => (dispatch) =>
+export const searchPosts = (searchTerm, type="query") => (dispatch) =>
   postAPI
-    .searchPosts(searchTerm)
+    .searchPosts(searchTerm, type)
     .then((posts) => dispatch(receivePosts(posts)));

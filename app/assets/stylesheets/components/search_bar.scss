@@ -28,25 +28,25 @@ form#search-bar {
     outline: none;
     background-color: $color-grey-light-1;
     color: $color-grey-dark-3;
-    &:hover {
-      color: $color-active;
-    }
   }
-  
+
   svg {
     margin-right: 1rem;
   } 
 
   &.searchPage {
-    border-radius: 5px;
+    box-sizing: border-box;
     width: 100%;
     height: 7rem;
     background-color: $color-primary;
+    border-radius: 0;
+    border-bottom: solid 2px $color-grey-light-2;
+    padding: 0;
 
     input[type='text']{
       background-color: white;
       font-size: 2.4rem;
-      font-weight: 100;
+      padding: 0 0 0 3rem;
     }
     .search-button{
       border: none;

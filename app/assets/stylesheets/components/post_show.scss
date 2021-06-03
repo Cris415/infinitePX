@@ -22,10 +22,12 @@
 
   .img-info {
     background-color: $color-primary;
-    // width: 70rem;
     width: 55%;
-    height: 20rem;
     padding: 3rem;
+
+    .description {
+      word-wrap: break-word;
+    }
 
     .edit {
       display: inline-block;

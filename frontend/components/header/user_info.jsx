@@ -40,7 +40,7 @@ class UserInfo extends React.Component {
            </ul>
          </li>,
          <li key="createPost">
-           <Link to="/posts/new" className="upload-btn btn btn-medium">
+           <Link to="/posts/new" className="btn-upload btn btn-medium">
              <FontAwesomeIcon icon={faArrowUp} /> Upload
            </Link>
          </li>,

@@ -7,7 +7,12 @@
   &-list {
     margin-top: 2rem;
   }
+  &-content {
+    max-width: 70%;
+     word-wrap: break-word;
+  }
   &-content-item{
+    box-sizing: border-box;
     width: 100%;
     display: flex;
     justify-content: space-between;
@@ -31,7 +36,7 @@
     align-items: center;
   }
   &-user-info {
-    width: 100%;
+    width: 90%;
   }
   &-date {
     font-size: 1.2rem;
@@ -81,7 +86,10 @@
       padding: 0;
       outline: none;
       margin: 0;
-      box-sizing: border-box;      
+      box-sizing: border-box;   
+    &:focus {
+      border: none;
+    }   
     }
   }
   &-btns{

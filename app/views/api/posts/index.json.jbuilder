@@ -10,4 +10,8 @@
       json.partial! "api/users/user", user: post.user
     end
   end
+
+  json.tags do
+    json.partial! "api/tags/tags", tags: post.tags
+  end
 end

@@ -1,0 +1,27 @@
+.tag-form {
+  box-sizing: border-box;
+  width: 100%;
+  border: 1px solid $color-grey-light-3;
+  padding: 0 1.6rem 1.2rem 1.6rem;
+  border-radius: 5px;
+  margin-top: 0.5rem;
+
+  input[type='text'].tag-form-input {
+    padding-left: 0;
+    margin-bottom: 0;
+    border: none;
+  }
+  &.focus {
+    border: 1px solid $color-active;
+  }
+  & .tag-list {
+    margin: 0;
+  }
+
+  &-button {
+    background-color: transparent;
+    border: none;
+    width: 0px;
+    height: 0px;
+  }
+}

@@ -29,3 +29,5 @@
 .DS_Store
 bundle.js
 bundle.js.map
+
+.vscode
