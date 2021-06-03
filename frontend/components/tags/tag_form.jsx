@@ -4,7 +4,7 @@ import TagIndex from "./tag_index";
 class TagForm extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { name: "" };
+    this.state = { name: "", focus: false };
 
     this.handleChange = this.handleChange.bind(this);
     this.handleAddTag = this.handleAddTag.bind(this);
@@ -30,14 +30,19 @@ class TagForm extends React.Component {
   }
 
   render() {
+    console.log(this.props.focus)
     return (
-      <div className="tag-form">
+      <div
+        className={`tag-form ${this.props.focus ? "focus" : ""}`}
+        onClick={this.props.setFocus}
+      >
         <input
           type="text"
           value={this.state.name}
           onChange={this.handleChange}
           placeholder="Type your own keywords here"
           className="tag-form-input"
+          // onClick={this.setFocusTrue(true)}
         />
         <button
           onClick={this.handleAddTag}

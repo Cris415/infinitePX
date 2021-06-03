@@ -14,6 +14,7 @@ class PostForm extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleFile = this.handleFile.bind(this);
     this.handleDelete = this.handleDelete.bind(this);
+    this.setTagFocus = this.setTagFocus.bind(this);
   }
 
   handleFile(e) {
@@ -39,6 +40,7 @@ class PostForm extends React.Component {
 
   componentDidMount() {
     window.scrollTo(0, 0);
+    this.setState({ tagFormFocus: false });
   }
 
   componentWillUnmount() {
@@ -67,7 +69,7 @@ class PostForm extends React.Component {
       this.props.history.push(`/posts/${postId}`);
       this.props.addTags({ tag: { tags: this.state.tags.join(","), postId } });
       if (this.props.formType === "Edit") {
-        // list of tags to be removed 
+        // list of tags to be removed
         // get their IDs
         const removeTagsIds = this.state.removeTags.map(
           (removeTag) =>
@@ -103,6 +105,14 @@ class PostForm extends React.Component {
     );
   }
 
+  setTagFocus(status) {
+    return (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      this.setState({ tagFormFocus: status });
+    };
+  }
+
   renderTagForm() {
     let { tags, preloadedTags, displayTags, removeTags } = this.state;
     const action = (clickedTag) => {
@@ -115,7 +125,7 @@ class PostForm extends React.Component {
 
       // only add tags to remove if they are preloaded
       // since an api call is needed to remove those tags
-      if (preloadedTags.includes(clickedTag)) {
+      if (preloadedTags && preloadedTags.includes(clickedTag)) {
         this.setState({
           tags: filteredTags,
           removeTags: [...removeTags, clickedTag],
@@ -137,6 +147,8 @@ class PostForm extends React.Component {
           })
         }
         action={action}
+        focus={this.state.tagFormFocus}
+        setFocus={this.setTagFocus(true)}
       />
     );
   }
@@ -191,7 +203,7 @@ class PostForm extends React.Component {
           <ImagePreview photoUrl={photoUrl} title={title} />
 
           <form onSubmit={this.handleSubmit} className="post-form">
-            <div className="inputs">
+            <div className="inputs" onClick={this.setTagFocus(false)}>
               <label>
                 Title
                 <input
@@ -212,11 +224,12 @@ class PostForm extends React.Component {
                 />
               </label>
 
-              {this.renderDeleteButton()}
               <label>
                 Keywords
                 {this.renderTagForm()}
               </label>
+              
+              {this.renderDeleteButton()}
             </div>
 
             {this.renderErrors()}
