@@ -21,13 +21,16 @@ class UserProfile extends React.Component {
       <div className="user-profile">
         <div className="header user-profile-header">
           <UserIcon size="large" />
-          <h3 className="user-profile-username">
-            {this.props.user.username}
-          </h3>
-          <div className="user-profile-count">
-            Followers: {this.props.user.followersCount}
-          </div>
+          <h3 className="user-profile-username">{this.props.user.username}</h3>
           <FollowButtonContainer user={this.props.user} />
+          <div className="user-profile-count">
+            <span>
+              {this.props.user.followersCount} <strong>Followers</strong>
+            </span>
+            <span>
+              {this.props.user.follows.length} <strong>Following</strong>
+            </span>
+          </div>
         </div>
         <PostIndex
           posts={this.props.posts}
