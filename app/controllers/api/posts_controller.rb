@@ -68,9 +68,10 @@ class Api::PostsController < ApplicationController
         render json: {}, status: 200
       end
     else
-      by_name = Post.where("lower(title) LIKE ? ", "%#{params[:query].downcase}%")
+      query = params[:query].downcase
+      by_name = Post.where("lower(title) LIKE ? ", "%#{query}%")
       
-      tag = Tag.find_by({name: params[:query]})
+      tag = Tag.find_by({name: query})
       if tag 
         by_tag = tag.posts
       else
