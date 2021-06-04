@@ -43,22 +43,6 @@
     color: $color-grey-dark-2;
     align-self: center;
   }
-  &-img {
-    margin-right: 1rem;
-    width: 4rem;
-    height: 4rem;
-    min-width: 4rem;
-    border-radius: 50%;
-    background-color: $color-grey-dark-1;
-    position: relative;
-    box-sizing: border-box;
-      svg {
-      padding-left: 30%;
-      padding-top: 25%;
-      color: $color-grey-light-1;
-      font-size: 1.8rem;
-    }
-  }
   &-input-container {
     width: 100%;
     display: flex;

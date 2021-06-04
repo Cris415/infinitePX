@@ -34,7 +34,8 @@
       margin-top: 5rem;
     }
 
-    &-main {
+    &-container {
+      display: flex;
       margin-bottom: 2.5rem;
     }
 
@@ -57,12 +58,8 @@
       font-size: 1.4rem;
       margin-bottom: 1rem;
     }
-
-
   }
-  
 }
-
 
 @media only screen and (max-width: 950px) {
   .info-container {
@@ -76,7 +73,7 @@
     width: 100%;
   }
 
-  .comment-container{
+  .comment-container {
     box-sizing: inherit;
     margin-top: 2rem;
 

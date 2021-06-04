@@ -6,6 +6,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import CommentIndexContainer from "../../comments/comment_index_container";
 import CreateCommentContainer from "../../comments/create_comment_container";
 import TagIndex from "../../tags/tag_index";
+import UserIcon from '../../user_profile/user_icon';
 
 class PostShow extends React.Component {
   constructor(props) {
@@ -52,11 +53,14 @@ class PostShow extends React.Component {
         </div>
         <div className="info-container">
           <div className="img-info">
-            <div className="img-info-main">
-              <h2>{title}</h2>
-              <p className="author">
-                by <Link to={`/users/${author.id}`}> {author.username}</Link>
-              </p>
+            <div className="img-info-container">
+              <UserIcon />
+              <div className="img-info-main">
+                <h2>{title}</h2>
+                <p className="author">
+                  by <Link to={`/users/${author.id}`}> {author.username}</Link>
+                </p>
+              </div>
             </div>
 
             <div className="date-info">

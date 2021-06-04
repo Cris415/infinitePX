@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import {  faUser } from "@fortawesome/free-solid-svg-icons";
+import UserIcon from '../user_profile/user_icon';
 import { faComment as farComment } from "@fortawesome/free-regular-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
@@ -23,9 +23,7 @@ class CommentIndex extends React.Component {
       return (
         <div key={comment.id} className="comment-item">
           <div className="comment-info-container">
-            <div className="comment-img">
-              <FontAwesomeIcon icon={faUser} />
-            </div>
+            <UserIcon />
             <div className="comment-user-info">
               <div className="comment-content-item">
                 <Link

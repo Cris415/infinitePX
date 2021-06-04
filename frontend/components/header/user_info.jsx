@@ -1,8 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import SearchContainer  from '../search/SearchContainer';
+import UserIcon from '../user_profile/user_icon';
 
-import { faArrowUp, faUser } from "@fortawesome/free-solid-svg-icons";
+import { faArrowUp } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 
@@ -29,7 +30,7 @@ class UserInfo extends React.Component {
            </Link>
          </li>,
          <li key="dropdown" className="dropdown">
-           <FontAwesomeIcon icon={faUser} />
+           <UserIcon />
            <ul className="dropdown-list">
              <li key="profile">
                <Link to={`/users/${this.props.currentUser.id}`}>Profile</Link>

@@ -1,5 +1,5 @@
-import React from 'react';
-import { faUser } from "@fortawesome/free-solid-svg-icons";
+import React from "react";
+import UserIcon from "../user_profile/user_icon";
 import { faComment as farComment } from "@fortawesome/free-regular-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
@@ -20,18 +20,20 @@ class CommentForm extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    if (this.state.comment.length > 0){
-      const comment = { "comment": {
-        comment: this.state.comment,
-        post_id: this.state.postId
-      }};
+    if (this.state.comment.length > 0) {
+      const comment = {
+        comment: {
+          comment: this.state.comment,
+          post_id: this.state.postId,
+        },
+      };
       this.props.action(comment);
-      this.setState({comment: ''});
+      this.setState({ comment: "" });
     }
   }
 
-  handleCancel(){
-    this.setState({comment: ''});
+  handleCancel() {
+    this.setState({ comment: "" });
     this.toggleButtons();
   }
 
@@ -60,11 +62,9 @@ class CommentForm extends React.Component {
 
   render() {
     return (
-      <form action="" className="comment-form">
+      <form className="comment-form">
         <div className="comment-input-container">
-          <div className="comment-img">
-            <FontAwesomeIcon icon={faUser} />
-          </div>
+          <UserIcon />
           <div className="comment-form-input" onClick={this.toggleButtons}>
             <FontAwesomeIcon icon={farComment} />
             <input
