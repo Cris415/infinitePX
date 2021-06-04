@@ -3,7 +3,7 @@ import { Link, Redirect } from "react-router-dom";
 import Spinner from "../../../util/spinner";
 import TagIndex from "../../tags/tag_index";
 import UserIcon from '../../user_profile/user_icon';
-import FollowButtonContainer from '../../follow_button/follow_button_container';
+import FollowLinkContainer from "../../follow_button/follow_link_container";
 import CommentIndexContainer from "../../comments/comment_index_container";
 import CreateCommentContainer from "../../comments/create_comment_container";
 
@@ -61,7 +61,8 @@ class PostShow extends React.Component {
                 <h2>{title}</h2>
                 <p className="author">
                   by <Link to={`/users/${author.id}`}> {author.username}</Link>
-                  <FollowButtonContainer user={this.props.author} />
+                  <span className="img-info-separator">•</span>
+                  <FollowLinkContainer user={this.props.author} />
                 </p>
               </div>
             </div>
