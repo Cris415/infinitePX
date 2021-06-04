@@ -29,6 +29,7 @@ class ApplicationController < ActionController::Base
     @current_user = nil
   end
 
+  # https://stackoverflow.com/questions/17240106/what-is-the-best-way-to-convert-all-controller-params-from-camelcase-to-snake-ca
   def underscore_params!
     underscore_hash = -> (hash) do
       hash.transform_keys!(&:underscore)

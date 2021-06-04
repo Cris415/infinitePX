@@ -20,8 +20,10 @@ class UserProfile extends React.Component {
     return (
       <div className="user-profile">
         <div className="header user-profile-header">
-          <UserIcon size="large"/>
-          {this.props.user.username}
+          <UserIcon size="large" />
+          <h3 className="user-profile-username">
+            {this.props.user.username}
+          </h3>
           <div className="user-profile-count">
             Followers: {this.props.user.followersCount}
           </div>
