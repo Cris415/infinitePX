@@ -1,12 +1,14 @@
 import React from "react";
 import { Link, Redirect } from "react-router-dom";
 import Spinner from "../../../util/spinner";
-import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import CommentIndexContainer from "../../comments/comment_index_container";
-import CreateCommentContainer from "../../comments/create_comment_container";
 import TagIndex from "../../tags/tag_index";
 import UserIcon from '../../user_profile/user_icon';
+import FollowButtonContainer from '../../follow_button/follow_button_container';
+import CommentIndexContainer from "../../comments/comment_index_container";
+import CreateCommentContainer from "../../comments/create_comment_container";
+
+import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 class PostShow extends React.Component {
   constructor(props) {
@@ -59,6 +61,7 @@ class PostShow extends React.Component {
                 <h2>{title}</h2>
                 <p className="author">
                   by <Link to={`/users/${author.id}`}> {author.username}</Link>
+                  <FollowButtonContainer user={this.props.author} />
                 </p>
               </div>
             </div>

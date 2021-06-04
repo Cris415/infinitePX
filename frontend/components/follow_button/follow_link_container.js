@@ -13,7 +13,7 @@ const mapDispatchToProps = (dispatch, ownProps) => ({
   fetchUser: () => {
     dispatch(fetchUser(ownProps.user.id));
   },
-  followType: "button",
+  followType: 'inline',
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Follow);
