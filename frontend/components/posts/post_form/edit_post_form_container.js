@@ -20,7 +20,9 @@ class EditPost extends React.Component {
     if (!this.props.post) return null;
 
     const { post, currentUserId, tags } = this.props;
-    const formattedTags = tags.map((tag) => tag.name);
+    const formattedTags = tags
+      .filter((tag) => post.tagIds.includes(tag.id))
+      .map((tag) => tag.name);
 
     post["preloadedTags"] = formattedTags;
     post["displayTags"] = formattedTags;
@@ -38,13 +40,17 @@ class EditPost extends React.Component {
   }
 }
 
-const mapStateToProps = (state, ownProps) => ({
+const mapStateToProps = (state, ownProps) => {
+  const post = state.entities.posts[ownProps.match.params.postId];
+  const tags = Object.values(state.entities.tags);
+  
+  return {
   formType: "Edit",
-  post: state.entities.posts[ownProps.match.params.postId],
+  post,
   errors: state.errors.posts,
   currentUserId: state.session.id,
-  tags: Object.values(state.entities.tags),
-});
+  tags,
+}}
 
 const mapDispatchToProps = (dispatch, ownProps) => ({
   processForm: (post, redirectCallback) =>
