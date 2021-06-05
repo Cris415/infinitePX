@@ -61,7 +61,9 @@ class PostShow extends React.Component {
                 <h2>{title}</h2>
                 <p className="author">
                   by <Link to={`/users/${author.id}`}> {author.username}</Link>
-                  <span className="img-info-separator">•</span>
+                  {this.props.currentUserId !== author.id && (
+                    <span className="img-info-separator">•</span>
+                  )}
                   <FollowLinkContainer user={this.props.author} />
                 </p>
               </div>
