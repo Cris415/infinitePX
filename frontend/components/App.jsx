@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 import Logo from './header/logo'
 import { AuthRoute, ProtectedRoute } from "../util/route_util";
 
-import UserInfoContainer from './header/user_info_container';
+import HeaderLinksContainer from './header/header_links_container';
 import LoginFormContainer from './session_forms/login_form_container';
 import SignupFormContainer from './session_forms/signup_form_container';
 import PostShowContainer from './posts/post_show/post_show_container';
@@ -28,7 +28,7 @@ const App = () => {
           <Logo />
 
         </div>
-        <UserInfoContainer />
+        <HeaderLinksContainer />
       </header>
       
       <main className="content">
