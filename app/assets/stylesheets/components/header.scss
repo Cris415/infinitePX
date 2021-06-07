@@ -1,4 +1,4 @@
-header {
+.header{
   position: sticky;
   box-sizing: border-box;
   top: 0;
@@ -13,14 +13,24 @@ header {
   background-color: $color-primary;
   font-size: 1.6rem;
 
-  padding: 2rem 6rem;
+  padding: 1rem 6rem;
 
-  & > div {
+  &-links {
     display: flex;
     align-items: center;
+    width: 100%;
+    justify-content: space-between;
   }
 
-  & .header-link {
+  &-link-cluster {
+    display: flex;
+    flex: 0.10 0 auto;
+    justify-content: space-evenly;
+    align-items: center;
+
+  }
+
+  &-link {
     font-weight: 100;
   }
 
@@ -28,24 +38,17 @@ header {
     fill: black;
     cursor: pointer;
     height: 25px;
+    margin-right: 3rem;
 
     &:hover {
     fill: $color-active
     }
   }
 
-  .auth-btns {
+  .header-auth-btns {
     display: flex;
     align-items: center;
     flex-direction: row;
-  }
-
-  .auth-btns li {
-    margin-right: 2rem;
-
-    &:last-child {
-      margin-right: 0;
-    }
   }
 
   .button-medium svg {

@@ -23,14 +23,11 @@ import Footer from './footer';
 const App = () => {
   return (
     <div className="app">
-      <header>
-        <div>
-          <Logo />
-
-        </div>
+      <header className="header">
+        <Logo />
         <HeaderLinksContainer />
       </header>
-      
+
       <main className="content">
         <Switch>
           <AuthRoute path="/" exact component={Splash} />
@@ -38,10 +35,21 @@ const App = () => {
           <ProtectedRoute path="/discover" component={Discover} />
           <AuthRoute path="/login" component={LoginFormContainer} />
           <AuthRoute path="/signup" component={SignupFormContainer} />
-          <ProtectedRoute path="/posts/new" exact component={UploadPostFormContainer} />
-          <ProtectedRoute path="/posts/:postId" exact component={PostShowContainer} />
+          <ProtectedRoute
+            path="/posts/new"
+            exact
+            component={UploadPostFormContainer}
+          />
+          <ProtectedRoute
+            path="/posts/:postId"
+            exact
+            component={PostShowContainer}
+          />
           <ProtectedRoute path="/posts/:postId/edit" component={EditPostForm} />
-          <ProtectedRoute path="/users/:userId" component={UserProfileContainer} />
+          <ProtectedRoute
+            path="/users/:userId"
+            component={UserProfileContainer}
+          />
           <ProtectedRoute path="/results" component={SearchResults} />
 
           <PageNotFound />

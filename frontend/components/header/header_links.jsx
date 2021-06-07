@@ -21,43 +21,45 @@ class HeaderLinks extends React.Component {
   render(){
     const {currentUser} = this.props;
     return (
-      <div>
+      <div className="header-links">
         {currentUser && (
-          <Link className="header-link" to="/discover">
+          <Link className="header-discover header-link" to="/discover">
             Discover
           </Link>
         )}
 
-        {currentUser && <SearchContainer />}
+        <div className="header-link-cluster">
+          {currentUser && <SearchContainer />}
 
-        {currentUser && (
-          <div className="dropdown">
-            <UserIcon />
-            <ul className="dropdown-list">
-              <li key="profile">
-                <Link to={`/users/${currentUser.id}`}>Profile</Link>
-              </li>
-              <li key="logout" className="logout">
-                
-              </li>
-            </ul>
-          </div>
-        )}
+          {currentUser && (
+            <div className="dropdown">
+              <UserIcon />
+              <ul className="dropdown-list">
+                <li key="profile">
+                  <Link to={`/users/${currentUser.id}`}>Profile</Link>
+                </li>
+                <li key="logout" className="logout">
+                  <a onClick={this.handleLogout}>Logout</a>
+                </li>
+              </ul>
+            </div>
+          )}
 
-        {!currentUser && (
-          <div className="auth-btns">
-            <Link to="/login">Log in</Link>
-            <Link to="/signup" className="btn link-btn">
-              Sign up
+          {!currentUser && (
+            <div className="header-auth-btns">
+              <Link to="/login">Log in</Link>
+              <Link to="/signup" className="btn link-btn">
+                Sign up
+              </Link>
+            </div>
+          )}
+
+          {currentUser && (
+            <Link to="/posts/new" className="btn-upload btn btn-medium">
+              <FontAwesomeIcon icon={faArrowUp} /> Upload
             </Link>
-          </div>
-        )}
-
-        {currentUser && (
-          <Link to="/posts/new" className="btn-upload btn btn-medium">
-            <FontAwesomeIcon icon={faArrowUp} /> Upload
-          </Link>
-        )}
+          )}
+        </div>
       </div>
     );
   }
