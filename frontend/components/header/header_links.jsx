@@ -21,14 +21,14 @@ class HeaderLinks extends React.Component {
   render(){
     const {currentUser} = this.props;
     return (
-      <div className="header-links">
+      <div className="main-header-links">
         {currentUser && (
-          <Link className="header-discover header-link" to="/discover">
+          <Link className="main-header-link" to="/discover">
             Discover
           </Link>
         )}
 
-        <div className="header-link-cluster">
+        <div className="main-header-link-cluster">
           {currentUser && <SearchContainer />}
 
           {currentUser && (
@@ -46,7 +46,7 @@ class HeaderLinks extends React.Component {
           )}
 
           {!currentUser && (
-            <div className="header-auth-btns">
+            <div className="main-header-auth-btns">
               <Link to="/login">Log in</Link>
               <Link to="/signup" className="btn link-btn">
                 Sign up

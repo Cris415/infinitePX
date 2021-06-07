@@ -23,7 +23,7 @@ import Footer from './footer';
 const App = () => {
   return (
     <div className="app">
-      <header className="header">
+      <header className="main-header">
         <Logo />
         <HeaderLinksContainer />
       </header>

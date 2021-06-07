@@ -29,13 +29,13 @@ form {
     outline: none;
 
 
+
     &:focus {
       border: 1px solid $color-active;
     }
 
     &::placeholder {
       color: $color-grey-dark-1;
-      line-height: 1.6;
     }
   }
 
