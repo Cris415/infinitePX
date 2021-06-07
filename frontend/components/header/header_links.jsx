@@ -19,22 +19,32 @@ class HeaderLinks extends React.Component {
   }
 
   render(){
+    const {currentUser} = this.props;
     return (
       <div>
-        <SearchContainer />
-        <Link className="header-link" to="/discover">
-          Discover
-        </Link>
-        <div className="dropdown">
-          <UserIcon />
-          <ul className="dropdown-list">
-            <li key="profile">
-              <Link to={`/users/${this.props.currentUser.id}`}>Profile</Link>
-            </li>
-            <li key="logout" className="logout"></li>
-          </ul>
-        </div>
-        { this.props.currentUser && (
+        {currentUser && (
+          <Link className="header-link" to="/discover">
+            Discover
+          </Link>
+        )}
+
+        {currentUser && <SearchContainer />}
+
+        {currentUser && (
+          <div className="dropdown">
+            <UserIcon />
+            <ul className="dropdown-list">
+              <li key="profile">
+                <Link to={`/users/${currentUser.id}`}>Profile</Link>
+              </li>
+              <li key="logout" className="logout">
+                
+              </li>
+            </ul>
+          </div>
+        )}
+
+        {!currentUser && (
           <div className="auth-btns">
             <Link to="/login">Log in</Link>
             <Link to="/signup" className="btn link-btn">
@@ -43,9 +53,11 @@ class HeaderLinks extends React.Component {
           </div>
         )}
 
-        <Link to="/posts/new" className="btn-upload btn btn-medium">
-          <FontAwesomeIcon icon={faArrowUp} /> Upload
-        </Link>
+        {currentUser && (
+          <Link to="/posts/new" className="btn-upload btn btn-medium">
+            <FontAwesomeIcon icon={faArrowUp} /> Upload
+          </Link>
+        )}
       </div>
     );
   }
