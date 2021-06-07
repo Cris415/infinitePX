@@ -33,7 +33,7 @@ class HeaderLinks extends React.Component {
 
           {currentUser && (
             <div className="dropdown">
-              <UserIcon />
+              <UserIcon size="small"/>
               <ul className="dropdown-list">
                 <li key="profile">
                   <Link to={`/users/${currentUser.id}`}>Profile</Link>
