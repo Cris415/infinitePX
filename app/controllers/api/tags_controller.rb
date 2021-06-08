@@ -1,5 +1,5 @@
 class Api::TagsController < ApplicationController
-  before_action :require_login
+  # before_action :require_login
 
   def index
     if params.has_key?(:post_id)
