@@ -33,7 +33,7 @@ class HeaderLinks extends React.Component {
 
           {currentUser && (
             <div className="dropdown">
-              <UserIcon size="small"/>
+              <UserIcon size="small" />
               <ul className="dropdown-list">
                 <li key="profile">
                   <Link to={`/users/${currentUser.id}`}>Profile</Link>
@@ -45,21 +45,21 @@ class HeaderLinks extends React.Component {
             </div>
           )}
 
-          {!currentUser && (
-            <div className="main-header-auth-btns">
-              <Link to="/login">Log in</Link>
-              <Link to="/signup" className="btn link-btn">
-                Sign up
-              </Link>
-            </div>
-          )}
-
           {currentUser && (
             <Link to="/posts/new" className="btn-upload btn btn-medium">
               <FontAwesomeIcon icon={faArrowUp} /> Upload
             </Link>
           )}
         </div>
+
+        {!currentUser && (
+          <div className="main-header-auth-btns">
+            <Link to="/login">Log in</Link>
+            <Link to="/signup" className="btn link-btn">
+              Sign up
+            </Link>
+          </div>
+        )}
       </div>
     );
   }
