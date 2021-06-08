@@ -3,6 +3,7 @@ import {
   RECEIVE_POSTS,
   REMOVE_POST
 } from "../actions/post_actions";
+import { RECEIVE_TAGS } from "../actions/tag_actions";
 
 const postsReducer = (state = {}, action) => {
   Object.freeze(state);
@@ -10,14 +11,13 @@ const postsReducer = (state = {}, action) => {
 
   switch (action.type) {
     case RECEIVE_POST:
+    case RECEIVE_TAGS:
       newState[action.post.id] = action.post;
       return newState;
     case RECEIVE_POSTS:
       if (action.posts === undefined) {
         return {}
       };
-      // originally returned the state if undefined.. not sure whats better
-      // if (action.posts === undefined) return state;
       return action.posts
     case REMOVE_POST:
       delete newState[action.postId]

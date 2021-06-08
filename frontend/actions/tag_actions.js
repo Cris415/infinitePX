@@ -5,13 +5,14 @@ export const REMOVE_TAG = "REMOVE_TAG";
 
 export const receiveTags = (post) => ({
  type: RECEIVE_TAGS,
-  tags : post.tags
+  tags : post.tags,
+  post: post.post
 })
+
 export const removeTag = (post) => ({
  type: RECEIVE_TAGS,
   tags : post.tags
 })
-
 
 export const addTags = tags => dispatch => (
   tagAPI.addTags(tags)

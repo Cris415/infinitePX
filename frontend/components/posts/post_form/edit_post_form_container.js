@@ -20,6 +20,7 @@ class EditPost extends React.Component {
     if (!this.props.post) return null;
 
     const { post, currentUserId, tags } = this.props;
+
     const formattedTags = tags
       .filter((tag) => post.tagIds.includes(tag.id))
       .map((tag) => tag.name);
