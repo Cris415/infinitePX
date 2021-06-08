@@ -1,5 +1,5 @@
-import { RECEIVE_TAGS, REMOVE_TAG } from "../actions/tag_actions";
-import { RECEIVE_POST } from "../actions/post_actions";
+import { RECEIVE_TAGS, RECEIVE_TAG_SEARCH, REMOVE_TAG } from "../actions/tag_actions";
+import { RECEIVE_POST  } from "../actions/post_actions";
 
 const tagsReducer = (state = {}, action) => {
   Object.freeze(state);
@@ -14,6 +14,8 @@ const tagsReducer = (state = {}, action) => {
     case REMOVE_TAG:
       delete newState[action.id];
       return newState;
+    case RECEIVE_TAG_SEARCH:
+      return [...state, ...action.tags]
     default:
       return state;
   }
