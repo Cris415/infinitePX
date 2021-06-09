@@ -3,6 +3,7 @@ import * as tagAPI from "../util/tag_api_util";
 export const RECEIVE_TAGS = "RECEIVE_TAGS";
 export const REMOVE_TAG = "REMOVE_TAG";
 export const RECEIVE_TAG_SEARCH = "RECEIVE_TAG_SEARCH";
+export const CLEAR_TAG_SEARCH = "CLEAR_TAG_SEARCH";
 
 export const receiveTags = (post) => ({
   type: RECEIVE_TAGS,
@@ -19,6 +20,10 @@ export const receiveSearchResults = (results) => ({
   type: RECEIVE_TAG_SEARCH,
   tags: results.tags,
   ids: results.tagSearch,
+});
+
+export const clearTagSearch = () => ({
+  type: CLEAR_TAG_SEARCH
 });
 
 export const addTags = (tags) => (dispatch) =>

@@ -1,10 +1,11 @@
 import { connect } from "react-redux";
-import { searchTags } from '../../actions/tag_actions';
+import { searchTags, clearTagSearch } from "../../actions/tag_actions";
 
 import TagForm from "./tag_form";
 
 const mapDispatchToProps = (dispatch) => ({
-  searchTags: (searchTerm) => dispatch(searchTags(searchTerm))
-})
+  searchTags: (searchTerm) => dispatch(searchTags(searchTerm)),
+  clearTagSearch: () => dispatch(clearTagSearch()),
+});
 
 export default connect(null, mapDispatchToProps)(TagForm);

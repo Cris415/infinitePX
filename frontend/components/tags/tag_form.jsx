@@ -1,6 +1,6 @@
 import React from "react";
 import TagIndex from "./tag_index";
-import TagSuggestionsContainer from './tag_suggestions_container';
+import TagSuggestionsContainer from "./tag_suggestions_container";
 
 class TagForm extends React.Component {
   constructor(props) {
@@ -10,11 +10,14 @@ class TagForm extends React.Component {
     this.handleChange = this.handleChange.bind(this);
     this.handleAddTag = this.handleAddTag.bind(this);
     this.handleRemoveTag = this.handleRemoveTag.bind(this);
+    this.addTagFromSuggestions = this.addTagFromSuggestions.bind(this);
   }
 
   handleChange(e) {
     e.preventDefault();
-    this.setState({ name: e.currentTarget.value }, () => this.props.searchTags(this.state.name)) ; 
+    this.setState({ name: e.currentTarget.value }, () =>
+      this.props.searchTags(this.state.name)
+    );
   }
 
   handleAddTag(e) {
@@ -25,11 +28,18 @@ class TagForm extends React.Component {
     }
   }
 
+  addTagFromSuggestions(tag) {
+    this.props.addTagPost(tag);
+    this.setState({ name: "" });
+    // CLEAR SEARCH RESULT IDS
+    this.props.clearTagSearch();
+  }
+
   handleRemoveTag(tag) {
     return (e) => {
       e.preventDefault();
-      this.props.action(tag)
-    }
+      this.props.action(tag);
+    };
   }
 
   render() {
@@ -45,12 +55,16 @@ class TagForm extends React.Component {
           placeholder="Type your own keywords here"
           className="tag-form-input"
         />
-        <TagSuggestionsContainer addTag={this.props.addTagPost}/>
+        <TagSuggestionsContainer addTag={this.addTagFromSuggestions} />
         <button
           onClick={this.handleAddTag}
           className="tag-form-button"
         ></button>
-        <TagIndex tags={this.props.tags} remove={this.handleRemoveTag} tagType="remove" />
+        <TagIndex
+          tags={this.props.tags}
+          remove={this.handleRemoveTag}
+          tagType="remove"
+        />
       </div>
     );
   }
