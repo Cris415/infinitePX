@@ -29,12 +29,21 @@
           color: $color-secondary;
         }
       }
+
       &-show {
         &:hover {
           color: $color-active;
           border-color: $color-active;
           cursor: pointer;
         }
+      }
+
+      &-list {
+       width: 100%;
+       max-width: none;
+       border: none;
+       border-radius: 0;
+       margin: 0;
       }
 
       &-content {
