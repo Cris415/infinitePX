@@ -15,7 +15,7 @@ const tagsReducer = (state = {}, action) => {
       delete newState[action.id];
       return newState;
     case RECEIVE_TAG_SEARCH:
-      return [...state, ...action.tags]
+      return {...state, ...action.tags}
     default:
       return state;
   }

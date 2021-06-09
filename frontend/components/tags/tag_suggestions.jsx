@@ -7,7 +7,7 @@ function TagSuggestions(props){
       tag suggestions
       maybe use tag index here
       <ul>
-        {props.results.map(result => <li>{result.name}</li>)}
+        {props.results.map(result => <li key={`${result.id}-${result.name}`}>{result.name}</li>)}
       </ul>
     </div>
   )

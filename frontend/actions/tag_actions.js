@@ -32,4 +32,4 @@ export const deleteTag = (tagId, postId) => (dispatch) =>
 export const searchTags = (searchTerm) => (dispatch) =>
   tagAPI
     .searchTags(searchTerm)
-    .then((results) => dispatch(receiveTags(results)));
+    .then((results) => dispatch(receiveSearchResults(results)));
