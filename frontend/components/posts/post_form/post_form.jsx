@@ -2,7 +2,7 @@ import React from "react";
 import { Link, withRouter } from "react-router-dom";
 import ImagePreview from "./image_preview";
 import UploadImageInput from "./upload_image_input";
-import TagForm from "../../tags/tag_form";
+import TagFormContainer from "../../tags/tag_form_container";
 
 class PostForm extends React.Component {
   constructor(props) {
@@ -136,7 +136,7 @@ class PostForm extends React.Component {
     };
 
     return (
-      <TagForm
+      <TagFormContainer
         tags={displayTags}
         addTagPost={(tag) =>
           this.setState({
