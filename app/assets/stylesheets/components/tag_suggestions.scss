@@ -1,9 +1,15 @@
 .tag-suggestions{
+  position: absolute;
   width: 100%;
   max-height: 20rem;
+
+  left: 0;
+  top: 5rem;
   overflow: scroll;
+  background-color: $color-primary;
+  z-index: 1;
   border-radius: 5px;
-box-shadow: 0px 12px 7px -11px rgba(100,100,100,0.5);
--webkit-box-shadow: 0px 12px 7px -11px rgba(100,100,100,0.5);
--moz-box-shadow: 0px 12px 7px -11px rgba(100,100,100,0.5);
+  box-shadow: 0px 0 12px -6px $color-grey-dark-1;
+  -webkit-box-shadow: 0px 0 12px -6px $color-grey-dark-1;
+  -moz-box-shadow: 0px 0 12px -6px $color-grey-dark-1;
 }

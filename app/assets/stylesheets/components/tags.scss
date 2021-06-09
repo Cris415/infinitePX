@@ -39,11 +39,14 @@
       }
 
       &-list {
-       width: 100%;
-       max-width: none;
-       border: none;
-       border-radius: 0;
-       margin: 0;
+        width: 100%;
+        max-width: none;
+        border: none;
+        border-radius: 0;
+        margin: 0;
+        height: 2.5rem;
+        display: flex;
+        align-items: center;
       }
 
       &-content {
