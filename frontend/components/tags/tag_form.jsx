@@ -25,13 +25,13 @@ class TagForm extends React.Component {
     if (this.state.name.length > 1) {
       this.props.addTagPost(this.state.name.toLowerCase());
       this.setState({ name: "" });
+      this.props.clearTagSearch();
     }
   }
 
   addTagFromSuggestions(tag) {
     this.props.addTagPost(tag);
     this.setState({ name: "" });
-    // CLEAR SEARCH RESULT IDS
     this.props.clearTagSearch();
   }
 
@@ -55,11 +55,14 @@ class TagForm extends React.Component {
           placeholder="Type your own keywords here"
           className="tag-form-input"
         />
+
         <TagSuggestionsContainer addTag={this.addTagFromSuggestions} />
+
         <button
           onClick={this.handleAddTag}
           className="tag-form-button"
         ></button>
+
         <TagIndex
           tags={this.props.tags}
           remove={this.handleRemoveTag}

@@ -15,6 +15,7 @@ class PostForm extends React.Component {
     this.handleFile = this.handleFile.bind(this);
     this.handleDelete = this.handleDelete.bind(this);
     this.setTagFocus = this.setTagFocus.bind(this);
+    this.addTagsToPost = this.addTagsToPost.bind(this);
   }
 
   handleFile(e) {
@@ -112,6 +113,19 @@ class PostForm extends React.Component {
     };
   }
 
+  addTagsToPost(tag){
+    let { tags, displayTags } = this.state;
+
+    if (!displayTags.includes(tag)){
+      this.setState({
+        tags: [...tags, tag],
+        displayTags: [...displayTags, tag],
+        edited: true,
+      });
+    }
+
+  }
+
   renderTagForm() {
     let { tags, preloadedTags, displayTags, removeTags } = this.state;
     const action = (clickedTag) => {
@@ -138,13 +152,7 @@ class PostForm extends React.Component {
     return (
       <TagFormContainer
         tags={displayTags}
-        addTagPost={(tag) =>
-          this.setState({
-            tags: [...tags, tag],
-            displayTags: [...displayTags, tag],
-            edited: true,
-          })
-        }
+        addTagPost={this.addTagsToPost}
         action={action}
         focus={this.state.tagFormFocus}
         setFocus={this.setTagFocus(true)}
