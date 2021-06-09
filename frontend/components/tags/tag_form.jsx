@@ -14,8 +14,7 @@ class TagForm extends React.Component {
 
   handleChange(e) {
     e.preventDefault();
-    this.props.searchTags(this.state.name);
-    this.setState({ name: e.currentTarget.value });
+    this.setState({ name: e.currentTarget.value }, () => this.props.searchTags(this.state.name)) ; 
   }
 
   handleAddTag(e) {
