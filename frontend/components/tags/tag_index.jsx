@@ -1,17 +1,33 @@
 import React from "react";
 
+/*
+Tag Types: 
+'show': For the post show page, look like typical tags.
+'remove': For form where a tag can be removed. 
+'list': For suggestions. Typical list styling, click to add.
+*/
+
 function TagIndex(props) {
   // tags should be an array of strings
+  function handleClick(tag) {
+    const { tagType, addTag, search } = props;
+
+    if (tagType === "show") {
+      search(tag)();
+    } else if (tagType === "list") {
+      addTag(tag.toLowerCase());
+    }
+  }
+
   function renderListItems() {
-    const tagClass =
-      props.tagType === "show" ? "tag-list-item-show" : "tag-list-item-remove";
     return props.tags.map((tag, i) => (
       <li
         key={`${tag}-${i}`}
-        className={`tag-list-item ${tagClass}`}
-        onClick={props.tagType === "show" ? props.search(tag) : () => {}}
+        className={`tag-list-item tag-list-item-${props.tagType}`}
+        onClick={() => handleClick(tag)}
       >
         <span className="tag-list-item-content">{tag}</span>
+
         {props.tagType === "remove" && (
           <span onClick={props.remove(tag)} className="tag-list-item-icon">
             ╳

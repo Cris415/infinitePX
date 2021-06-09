@@ -1,14 +1,15 @@
 import React from 'react';
+import TagIndex from './tag_index';
 
 function TagSuggestions(props){
-  console.log(props.results)
   return (
-    <div>
-      tag suggestions
-      maybe use tag index here
-      <ul>
-        {props.results.map(result => <li key={`${result.id}-${result.name}`}>{result.name}</li>)}
-      </ul>
+    <div className="tag-suggestions">
+      <TagIndex
+       tags={props.results.map(result => result.name)}
+        tagType='list'
+        addTag={props.addTag}
+       />
+
     </div>
   )
 }

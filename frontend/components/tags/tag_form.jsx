@@ -46,7 +46,7 @@ class TagForm extends React.Component {
           placeholder="Type your own keywords here"
           className="tag-form-input"
         />
-        <TagSuggestionsContainer />
+        <TagSuggestionsContainer addTag={this.props.addTagPost}/>
         <button
           onClick={this.handleAddTag}
           className="tag-form-button"
