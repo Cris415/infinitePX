@@ -12,7 +12,11 @@ class Api::TagsController < ApplicationController
 
       @tags = post.tags
     elsif params.has_key?(:query)
-      @tags = Tag.where("lower(name) LIKE ? ", "%#{params[:query].downcase}%")
+      if params[:query] == '' 
+        @tags = {}
+      else 
+        @tags = Tag.where("lower(name) LIKE ? ", "%#{params[:query].downcase}%")
+      end
     else
       @tags = Tag.all
     end
