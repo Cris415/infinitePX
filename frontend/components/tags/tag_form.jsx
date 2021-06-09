@@ -1,5 +1,6 @@
 import React from "react";
 import TagIndex from "./tag_index";
+import TagSuggestionsContainer from './tag_suggestions_container';
 
 class TagForm extends React.Component {
   constructor(props) {
@@ -44,6 +45,7 @@ class TagForm extends React.Component {
           placeholder="Type your own keywords here"
           className="tag-form-input"
         />
+        <TagSuggestionsContainer />
         <button
           onClick={this.handleAddTag}
           className="tag-form-button"
