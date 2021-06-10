@@ -42,6 +42,8 @@ gem 'jquery-rails'
 # Use open-uri to retrieve seed file images
 gem 'open-uri'
 
+gem 'autoprefixer-rails', '~> 6.0', '>= 6.0.3'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
