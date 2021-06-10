@@ -16,6 +16,7 @@ function TagIndex(props) {
       search(tag)();
     } else if (tagType === "list") {
       addTag(tag.toLowerCase());
+      // props.clearCursor();
     }
   }
 
@@ -23,7 +24,7 @@ function TagIndex(props) {
     return props.tags.map((tag, i) => (
       <li
         key={`${tag}-${i}`}
-        className={`tag-list-item tag-list-item-${props.tagType}`}
+        className={`tag-list-item tag-list-item-${props.tagType} ${props.cursor === i ? 'tag-active' : ''}`}
         onClick={() => handleClick(tag)}
       >
         <span className="tag-list-item-content">{tag}</span>

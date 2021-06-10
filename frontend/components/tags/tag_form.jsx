@@ -5,12 +5,13 @@ import TagSuggestionsContainer from "./tag_suggestions_container";
 class TagForm extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { name: "", focus: false };
+    this.state = { name: "", focus: false, cursor: 0 };
 
     this.handleChange = this.handleChange.bind(this);
     this.handleAddTag = this.handleAddTag.bind(this);
     this.handleRemoveTag = this.handleRemoveTag.bind(this);
     this.addTagFromSuggestions = this.addTagFromSuggestions.bind(this);
+    this.handleKeyDown = this.handleKeyDown.bind(this);
   }
 
   handleChange(e) {
@@ -20,12 +21,25 @@ class TagForm extends React.Component {
     );
   }
 
+  clearTagInputs(){
+    this.setState({ name: "" });
+    this.props.clearTagSearch();
+    this.setState({ cursor: 0 });
+  }
+
   handleAddTag(e) {
-    e.preventDefault();
-    if (this.state.name.length > 1) {
-      this.props.addTagPost(this.state.name.toLowerCase());
-      this.setState({ name: "" });
-      this.props.clearTagSearch();
+    // e.preventDefault();
+    const { name, cursor } = this.state;
+    const {results, addTagPost } = this.props;
+    console.log(e)
+    if (results.length > 0) {
+      addTagPost(results[cursor].name.toLowerCase());
+      // console.log(results)
+      // console.log(results[cursor])
+      this.clearTagInputs();
+    } else if (name.length > 1) {
+      addTagPost(name.toLowerCase());
+      this.clearTagInputs();
     }
   }
 
@@ -33,6 +47,7 @@ class TagForm extends React.Component {
     this.props.addTagPost(tag);
     this.setState({ name: "" });
     this.props.clearTagSearch();
+    this.setState({ cursor: 0 });
   }
 
   handleRemoveTag(tag) {
@@ -42,7 +57,24 @@ class TagForm extends React.Component {
     };
   }
 
+  // https://stackoverflow.com/questions/42036865/react-how-to-navigate-through-list-by-arrow-keys
+  handleKeyDown(e) {
+    const { cursor } = this.state;
+    const { results } = this.props;
+    // arrow up/down button should select next/previous list element
+    if (e.keyCode === 38 && cursor > 0) {
+      this.setState((prevState) => ({
+        cursor: prevState.cursor - 1,
+      }));
+    } else if (e.keyCode === 40 && cursor < results.length - 1) {
+      this.setState((prevState) => ({
+        cursor: prevState.cursor + 1,
+      }));
+    }
+  }
+
   render() {
+    console.log(this.state);
     return (
       <div
         className={`tag-form ${this.props.focus ? "focus" : ""}`}
@@ -54,9 +86,14 @@ class TagForm extends React.Component {
           onChange={this.handleChange}
           placeholder="Type your own keywords here"
           className="tag-form-input"
+          onKeyDown={this.handleKeyDown}
         />
 
-        <TagSuggestionsContainer addTag={this.addTagFromSuggestions} />
+        <TagSuggestionsContainer
+          cursor={this.state.cursor}
+          addTag={this.addTagFromSuggestions}
+          clearCursor={() => this.setState({ cursor: 0 })}
+        />
 
         <button
           onClick={this.handleAddTag}

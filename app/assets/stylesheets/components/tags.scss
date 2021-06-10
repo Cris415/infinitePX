@@ -15,9 +15,9 @@
       text-transform: capitalize;
       max-width: 25rem;
 
-        &:hover {
-          cursor: pointer;
-        }
+      &:hover {
+        cursor: pointer;
+      }
 
       &-icon {
         position: relative;
@@ -51,6 +51,11 @@
 
       &-content {
        word-wrap: break-word;
+      }
+
+      &.tag-active {
+        background-color: $color-active;
+        color: $color-primary;
       }
     }
 
