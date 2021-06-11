@@ -20,6 +20,9 @@ class TagForm extends React.Component {
 
   handleChange(e) {
     e.preventDefault();
+    if (this.props.results.length === 0) {
+      this.setState({ cursor: 0 });
+    }
     this.setState({ name: e.currentTarget.value }, () =>
       this.props.searchTags(this.state.name)
     );
@@ -65,18 +68,24 @@ class TagForm extends React.Component {
       this.setState((prevState) => ({
         cursor: prevState.cursor - 1,
       }));
+            const result = this.props.results[cursor - 1].name;
+            this.props.resultRefs[result].current.scrollIntoView({
+              behavior: "auto",
+              block: "nearest",
+            });
     } else if (e.keyCode === 40 && cursor < results.length - 1) {
       this.setState((prevState) => ({
         cursor: prevState.cursor + 1,
       }));
+            const result = this.props.results[cursor + 1].name;
+            this.props.resultRefs[result].current.scrollIntoView({
+              behavior: "auto",
+              block: "nearest",
+            });
     }
-    if (e.keyCode === 40 || e.keyCode === 48) {
-      const result = this.props.results[cursor].name
-      this.props.resultRefs[result].current.scrollIntoView({
-        behavior: "smooth",
-        block: "start",
-      });
-    }
+    // if (e.keyCode === 40 || e.keyCode === 48) {
+
+    // }
   }
 
   render() {

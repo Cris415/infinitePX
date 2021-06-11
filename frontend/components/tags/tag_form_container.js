@@ -22,4 +22,4 @@ const mapDispatchToProps = (dispatch) => ({
   clearTagSearch: () => dispatch(clearTagSearch()),
 });
 
-export default connect(mapStateToProps, mapDispatchToProps, null, {forwardRef:true})(TagForm);
+export default connect(mapStateToProps, mapDispatchToProps)(TagForm);
