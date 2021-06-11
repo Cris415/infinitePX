@@ -1,6 +1,7 @@
 .app {
   position: relative;
 }
+
 main.content {
   min-height: 100vh;
   display: block;
@@ -23,6 +24,15 @@ main.content {
   justify-content: space-between;
   align-items: center;
   align-self: center;
+  &-links a:first-child {
+    margin-right: 2rem;
+  }
+
+
+  img {
+    height: 3rem;
+    width: 3rem;
+  }
 
   a {
     color: inherit;
