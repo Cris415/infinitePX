@@ -5,7 +5,11 @@ import TagSuggestionsContainer from "./tag_suggestions_container";
 class TagForm extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { name: "", focus: false, cursor: 0 };
+    this.state = {
+      name: "",
+      focus: false,
+      cursor: 0
+    };
 
     this.handleChange = this.handleChange.bind(this);
     this.handleAddTag = this.handleAddTag.bind(this);
@@ -21,21 +25,18 @@ class TagForm extends React.Component {
     );
   }
 
-  clearTagInputs(){
+  clearTagInputs() {
     this.setState({ name: "" });
     this.props.clearTagSearch();
     this.setState({ cursor: 0 });
   }
 
   handleAddTag(e) {
-    // e.preventDefault();
+    e.preventDefault();
     const { name, cursor } = this.state;
-    const {results, addTagPost } = this.props;
-    console.log(e)
+    const { results, addTagPost } = this.props;
     if (results.length > 0) {
       addTagPost(results[cursor].name.toLowerCase());
-      // console.log(results)
-      // console.log(results[cursor])
       this.clearTagInputs();
     } else if (name.length > 1) {
       addTagPost(name.toLowerCase());
@@ -45,9 +46,7 @@ class TagForm extends React.Component {
 
   addTagFromSuggestions(tag) {
     this.props.addTagPost(tag);
-    this.setState({ name: "" });
-    this.props.clearTagSearch();
-    this.setState({ cursor: 0 });
+    this.clearTagInputs();
   }
 
   handleRemoveTag(tag) {
@@ -57,11 +56,11 @@ class TagForm extends React.Component {
     };
   }
 
-  // https://stackoverflow.com/questions/42036865/react-how-to-navigate-through-list-by-arrow-keys
   handleKeyDown(e) {
+    // https://stackoverflow.com/questions/42036865/react-how-to-navigate-through-list-by-arrow-keys
     const { cursor } = this.state;
     const { results } = this.props;
-    // arrow up/down button should select next/previous list element
+
     if (e.keyCode === 38 && cursor > 0) {
       this.setState((prevState) => ({
         cursor: prevState.cursor - 1,
@@ -71,10 +70,16 @@ class TagForm extends React.Component {
         cursor: prevState.cursor + 1,
       }));
     }
+    if (e.keyCode === 40 || e.keyCode === 48) {
+      const result = this.props.results[cursor].name
+      this.props.resultRefs[result].current.scrollIntoView({
+        behavior: "smooth",
+        block: "start",
+      });
+    }
   }
 
   render() {
-    console.log(this.state);
     return (
       <div
         className={`tag-form ${this.props.focus ? "focus" : ""}`}
@@ -92,7 +97,7 @@ class TagForm extends React.Component {
         <TagSuggestionsContainer
           cursor={this.state.cursor}
           addTag={this.addTagFromSuggestions}
-          clearCursor={() => this.setState({ cursor: 0 })}
+          resultRefs={this.props.resultRefs}
         />
 
         <button

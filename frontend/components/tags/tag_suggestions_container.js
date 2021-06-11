@@ -9,4 +9,4 @@ const mapStateToProps = (state) => ({
 });
 
 
-export default connect(mapStateToProps)(TagSuggestions);
+export default connect(mapStateToProps, null, null, {forwardRef:true})(TagSuggestions);

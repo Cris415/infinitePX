@@ -9,7 +9,7 @@ function TagSuggestions(props){
         tagType="list"
         addTag={props.addTag}
         cursor={props.cursor}
-        clearCursor={props.clearCursor}
+        resultRefs={props.resultRefs}
       />
     </div>
   );

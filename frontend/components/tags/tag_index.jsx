@@ -16,16 +16,18 @@ function TagIndex(props) {
       search(tag)();
     } else if (tagType === "list") {
       addTag(tag.toLowerCase());
-      // props.clearCursor();
     }
   }
 
   function renderListItems() {
     return props.tags.map((tag, i) => (
       <li
-        key={`${tag}-${i}`}
-        className={`tag-list-item tag-list-item-${props.tagType} ${props.cursor === i ? 'tag-active' : ''}`}
+        key={`${tag}`}
+        className={`tag-list-item tag-list-item-${props.tagType} ${
+          props.cursor === i ? "tag-active" : ""
+        }`}
         onClick={() => handleClick(tag)}
+        ref={props.resultRefs === undefined ? null : props.resultRefs[tag]}
       >
         <span className="tag-list-item-content">{tag}</span>
 
@@ -37,7 +39,6 @@ function TagIndex(props) {
       </li>
     ));
   }
-
   return <ul className="tag-list">{renderListItems()}</ul>;
 }
 
