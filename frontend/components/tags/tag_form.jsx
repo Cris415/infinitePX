@@ -59,8 +59,16 @@ class TagForm extends React.Component {
     };
   }
 
+  scrollSuggestions(tag){
+    this.props.resultRefs[tag].current.scrollIntoView({
+      behavior: "auto",
+      block: "nearest",
+    });
+  }
+
   handleKeyDown(e) {
     // https://stackoverflow.com/questions/42036865/react-how-to-navigate-through-list-by-arrow-keys
+    // https://stackoverflow.com/questions/43441856/how-to-scroll-to-an-element
     const { cursor } = this.state;
     const { results } = this.props;
 
@@ -68,24 +76,15 @@ class TagForm extends React.Component {
       this.setState((prevState) => ({
         cursor: prevState.cursor - 1,
       }));
-            const result = this.props.results[cursor - 1].name;
-            this.props.resultRefs[result].current.scrollIntoView({
-              behavior: "auto",
-              block: "nearest",
-            });
+      const result = this.props.results[cursor - 1].name;
+      this.scrollSuggestions(result);
     } else if (e.keyCode === 40 && cursor < results.length - 1) {
       this.setState((prevState) => ({
         cursor: prevState.cursor + 1,
       }));
-            const result = this.props.results[cursor + 1].name;
-            this.props.resultRefs[result].current.scrollIntoView({
-              behavior: "auto",
-              block: "nearest",
-            });
+      const result = this.props.results[cursor + 1].name;
+      this.scrollSuggestions(result);
     }
-    // if (e.keyCode === 40 || e.keyCode === 48) {
-
-    // }
   }
 
   render() {
