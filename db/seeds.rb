@@ -370,7 +370,7 @@ Comment.create!({ post_id: post39.id, author_id: jazz.id, comment: "Super great 
 Comment.create!({ post_id: post40.id, author_id: jazz.id, comment: "Great macro and light" })
 Comment.create!({ post_id: post41.id, author_id: jazz.id, comment: "Really rich colors" })
 Comment.create!({ post_id: post42.id, author_id: jazz.id, comment: "Wonderful mood" })
-Comment.create!({ post_id: post43.id, author_id: jazz.id, comment: "The Lamp looks abstract" })
+Comment.create!({ post_id: post43.id, author_id: jazz.id, comment: "The lamp looks abstract" })
 Comment.create!({ post_id: post44.id, author_id: jazz.id, comment: "Photo has an interesting mood" })
 Comment.create!({ post_id: post45.id, author_id: jazz.id, comment: "Love the colors, it's very vivid" })
 Comment.create!({ post_id: post47.id, author_id: jazz.id, comment: "Very easy to miss the details of this great building" })
