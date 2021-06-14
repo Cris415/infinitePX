@@ -3,15 +3,20 @@
   margin-top: 1rem;
   position: relative;
   box-sizing: border-box;
-  overflow: hidden;
-
-  &-image-link{
-      display: inline-block;
-      height: 30rem;
-      width: 30rem;
+  flex-grow: 1;
+  min-width: 20rem;
+  // max-width: 40rem;
+  // overflow: hidden;
+  // width: 30rem;
+  // display: inline-block;
+  &.item-small {
+    flex-grow: 0;
+  }
+  
+  &-image-link {
     img {
-      height: 100%;
-      width: 100%;
+      height: 30rem;
+      min-width: 100%;
       object-fit: cover;
     }
   }

@@ -1,10 +1,14 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React from "react";
+import { Link } from "react-router-dom";
 
-const PostIndexItem = ({post, author}) => {
+const PostIndexItem = ({ post, author, small }) => {
   return (
-    <li className="index-item">
-      <p className={`index-item-heading index-item-${!!author ? 'top' : 'bottom'}`}>
+    <li className={`index-item ${small ? "item-small" : ""}`}>
+      <p
+        className={`index-item-heading index-item-${
+          !!author ? "top" : "bottom"
+        }`}
+      >
         {post.title}
       </p>
 
@@ -22,6 +26,6 @@ const PostIndexItem = ({post, author}) => {
       )}
     </li>
   );
-}
+};
 
 export default PostIndexItem;

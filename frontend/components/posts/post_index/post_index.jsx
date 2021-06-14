@@ -18,12 +18,13 @@ class PostIndex extends React.Component {
   renderItems() {
     const { posts, users, indexType } = this.props;
     return posts
-      .map((post) => {
+      .map((post, i) => {
         const author = users[post.userId].username;
         return (
           <PostIndexItem
             key={post.id}
             post={post}
+            small={posts.length < 4 || i === 0}
             author={indexType === "userIndex" ? "" : author}
           />
         );
