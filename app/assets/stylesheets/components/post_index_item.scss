@@ -5,10 +5,8 @@
   box-sizing: border-box;
   flex-grow: 1;
   min-width: 20rem;
-  // max-width: 40rem;
-  // overflow: hidden;
-  // width: 30rem;
-  // display: inline-block;
+  height: 30rem;
+
   &.item-small {
     flex-grow: 0;
   }
@@ -35,6 +33,27 @@
 
     color: white;
     background: rgb(0,0,0);
+  }
+  &-loading {
+    box-sizing: border-box;
+    height: 99%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: $color-grey-dark-1;
+
+    
+    animation: loading-animation 1s ease infinite;
+  }
+
+  @keyframes loading-animation {
+    from {
+      width: 5rem;
+    }
+    to {
+      width: 100%;
+      opacity: 0%;
+    }
   }
 
   &:hover > &-top {

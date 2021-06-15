@@ -1,7 +1,14 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
 const PostIndexItem = ({ post, author, small }) => {
+  const [loading, setLoading] = useState(true);
+
+  function imageLoaded(e){
+    console.log(e)
+    setLoading(false)
+  }
+
   return (
     <li className={`index-item ${small ? "item-small" : ""}`}>
       <p
@@ -12,8 +19,10 @@ const PostIndexItem = ({ post, author, small }) => {
         {post.title}
       </p>
 
-      <Link className="index-item-image-link" to={`/posts/${post.id}`}>
-        <img src={post.photoUrl} alt={post.title} />
+        <div className="index-item-loading" style={{display: loading ? "block" : "none"}}>
+        </div>
+      <Link className="index-item-image-link" to={`/posts/${post.id}`} style={{display: loading ? "none" : "block"}}>
+        <img src={post.photoUrl} alt={post.title} onLoad={imageLoaded} />
       </Link>
 
       {!!author && (
