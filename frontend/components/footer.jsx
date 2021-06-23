@@ -10,8 +10,8 @@ const Footer = () => {
       >
         <span className="footer-logo">InfinitePx</span>
       </a>
-      <div className='footer-links'>
-        <a href="https://github.com/Cris415" target="_blank" rel="noreferrer">
+      <div className="footer-links">
+        <a href="https://github.com/Cris415" target="_blank" e>
           <img src={window.github_logo} alt="github-img" />
         </a>
         <a
@@ -20,6 +20,20 @@ const Footer = () => {
           rel="noreferrer"
         >
           <img src={window.linkedin_logo} alt="linked-img" />
+        </a>
+        <a
+          href="https://angel.co/u/cristian-reynoso-1"
+          target="_blank"
+          rel="noreferrer"
+        >
+          <img src={window.angellist_logo} alt="linked-img" />
+        </a>
+        <a
+          href="https://www.cristianreynoso.com"
+          target="_blank"
+          rel="noreferrer"
+        >
+          Portfolio
         </a>
       </div>
     </footer>

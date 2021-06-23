@@ -5,10 +5,7 @@
   box-sizing: border-box;
   flex-grow: 1;
   min-width: 20rem;
-  // max-width: 40rem;
-  // overflow: hidden;
-  // width: 30rem;
-  // display: inline-block;
+
   &.item-small {
     flex-grow: 0;
   }
