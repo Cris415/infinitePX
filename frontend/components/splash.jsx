@@ -44,30 +44,31 @@ const Splash = () => {
         <div className="feature-items">
           <div className="feature-item">
             <FontAwesomeIcon icon={faSeedling} />
-            <h2>Grow as a photographer</h2>
+            <h2>Create the perfect portfolio</h2>
             <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. At nulla
-              nostrum minus voluptatem culpa nemo. Magni tempore debitis ea a,
-              quidem, harum, non veniam eum quisquam eius iure nam odit.
+              Create an account and upload your images to create the perfect
+              portfolio for other users to see. The website was designed to
+              maximize the appeal of your photos and make them easy to find.
             </p>
           </div>
           <div className="feature-item">
             <FontAwesomeIcon icon={faPencilRuler} />
-            <h2>Build your career</h2>
+            <h2>Maximize your exposure with tags</h2>
             <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. At nulla
-              nostrum minus voluptatem culpa nemo. Magni tempore debitis ea a,
-              quidem, harum, non veniam eum quisquam eius iure nam odit.
+              Add tags to your post so that other users can find the photos you
+              post! Search and choose from hundreds of tags or create a new tag.
+              Click on a tag to find other photos with the same tag, or use the
+              search feature to find relevant posts.
             </p>
           </div>
           <div className="feature-item">
             <FontAwesomeIcon icon={faChartBar} />
-            <h2>See how you're performing</h2>
-
+            <h2>Find other photographers</h2>
             <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. At nulla
-              nostrum minus voluptatem culpa nemo. Magni tempore debitis ea a,
-              quidem, harum, non veniam eum quisquam eius iure nam odit.
+              Follow other photographers whose photos inspire you with just a
+              click. Their latest post will be shown on your home page, and
+              check out the Discover page to find more photographers. Click on
+              their profile to see all the photos they posted.
             </p>
           </div>
         </div>
