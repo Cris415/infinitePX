@@ -24,6 +24,10 @@ main.content {
   justify-content: space-between;
   align-items: center;
   align-self: center;
+
+  &-links {
+    display: flex;
+  }
   &-links a {
     margin-right: 2rem;
   }
