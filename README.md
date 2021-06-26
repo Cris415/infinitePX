@@ -1,5 +1,7 @@
 # InfinitePx
 
+<img src="readme_photos/infinitepx_sc4.png" height="300">
+
 InfinitePx is a clone of 500px, a website for photographers to showcase their portfolio to others.
 
 [InfinitePx live](https://infinitepx.herokuapp.com/)
