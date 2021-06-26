@@ -8,9 +8,10 @@ InfinitePx is a clone of 500px, a website for photographers to showcase their po
 
 * Users can select and upload a photo
   * Add a title and description to the photo
-* Users can follow other users and view their photos in a separate feed
-* Users can view photos posted by all users in a separate feed
-* Latest photos are at the top of the feed
+* Users can search or create tags and them to a post
+* Users can follow other users and view their photos in their home page
+* Users can view photos posted by all users in the Discover page
+* The latest photos are at the top of the feed
 * Users have a profile where their photos are displayed
 
 ## Technologies
@@ -28,7 +29,7 @@ InfinitePx is a clone of 500px, a website for photographers to showcase their po
 * Ruby on Rails
   * Manage user authentication 
   * Secure user passwords with BCrypt
-  * Enable API deliver post and user data to frontend
+  * Enable API to deliver post and user data to frontend
 
 * PostgreSQL
   * Store posts and user information
