@@ -5,17 +5,25 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
-    <%= favicon_link_tag 'favicon.svg' %>
+    <%= favicon_link_tag "favicon.svg" %>
     <%= favicon_link_tag %>
-    <%= stylesheet_link_tag    'application', media: 'all' %>
-    <%= javascript_include_tag 'application' %>
+    <%= stylesheet_link_tag "application", media: "all" %>
+    <%= javascript_include_tag "application" %>
+    <meta property="og:title" content="InfinitePx" />
+    <meta property='og:image' content="<%= image_url("project_pic.png") %>"/>
+    <meta property="og:description"
+    content="InfinitePx is a full-featured clone of 500px, a website for photographers to showcase their portfolio with like-minded people."
+    />
+    <meta property="og:url"
+    content="http://infinitepx.herokuapp.com"
+    />
 
   <script type="text/javascript">
-    window.splash0 = "<%= image_url('splash2.jpg') %>";
-    window.splash1 = "<%= image_url('splash6.jpg') %>";
-    window.github_logo = "<%= image_url('github_logo.png') %>";
-    window.linkedin_logo = "<%= image_url('linkedin_logo.png') %>";
-    window.angellist_logo = "<%= image_url('angellist_logo.png') %>";
+    window.splash0 = "<%= image_url("splash2.jpg") %>";
+    window.splash1 = "<%= image_url("splash6.jpg") %>";
+    window.github_logo = "<%= image_url("github_logo.png") %>";
+    window.linkedin_logo = "<%= image_url("linkedin_logo.png") %>";
+    window.angellist_logo = "<%= image_url("angellist_logo.png") %>";
   </script>
   </head>
 
