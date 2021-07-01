@@ -20,7 +20,7 @@ class Api::CommentsController < ApplicationController
   end
 
   def create
-    newComment = comment_params;
+    newComment = comment_params
     newComment['author_id'] = current_user.id
     @comment = Comment.new(newComment)
     if @comment.save
