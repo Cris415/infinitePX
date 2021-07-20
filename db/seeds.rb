@@ -133,9 +133,9 @@ file11 = URI.open("https://infinitepx-seeds.s3-us-west-1.amazonaws.com/transamer
 file12 = URI.open("https://infinitepx-seeds.s3-us-west-1.amazonaws.com/underdock.jpeg")
 file13 = URI.open("https://infinitepx-seeds.s3-us-west-1.amazonaws.com/watergate.JPG")
 file14 = URI.open("https://infinitepx-seeds.s3-us-west-1.amazonaws.com/windows.JPG")
-# file15 = URI.open("https://infinitepx-seeds.s3-us-west-1.amazonaws.com/bike.jpg")
+file15 = URI.open("https://infinitepx-seeds.s3-us-west-1.amazonaws.com/bike.jpg")
 file16 = URI.open("https://infinitepx-seeds.s3-us-west-1.amazonaws.com/building.JPG")
-file17 = URI.open("https://infinitepx-seeds.s3-us-west-1.amazonaws.com/camilo.jpeg")
+# file17 = URI.open("https://infinitepx-seeds.s3-us-west-1.amazonaws.com/camilo.jpeg")
 file18 = URI.open("https://infinitepx-seeds.s3-us-west-1.amazonaws.com/capital.jpg")
 file19 = URI.open("https://infinitepx-seeds.s3-us-west-1.amazonaws.com/cityhall.jpeg")
 file20 = URI.open("https://infinitepx-seeds.s3-us-west-1.amazonaws.com/coffee.jpeg")
@@ -148,9 +148,9 @@ file26 = URI.open("https://infinitepx-seeds.s3-us-west-1.amazonaws.com/flower1.j
 file27 = URI.open("https://infinitepx-seeds.s3-us-west-1.amazonaws.com/flower2.jpeg")
 file28 = URI.open("https://infinitepx-seeds.s3-us-west-1.amazonaws.com/lime.JPG")
 file29 = URI.open("https://infinitepx-seeds.s3-us-west-1.amazonaws.com/mars.jpg")
-file30 = URI.open("https://infinitepx-seeds.s3-us-west-1.amazonaws.com/nyc.JPG")
-file31 = URI.open("https://infinitepx-seeds.s3-us-west-1.amazonaws.com/ruf.jpeg")
-file32 = URI.open("https://infinitepx-seeds.s3-us-west-1.amazonaws.com/rufino2.JPG")
+# file30 = URI.open("https://infinitepx-seeds.s3-us-west-1.amazonaws.com/nyc.JPG")
+# file31 = URI.open("https://infinitepx-seeds.s3-us-west-1.amazonaws.com/ruf.jpeg")
+# file32 = URI.open("https://infinitepx-seeds.s3-us-west-1.amazonaws.com/rufino2.JPG")
 file33 = URI.open("https://infinitepx-seeds.s3-us-west-1.amazonaws.com/statue.jpeg")
 
 file34 = URI.open("https://infinitepx-seeds.s3-us-west-1.amazonaws.com/chinatown.jpeg")
@@ -188,9 +188,9 @@ post11 = Post.new(title: "Transamerica Tower", description: "Looking up at the T
 post12 = Post.new(title: "Underneath a dock", description: "Love the lines made by this dock.", user_id: cindy.id)
 post13 = Post.new(title: "Scandal", description: "Famous hotel in the nation's capital.", user_id: cindy.id)
 post14 = Post.new(title: "Untitled", description: "windows.", user_id: alfred.id)
-# post15 = Post.new(title: "Frozen Bike", description: "A chill morning at the National Gallery of Art", user_id: jazz.id)
+post15 = Post.new(title: "Frozen Bike", description: "A chill morning at the National Gallery of Art", user_id: jazz.id)
 post16 = Post.new(title: "Church in the Wild", description: "Walking around Palo Alto, when I spotted this interesting looking church.", user_id: drew.id)
-post17 = Post.new(title: "Laser eyes", description: "Camilo probably wants a treat!", user_id: amy.id)
+# post17 = Post.new(title: "Laser eyes", description: "Camilo probably wants a treat!", user_id: amy.id)
 post18 = Post.new(title: "Nations Capital", description: 'Crisp morning in the Nation\'s Capital', user_id: kate.id)
 post19 = Post.new(title: "Power", description: "San Francisco City Hall at an angle.", user_id: john.id)
 post20 = Post.new(title: "My Morning", description: "Still life of a coffee and cream", user_id: alfred.id)
@@ -203,9 +203,9 @@ post26 = Post.new(title: "Closeup on Nature", description: "A close up photo of 
 post27 = Post.new(title: "Magenta Magic", description: "Photo of a vibrant lily flower", user_id: amy.id)
 post28 = Post.new(title: "Lime", description: "Macro still of a dried up lime", user_id: jazz.id)
 post29 = Post.new(title: "Mars", description: "Ocean Beach in San Francisco, edited a bit :)", user_id: diane.id)
-post30 = Post.new(title: "Carrying the Weight of the World", description: "Statue near Rockefeller Center in NYC", user_id: robert.id)
-post31 = Post.new(title: "Loving Eyes", description: "Rufino waiting for a treat", user_id: jazz.id)
-post32 = Post.new(title: "Treats", description: "Just got woke up from a nap", user_id: jazz.id)
+# post30 = Post.new(title: "Carrying the Weight of the World", description: "Statue near Rockefeller Center in NYC", user_id: robert.id)
+# post31 = Post.new(title: "Loving Eyes", description: "Rufino waiting for a treat", user_id: jazz.id)
+# post32 = Post.new(title: "Treats", description: "Just got woke up from a nap", user_id: jazz.id)
 post33 = Post.new(title: "Statue", description: "Black and white still of a statue in a museum", user_id: drew.id)
 post34 = Post.new(title: 'Looking down Grant St.', description: 'Grant st. in San Franciscos\'s Chinatown. ', user_id: amy.id)
 post35 = Post.new(title: 'Street Lamp', description: 'Close up shot of a street lamp in SF Chinatown.', user_id: amy.id)
@@ -239,9 +239,9 @@ post11.photo.attach(io: file11, filename: "transamerica.JPG")
 post12.photo.attach(io: file12, filename: "underdock.jpeg")
 post13.photo.attach(io: file13, filename: "watergate.JPG")
 post14.photo.attach(io: file14, filename: "windows.JPG")
-# post15.photo.attach(io: file15, filename: "bike.jpg")
+post15.photo.attach(io: file15, filename: "bike.jpg")
 post16.photo.attach(io: file16, filename: "building.JPG")
-post17.photo.attach(io: file17, filename: "camilo.jpeg")
+# post17.photo.attach(io: file17, filename: "camilo.jpeg")
 post18.photo.attach(io: file18, filename: "capital.jpeg")
 post19.photo.attach(io: file19, filename: "cityhall.jpeg")
 post20.photo.attach(io: file20, filename: "coffee.jpeg")
@@ -254,9 +254,9 @@ post26.photo.attach(io: file26, filename: "flower1.jpeg")
 post27.photo.attach(io: file27, filename: "flower2.jpeg")
 post28.photo.attach(io: file28, filename: "lime.JPG")
 post29.photo.attach(io: file29, filename: "mars.jpg")
-post30.photo.attach(io: file30, filename: "nyc.JPG")
-post31.photo.attach(io: file31, filename: "ruf.jpeg")
-post32.photo.attach(io: file32, filename: "rufino2.JPG")
+# post30.photo.attach(io: file30, filename: "nyc.JPG")
+# post31.photo.attach(io: file31, filename: "ruf.jpeg")
+# post32.photo.attach(io: file32, filename: "rufino2.JPG")
 post33.photo.attach(io: file33, filename: "statue.jpeg")
 post34.photo.attach(io: file34, filename: 'chinatown.jpeg')
 post35.photo.attach(io: file35, filename: 'chinatownlamp.jpeg')
@@ -290,24 +290,24 @@ post11.save!
 post12.save!
 post13.save!
 post14.save!
-# post15.save!
+post15.save!
 post16.save!
-post17.save!
+# post17.save!
 post18.save!
 post19.save!
 post20.save!
 post21.save!
 post22.save!
-# post23.save!
+post23.save!
 post24.save!
 post25.save!
 post26.save!
 post27.save!
 post28.save!
 post29.save!
-post30.save!
-post31.save!
-post32.save!
+# post30.save!
+# post31.save!
+# post32.save!
 post33.save!
 post34.save!
 post35.save!
@@ -343,9 +343,9 @@ Comment.create!({ post_id: post11.id, author_id: john.id, comment: "This makes m
 Comment.create!({ post_id: post12.id, author_id: kate.id, comment: "The picture is so vivid, I can hear the waves crashing." })
 Comment.create!({ post_id: post13.id, author_id: jazz.id, comment: 'I\'ve been to this hotel, not bad' })
 Comment.create!({ post_id: post14.id, author_id: diane.id, comment: "Love the National Gallery, and angles made by windows." })
-# Comment.create!({ post_id: post15.id, author_id: annie.id, comment: "Such a beautiful building!" })
+Comment.create!({ post_id: post15.id, author_id: annie.id, comment: "Such a beautiful building!" })
 Comment.create!({ post_id: post16.id, author_id: robert.id, comment: "What a cool building!" })
-Comment.create!({ post_id: post17.id, author_id: steve.id, comment: "What a cute dog!" })
+# Comment.create!({ post_id: post17.id, author_id: steve.id, comment: "What a cute dog!" })
 Comment.create!({ post_id: post18.id, author_id: edward.id, comment: "What an ideal image of the Capitol Building" })
 Comment.create!({ post_id: post19.id, author_id: alfred.id, comment: "Love the angle this was taken at." })
 Comment.create!({ post_id: post21.id, author_id: cindy.id, comment: "Loving the vibes" })
@@ -357,9 +357,9 @@ Comment.create!({ post_id: post26.id, author_id: jazz.id, comment: "Loving the d
 Comment.create!({ post_id: post27.id, author_id: diane.id, comment: "Awesome colors" })
 Comment.create!({ post_id: post28.id, author_id: annie.id, comment: "Really cool details and colors" })
 Comment.create!({ post_id: post29.id, author_id: robert.id, comment: "Looks like another planet" })
-Comment.create!({ post_id: post30.id, author_id: steve.id, comment: "Loving the composition" })
-Comment.create!({ post_id: post31.id, author_id: edward.id, comment: "Beautiful light and composition" })
-Comment.create!({ post_id: post32.id, author_id: alfred.id, comment: "awww" })
+# Comment.create!({ post_id: post30.id, author_id: steve.id, comment: "Loving the composition" })
+# Comment.create!({ post_id: post31.id, author_id: edward.id, comment: "Beautiful light and composition" })
+# Comment.create!({ post_id: post32.id, author_id: alfred.id, comment: "awww" })
 Comment.create!({ post_id: post33.id, author_id: jazz.id, comment: "awesome" })
 Comment.create!({ post_id: post34.id, author_id: jazz.id, comment: "Great capture, clever shot" })
 Comment.create!({ post_id: post35.id, author_id: jazz.id, comment: "Interesting shot, making it cute" })
@@ -445,19 +445,19 @@ TaggedPost.create!({ post_id: post14.id, tag_id: Tag.find_by({ name: "art" }).id
 TaggedPost.create!({ post_id: post14.id, tag_id: Tag.find_by({ name: "architecture" }).id })
 TaggedPost.create!({ post_id: post14.id, tag_id: Tag.find_by({ name: "museum" }).id })
 
-# TaggedPost.create!({ post_id: post15.id, tag_id: Tag.find_by({ name: "museum" }).id })
-# TaggedPost.create!({ post_id: post15.id, tag_id: Tag.find_by({ name: "architecture" }).id })
-# TaggedPost.create!({ post_id: post15.id, tag_id: Tag.find_by({ name: "moment" }).id })
-# TaggedPost.create!({ post_id: post15.id, tag_id: Tag.find_by({ name: "street" }).id })
+TaggedPost.create!({ post_id: post15.id, tag_id: Tag.find_by({ name: "museum" }).id })
+TaggedPost.create!({ post_id: post15.id, tag_id: Tag.find_by({ name: "architecture" }).id })
+TaggedPost.create!({ post_id: post15.id, tag_id: Tag.find_by({ name: "moment" }).id })
+TaggedPost.create!({ post_id: post15.id, tag_id: Tag.find_by({ name: "street" }).id })
 
 TaggedPost.create!({ post_id: post16.id, tag_id: Tag.find_by({ name: "building" }).id })
 TaggedPost.create!({ post_id: post16.id, tag_id: Tag.find_by({ name: "architecture" }).id })
 TaggedPost.create!({ post_id: post16.id, tag_id: Tag.find_by({ name: "angles" }).id })
 
-TaggedPost.create!({ post_id: post17.id, tag_id: Tag.find_by({ name: "dog" }).id })
-TaggedPost.create!({ post_id: post17.id, tag_id: Tag.find_by({ name: "black and white" }).id })
-TaggedPost.create!({ post_id: post17.id, tag_id: Tag.find_by({ name: "sharp" }).id })
-TaggedPost.create!({ post_id: post17.id, tag_id: Tag.find_by({ name: "pet" }).id })
+# TaggedPost.create!({ post_id: post17.id, tag_id: Tag.find_by({ name: "dog" }).id })
+# TaggedPost.create!({ post_id: post17.id, tag_id: Tag.find_by({ name: "black and white" }).id })
+# TaggedPost.create!({ post_id: post17.id, tag_id: Tag.find_by({ name: "sharp" }).id })
+# TaggedPost.create!({ post_id: post17.id, tag_id: Tag.find_by({ name: "pet" }).id })
 
 TaggedPost.create!({ post_id: post18.id, tag_id: Tag.find_by({ name: "architecture" }).id })
 TaggedPost.create!({ post_id: post18.id, tag_id: Tag.find_by({ name: "icon" }).id })
@@ -520,19 +520,19 @@ TaggedPost.create!({ post_id: post29.id, tag_id: Tag.find_by({ name: "ocean" }).
 TaggedPost.create!({ post_id: post29.id, tag_id: Tag.find_by({ name: "beach" }).id })
 TaggedPost.create!({ post_id: post29.id, tag_id: Tag.find_by({ name: "editing" }).id })
 
-TaggedPost.create!({ post_id: post30.id, tag_id: Tag.find_by({ name: "architecture" }).id })
-TaggedPost.create!({ post_id: post30.id, tag_id: Tag.find_by({ name: "travel" }).id })
-TaggedPost.create!({ post_id: post30.id, tag_id: Tag.find_by({ name: "skyscraper" }).id })
-TaggedPost.create!({ post_id: post30.id, tag_id: Tag.find_by({ name: "urban" }).id })
+# TaggedPost.create!({ post_id: post30.id, tag_id: Tag.find_by({ name: "architecture" }).id })
+# TaggedPost.create!({ post_id: post30.id, tag_id: Tag.find_by({ name: "travel" }).id })
+# TaggedPost.create!({ post_id: post30.id, tag_id: Tag.find_by({ name: "skyscraper" }).id })
+# TaggedPost.create!({ post_id: post30.id, tag_id: Tag.find_by({ name: "urban" }).id })
 
-TaggedPost.create!({ post_id: post31.id, tag_id: Tag.find_by({ name: "pet" }).id })
-TaggedPost.create!({ post_id: post31.id, tag_id: Tag.find_by({ name: "pets" }).id })
-TaggedPost.create!({ post_id: post31.id, tag_id: Tag.find_by({ name: "dog" }).id })
-TaggedPost.create!({ post_id: post31.id, tag_id: Tag.find_by({ name: "black and white" }).id })
+# TaggedPost.create!({ post_id: post31.id, tag_id: Tag.find_by({ name: "pet" }).id })
+# TaggedPost.create!({ post_id: post31.id, tag_id: Tag.find_by({ name: "pets" }).id })
+# TaggedPost.create!({ post_id: post31.id, tag_id: Tag.find_by({ name: "dog" }).id })
+# TaggedPost.create!({ post_id: post31.id, tag_id: Tag.find_by({ name: "black and white" }).id })
 
-TaggedPost.create!({ post_id: post32.id, tag_id: Tag.find_by({ name: "pet" }).id })
-TaggedPost.create!({ post_id: post32.id, tag_id: Tag.find_by({ name: "pets" }).id })
-TaggedPost.create!({ post_id: post32.id, tag_id: Tag.find_by({ name: "dog" }).id })
+# TaggedPost.create!({ post_id: post32.id, tag_id: Tag.find_by({ name: "pet" }).id })
+# TaggedPost.create!({ post_id: post32.id, tag_id: Tag.find_by({ name: "pets" }).id })
+# TaggedPost.create!({ post_id: post32.id, tag_id: Tag.find_by({ name: "dog" }).id })
 
 TaggedPost.create!({ post_id: post33.id, tag_id: Tag.find_by({ name: "black and white" }).id })
 TaggedPost.create!({ post_id: post33.id, tag_id: Tag.find_by({ name: "museum" }).id })
