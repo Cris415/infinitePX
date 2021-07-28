@@ -2,7 +2,7 @@ import React from "react";
 import { Link, Redirect } from "react-router-dom";
 import Spinner from "../../../util/spinner";
 import TagIndex from "../../tags/tag_index";
-import UserIcon from '../../user_profile/user_icon';
+import UserIcon from "../../user_profile/user_icon";
 import FollowLinkContainer from "../../follow_button/follow_link_container";
 import CommentIndexContainer from "../../comments/comment_index_container";
 import CreateCommentContainer from "../../comments/create_comment_container";
