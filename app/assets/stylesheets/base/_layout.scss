@@ -5,7 +5,7 @@
 main.content {
   min-height: 100vh;
   display: block;
-  padding-bottom: 100px; 
+  padding-bottom: 100px;
 }
 
 .footer {
@@ -13,13 +13,13 @@ main.content {
   bottom: 0;
   left: 50%;
   transform: translateX(-50%);
-  
+
   height: 10rem;
   width: 90%;
-  
+
   color: $color-grey-dark-1;
   border-top: solid 1px $color-grey-light-3;
-  
+
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -33,16 +33,14 @@ main.content {
     margin-right: 2rem;
   }
 
-
   img {
     height: 3rem;
     width: 3rem;
   }
 
   a {
-    color: inherit;
+    color: $color-grey-dark-2;
   }
-
 }
 
 // Not the main header
@@ -62,7 +60,7 @@ main.content {
   }
 }
 
-.header-small{
+.header-small {
   box-sizing: border-box;
   width: 100%;
   text-align: left;
@@ -72,8 +70,5 @@ main.content {
   h2 {
     font-size: 2rem;
     font-weight: 600;
-
   }
 }
-
-

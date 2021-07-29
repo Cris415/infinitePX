@@ -11,7 +11,7 @@ const Footer = () => {
         <span className="footer-logo">InfinitePx</span>
       </a>
       <div className="footer-links">
-        <a href="https://github.com/Cris415" target="_blank" e>
+        <a href="https://github.com/Cris415" target="_blank" rel="noreferrer">
           <img src={window.github_logo} alt="github-img" />
         </a>
         <a
