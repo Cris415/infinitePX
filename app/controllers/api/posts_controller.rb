@@ -1,3 +1,5 @@
+include Pagy::Backend
+
 class Api::PostsController < ApplicationController
   before_action :require_login, only: [:create, :destroy, :update]
 
@@ -5,7 +7,9 @@ class Api::PostsController < ApplicationController
     if params.has_key?(:user_id)
       @posts = Post.where(user_id: params[:user_id])
     else
-      @posts = Post.all
+      # https://ddnexus.github.io/pagy/extras/metadata.html#gsc.tab=0
+      # @pagy, @records = pagy(Product.my_scope, some_option: 'get merged in the pagy object')
+      @pagy, @posts = pagy(Post.all, {items: 5, offset: :offset})
     end
     render :index
   end
@@ -89,6 +93,6 @@ class Api::PostsController < ApplicationController
   private
   
   def post_params
-    params.require(:post).permit(:title, :description, :user_id, :photo)
+    params.require(:post).permit(:title, :description, :user_id, :photo, :offset)
   end 
 end
