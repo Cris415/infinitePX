@@ -19,7 +19,9 @@ class PostShow extends React.Component {
   }
   componentDidMount() {
     window.scrollTo(0, 0);
-    this.props.fetchPost();
+    if(!this.props.post){
+      this.props.fetchPost();
+    }
   }
 
   handleGoBack() {
