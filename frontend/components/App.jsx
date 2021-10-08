@@ -1,6 +1,5 @@
 import React from 'react';
 import { Switch } from 'react-router';
-import { Link } from 'react-router-dom';
 
 import Logo from './header/logo'
 import { AuthRoute, ProtectedRoute } from "../util/route_util";
