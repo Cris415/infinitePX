@@ -35,7 +35,7 @@ const Splash = () => {
         </div>
         <div className="credits">
           <h3>Photo by</h3>
-          <p> Cristian Reynoso</p>
+          <p>Cristian Reynoso</p>
         </div>
       </div>
 
