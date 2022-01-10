@@ -114,8 +114,8 @@ Follow.create({ followed_id: edward.id, follower_id: jazz.id })
 Follow.create({ followed_id: cindy.id, follower_id: steve.id })
 
 Follow.create({ followed_id: drew.id, follower_id: edward.id })
-Follow.create({ followed_id: cindy.id, follower_id: amy.id })
-Follow.create({ followed_id: jazz.id, follower_id: diane.id })
+# Follow.create({ followed_id: cindy.id, follower_id: amy.id })
+# Follow.create({ followed_id: jazz.id, follower_id: diane.id })
 
 ####### IMPORT IMAGES #######
 
