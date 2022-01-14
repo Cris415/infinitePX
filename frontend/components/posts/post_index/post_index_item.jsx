@@ -13,7 +13,7 @@ const PostIndexItem = ({ post, author, small }) => {
       </p>
 
       <Link className="index-item-image-link" to={`/posts/${post.id}`}>
-        <img src={post.photoUrl} alt={post.title} loading="lazy" />
+        <img src={post.photoUrl} alt={post.title} />
       </Link>
 
       {!!author && (
