@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-const PostIndexItem = ({ post, author, small }) => {
+const PostIndexItem = ({ post, author, small, loading }) => {
   return (
     <li className={`index-item ${small ? "item-small" : ""}`}>
       <p
@@ -13,7 +13,7 @@ const PostIndexItem = ({ post, author, small }) => {
       </p>
 
       <Link className="index-item-image-link" to={`/posts/${post.id}`}>
-        <img src={post.photoUrl} alt={post.title} />
+        <img src={post.photoUrl} alt={post.title} loading={loading} />
       </Link>
 
       {!!author && (

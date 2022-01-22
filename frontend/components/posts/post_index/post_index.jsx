@@ -14,6 +14,10 @@ class PostIndex extends React.Component {
       this.props.fetchPosts();
     }
   }
+  toLazyLoad(postsLength, i) {
+    // add lazy loading to first half of posts, then reversed so it's really the last half
+    return postsLength > 10 && i < postsLength / 2;
+  }
 
   renderItems() {
     const { posts, users, indexType } = this.props;
@@ -26,6 +30,7 @@ class PostIndex extends React.Component {
             post={post}
             small={posts.length < 4 || i === 0}
             author={indexType === "userIndex" ? "" : author}
+            loading={this.toLazyLoad(posts.length, i) ? "lazy" : "eager"}
           />
         );
       })
