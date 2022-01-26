@@ -19,7 +19,7 @@ class PostShow extends React.Component {
   }
   componentDidMount() {
     window.scrollTo(0, 0);
-    if(!this.props.post){
+    if (!this.props.post) {
       this.props.fetchPost();
     }
   }
@@ -40,20 +40,21 @@ class PostShow extends React.Component {
     if (!this.props.post) return <div></div>;
 
     const { title, description, createdAt } = this.props.post;
-    const { author } = this.props;
+    const { author, loading, errors, post, currentUserId, tags } = this.props;
+    
     const date = new Date(createdAt);
 
-    if (this.props.loading) return <Spinner />;
+    if (loading) return <Spinner />;
 
     return (
       <div className="post-show">
-        {this.props.errors.length > 0 ? <Redirect to="/" /> : null}
+        {errors.length > 0 ? <Redirect to="/" /> : null}
 
         <div className="img-section">
           <div onClick={this.handleGoBack} className="img-section-back-btn">
             <FontAwesomeIcon icon={faArrowLeft} />
           </div>
-          <img src={this.props.post.photoUrl} alt={title} />
+          <img src={post.photoUrl} alt={title} />
         </div>
         <div className="info-container">
           <div className="img-info">
@@ -63,10 +64,10 @@ class PostShow extends React.Component {
                 <h2>{title}</h2>
                 <p className="author">
                   by <Link to={`/users/${author.id}`}> {author.username}</Link>
-                  {this.props.currentUserId !== author.id && (
+                  {currentUserId !== author.id && (
                     <span className="img-info-separator">•</span>
                   )}
-                  <FollowLinkContainer user={this.props.author} />
+                  <FollowLinkContainer user={author} />
                 </p>
               </div>
             </div>
@@ -78,12 +79,12 @@ class PostShow extends React.Component {
             <p className="description"> {description} </p>
 
             <TagIndex
-              tags={this.props.tags.map((tag) => tag.name)}
+              tags={tags.map((tag) => tag.name)}
               search={this.handleTagSearch}
               tagType="show"
             />
 
-            {this.props.currentUserId === author.id && (
+            {currentUserId === author.id && (
               <Link
                 className="edit"
                 to={`/posts/${this.props.match.params.postId}/edit`}
