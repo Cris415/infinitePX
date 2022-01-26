@@ -41,7 +41,7 @@ class PostShow extends React.Component {
 
     const { title, description, createdAt } = this.props.post;
     const { author, loading, errors, post, currentUserId, tags } = this.props;
-    
+
     const date = new Date(createdAt);
 
     if (loading) return <Spinner />;
