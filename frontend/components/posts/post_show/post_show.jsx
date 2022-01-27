@@ -2,8 +2,7 @@ import React from "react";
 import { Redirect } from "react-router-dom";
 import Spinner from "../../../util/spinner";
 import ImgInfoContainer from "./img_info_container";
-import CommentIndexContainer from "../../comments/comment_index_container";
-import CreateCommentContainer from "../../comments/create_comment_container";
+import Comments from "../../comments/comments";
 
 import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -41,11 +40,8 @@ class PostShow extends React.Component {
           <img src={post.photoUrl} alt={post.title} />
         </div>
         <div className="info-container">
-          <ImgInfoContainer post={post} author={author} tags={tags} />
-          <div className="comment-container">
-            <CreateCommentContainer />
-            <CommentIndexContainer />
-          </div>
+          <ImgInfoContainer post={post} tags={tags} />
+          <Comments />
         </div>
       </div>
     );
