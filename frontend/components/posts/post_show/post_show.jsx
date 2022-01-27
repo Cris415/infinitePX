@@ -1,7 +1,7 @@
 import React from "react";
 import { Redirect } from "react-router-dom";
 import Spinner from "../../../util/spinner";
-import ImgInfoContainer from "./img_info_container";
+import ImgInfo from "./img_info_container";
 import Comments from "../../comments/comments";
 import BackButton from "./back_button";
 
@@ -19,7 +19,7 @@ class PostShow extends React.Component {
 
   render() {
     if (!this.props.post) return <div></div>;
-    const { loading, errors, post, tags } = this.props;
+    const { loading, errors, post } = this.props;
     if (loading) return <Spinner />;
 
     return (
@@ -32,7 +32,7 @@ class PostShow extends React.Component {
         </div>
 
         <div className="info-container">
-          <ImgInfoContainer post={post} tags={tags} />
+          <ImgInfo post={post} />
           <Comments />
         </div>
       </div>
