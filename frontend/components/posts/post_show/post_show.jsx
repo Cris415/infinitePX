@@ -1,7 +1,7 @@
 import React from "react";
 import { Redirect } from "react-router-dom";
 import Spinner from "../../../util/spinner";
-import ImgInfo from "./img_info_container";
+import ImgInfo from "./img_info";
 import Comments from "../../comments/comments";
 import BackButton from "./back_button";
 
