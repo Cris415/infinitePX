@@ -6,7 +6,6 @@ import { useHistory } from "react-router";
 import TagIndex from "../../tags/tag_index";
 
 const ImgInfo = (props) => {
-
   const handleTagSearch = (tag) => {
     const history = useHistory();
     return () => {
@@ -23,7 +22,7 @@ const ImgInfo = (props) => {
 
   return (
     <div className="img-info">
-      <div className="img-info-container">
+      <div className="img-info-content">
         <UserIcon />
         <div className="img-info-main">
           <h2>{title}</h2>
