@@ -2,21 +2,14 @@ import React from "react";
 import { Link } from "react-router-dom";
 import UserIcon from "../../user_profile/user_icon";
 import FollowLinkContainer from "../../follow_button/follow_link_container";
-import { useHistory } from "react-router";
-import TagIndex from "../../tags/tag_index";
+import PostShowTagIndex from "../../tags/show_tag_index";
+import { connect } from "react-redux";
+import { postAuthorSelector } from "../../../selectors/post_author_selector";
 
 const ImgInfo = (props) => {
-  const handleTagSearch = (tag) => {
-    const history = useHistory();
-    return () => {
-      const searchTerm = tag;
-      props.searchPosts(searchTerm);
-      history.push(`/results/${searchTerm}`);
-    };
-  };
-
   const { title, description, createdAt, id } = props.post;
-  const { author, tags } = props;
+  const { author } = props;
+  
   const authorIsUser = props.currentUserId === author.id;
   const date = new Date(createdAt);
 
@@ -40,11 +33,7 @@ const ImgInfo = (props) => {
       </div>
       <p className="description"> {description} </p>
 
-      <TagIndex
-        tags={tags.map((tag) => tag.name)}
-        search={handleTagSearch}
-        tagType="show"
-      />
+      <PostShowTagIndex />
 
       {authorIsUser && (
         <Link className="edit" to={`/posts/${id}/edit`}>
@@ -55,4 +44,9 @@ const ImgInfo = (props) => {
   );
 };
 
-export default ImgInfo;
+const mapStateToProps = (state, ownProps) => ({
+  author: postAuthorSelector(state, ownProps.post.id),
+  currentUserId: state.session.id,
+});
+
+export default connect(mapStateToProps)(ImgInfo);
