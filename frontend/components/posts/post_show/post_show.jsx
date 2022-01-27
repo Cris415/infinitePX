@@ -3,14 +3,11 @@ import { Redirect } from "react-router-dom";
 import Spinner from "../../../util/spinner";
 import ImgInfoContainer from "./img_info_container";
 import Comments from "../../comments/comments";
-
-import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import BackButton from "./back_button";
 
 class PostShow extends React.Component {
   constructor(props) {
     super(props);
-    this.handleGoBack = this.handleGoBack.bind(this);
   }
 
   componentDidMount() {
@@ -20,13 +17,9 @@ class PostShow extends React.Component {
     }
   }
 
-  handleGoBack() {
-    this.props.history.goBack();
-  }
-
   render() {
     if (!this.props.post) return <div></div>;
-    const { author, loading, errors, post, currentUserId, tags } = this.props;
+    const { loading, errors, post, tags } = this.props;
     if (loading) return <Spinner />;
 
     return (
@@ -34,11 +27,10 @@ class PostShow extends React.Component {
         {errors.length > 0 ? <Redirect to="/" /> : null}
 
         <div className="img-section">
-          <div onClick={this.handleGoBack} className="img-section-back-btn">
-            <FontAwesomeIcon icon={faArrowLeft} />
-          </div>
+          <BackButton />
           <img src={post.photoUrl} alt={post.title} />
         </div>
+
         <div className="info-container">
           <ImgInfoContainer post={post} tags={tags} />
           <Comments />
