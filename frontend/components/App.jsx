@@ -1,24 +1,23 @@
-import React from 'react';
-import { Switch } from 'react-router';
-import { Link } from 'react-router-dom';
+import React from "react";
+import { Switch } from "react-router";
 
-import Logo from './header/logo'
+import Logo from "./header/logo";
 import { AuthRoute, ProtectedRoute } from "../util/route_util";
 
-import HeaderLinksContainer from './header/header_links_container';
-import LoginFormContainer from './session_forms/login_form_container';
-import SignupFormContainer from './session_forms/signup_form_container';
-import PostShowContainer from './posts/post_show/post_show_container';
-import UploadPostFormContainer from './posts/post_form/upload_post_form_container';
-import EditPostForm from './posts/post_form/edit_post_form_container';
-import UserProfileContainer from './user_profile/user_profile_container';
+import HeaderLinksContainer from "./header/header_links_container";
+import LoginFormContainer from "./session_forms/login_form_container";
+import SignupFormContainer from "./session_forms/signup_form_container";
+import PostShowContainer from "./posts/post_show/post_show_container";
+import UploadPostFormContainer from "./posts/post_form/upload_post_form_container";
+import EditPostForm from "./posts/post_form/edit_post_form_container";
+import UserProfileContainer from "./user_profile/user_profile_container";
 
-import PageNotFound from './error/page_not_found.jsx';
-import SearchResults from './search/SearchResults';
-import Splash from './splash';
-import Feed from './feed';
-import Discover from './discover';
-import Footer from './footer';
+import PageNotFound from "./error/page_not_found.jsx";
+import SearchResults from "./search/SearchResults";
+import Splash from "./splash/splash";
+import Feed from "./feed";
+import Discover from "./discover";
+import Footer from "./footer";
 
 const App = () => {
   return (
@@ -58,8 +57,6 @@ const App = () => {
       <Footer />
     </div>
   );
-}
-
-
+};
 
 export default App;

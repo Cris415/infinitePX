@@ -6,7 +6,9 @@ const Discover = () => {
     <div className="feed">
       <div className="header">
         <h1>Discover</h1>
-        <p>Be one of the first to discover the photos just added to InfinitePx.</p>
+        <p>
+          Be one of the first to discover the photos just added to InfinitePx.
+        </p>
       </div>
 
       <DiscoverIndexContainer />
