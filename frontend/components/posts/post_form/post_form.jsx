@@ -3,6 +3,7 @@ import { Link, withRouter } from "react-router-dom";
 import ImagePreview from "./image_preview";
 import UploadImageInput from "./upload_image_input";
 import TagFormContainer from "../../tags/tag_form_container";
+import SubmitCancelButtons from "./submit_cancel_buttons";
 
 class PostForm extends React.Component {
   constructor(props) {
@@ -113,17 +114,16 @@ class PostForm extends React.Component {
     };
   }
 
-  addTagsToPost(tag){
+  addTagsToPost(tag) {
     let { tags, displayTags } = this.state;
 
-    if (!displayTags.includes(tag)){
+    if (!displayTags.includes(tag)) {
       this.setState({
         tags: [...tags, tag],
         displayTags: [...displayTags, tag],
         edited: true,
       });
     }
-
   }
 
   renderTagForm() {
@@ -170,40 +170,17 @@ class PostForm extends React.Component {
     );
   }
 
-  renderSubmitCancelButtons() {
-    const { formType } = this.props;
-    const linkRoute =
-      formType === "Upload" ? "/" : `/posts/${this.props.match.params.postId}`;
-    const submitBtnName = formType === "Edit" ? "Save changes" : formType;
-
-    if ((formType === "Edit" && this.state.edited) || formType === "Upload") {
-      return (
-        <div className="buttons">
-          <Link to={linkRoute}>Cancel</Link>
-          <input
-            className="btn submit-btn"
-            type="submit"
-            value={submitBtnName}
-          />
-        </div>
-      );
-    }
-  }
-
   render() {
-    const { photoFile, title, description, photoUrl } = this.state;
+    const { photoFile, title, description, photoUrl, edited } = this.state;
+    const { formType } = this.props;
     return (
       <div>
         <div className="header-small">
-          <h2>
-            {this.props.formType === "Edit"
-              ? "Photo manager"
-              : this.props.formType}
-          </h2>
+          <h2>{formType === "Edit" ? "Photo manager" : formType}</h2>
         </div>
 
         <div className="form-container">
-          {!(photoFile || this.props.formType === "Edit") && (
+          {!(photoFile || formType === "Edit") && (
             <UploadImageInput handleFile={this.handleFile} />
           )}
 
@@ -240,7 +217,11 @@ class PostForm extends React.Component {
             </div>
 
             {this.renderErrors()}
-            {this.renderSubmitCancelButtons()}
+            <SubmitCancelButtons
+              formType={formType}
+              edited={edited}
+              postId={this.props.match.params.postId}
+            />
           </form>
         </div>
       </div>
