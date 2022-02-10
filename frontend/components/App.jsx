@@ -1,10 +1,9 @@
 import React from "react";
 import { Switch } from "react-router";
 
-import Logo from "./header/logo";
 import { AuthRoute, ProtectedRoute } from "../util/route_util";
 
-import HeaderLinksContainer from "./header/header_links_container";
+import MainHeader from "./header/main_header";
 import LoginFormContainer from "./session_forms/login_form_container";
 import SignupFormContainer from "./session_forms/signup_form_container";
 import PostShowContainer from "./posts/post_show/post_show_container";
@@ -22,10 +21,7 @@ import Footer from "./footer";
 const App = () => {
   return (
     <div className="app">
-      <header className="main-header">
-        <Logo />
-        <HeaderLinksContainer />
-      </header>
+      <MainHeader />
 
       <main className="content">
         <Switch>
