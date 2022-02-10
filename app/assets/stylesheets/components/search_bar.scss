@@ -10,7 +10,7 @@
 form#search-bar {
   display: inline-block;
   height: 100%;
-  width: 27rem;
+  width: 17rem;
   border: none;
   padding: 1rem 2rem;
   border-radius: 5rem;
@@ -21,13 +21,13 @@ form#search-bar {
   input[type='text'] {
     box-sizing: border-box;
     border: none;
-    width: 90%;
+    width: 80%;
     margin: 0;
     padding: 0;
     font-weight: 300;
     outline: none;
     background-color: $color-grey-light-1;
-    color: $color-grey-dark-3;
+    color: $color-grey-dark-4;
   }
 
   svg {
