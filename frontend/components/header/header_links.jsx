@@ -1,68 +1,52 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import SearchContainer  from '../search/SearchContainer';
-import UserIcon from '../user_profile/user_icon';
+import React from "react";
+import { Link } from "react-router-dom";
+import { connect } from "react-redux";
+import SearchContainer from "../search/SearchContainer";
 
-import { faArrowUp } from "@fortawesome/free-solid-svg-icons";
+import {
+  faArrowUp,
+  faHome,
+  faPlusCircle,
+  faCompass,
+} from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import UserDropdown from "./user_dropdown";
 
+const HeaderLinks = (props) => {
+  return props.currentUser ? (
+    <>
+      <Link className="main-header-link btn-discover" to="/discover">
+        <FontAwesomeIcon icon={faCompass} className="main-header-links-icon" />
+        Discover
+      </Link>
+      <Link className="main-header-link btn-home" to="/">
+        <FontAwesomeIcon icon={faHome} className="main-header-links-icon" />
+        Home
+      </Link>
+      <SearchContainer />
+      <UserDropdown userId={props.currentUser.id} />
 
-class HeaderLinks extends React.Component {
-  constructor(props){
-    super(props)
-    this.handleLogout = this.handleLogout.bind(this);
-  }
+      <Link to="/posts/new" className="btn-upload btn btn-medium">
+        <FontAwesomeIcon
+          icon={faPlusCircle}
+          className="main-header-links-icon"
+        />
+        <FontAwesomeIcon icon={faArrowUp} className="btn-upload-large" />
+        <span className="btn-upload-label">Upload</span>
+      </Link>
+    </>
+  ) : (
+    <div className="main-header-auth-btns">
+      <Link to="/login">Log in</Link>
+      <Link to="/signup" className="btn link-btn">
+        Sign up
+      </Link>
+    </div>
+  );
+};
 
-  handleLogout(e) {
-    e.preventDefault();
-    this.props.logout();
-  }
+const mapStateToProps = (state) => ({
+  currentUser: state.entities.users[state.session.id],
+});
 
-  render(){
-    const {currentUser} = this.props;
-    return (
-      <div className="main-header-links">
-        {currentUser && (
-          <Link className="main-header-link" to="/discover">
-            Discover
-          </Link>
-        )}
-
-        <div className="main-header-link-cluster">
-          {currentUser && <SearchContainer />}
-
-          {currentUser && (
-            <div className="dropdown">
-              <UserIcon size="small" />
-              <ul className="dropdown-list">
-                <li key="profile">
-                  <Link to={`/users/${currentUser.id}`}>Profile</Link>
-                </li>
-                <li key="logout" className="logout">
-                  <a onClick={this.handleLogout}>Logout</a>
-                </li>
-              </ul>
-            </div>
-          )}
-
-          {currentUser && (
-            <Link to="/posts/new" className="btn-upload btn btn-medium">
-              <FontAwesomeIcon icon={faArrowUp} /> Upload
-            </Link>
-          )}
-        </div>
-
-        {!currentUser && (
-          <div className="main-header-auth-btns">
-            <Link to="/login">Log in</Link>
-            <Link to="/signup" className="btn link-btn">
-              Sign up
-            </Link>
-          </div>
-        )}
-      </div>
-    );
-  }
-}
-
-export default HeaderLinks;
+export default connect(mapStateToProps)(HeaderLinks);

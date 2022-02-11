@@ -10,8 +10,9 @@ const UserDropDown = (props) => {
     props.logout();
   }
   return (
-    <div className="dropdown">
+    <div className="header-dropdown dropdown">
       <UserIcon size="small" />
+      <span className="main-header-link profile-label">Profile</span>
       <ul className="dropdown-list">
         <li key="profile">
           <Link to={`/users/${props.userId}`}>Profile</Link>
