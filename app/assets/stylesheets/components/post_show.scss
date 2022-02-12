@@ -15,6 +15,7 @@
       margin: 0 auto;
     }
   }
+
   .info-container {
     padding: 2rem 10rem;
     display: flex;
@@ -34,6 +35,7 @@
       display: inline-block;
       margin-top: 5rem;
     }
+
     &-separator {
       font-size: 1.4rem;
       margin-left: 5px;
@@ -49,16 +51,20 @@
       font-size: 2.4rem;
       margin-bottom: 0.8rem;
     }
+
     strong {
       font-weight: 600;
     }
+
     span {
       font-weight: 100;
     }
+
     .author {
       font-weight: 300;
       margin-bottom: 1rem;
     }
+
     .date-info {
       font-size: 1.4rem;
       margin-bottom: 1rem;
@@ -72,6 +78,7 @@
     flex-direction: column;
     width: 100%;
   }
+
   .post-show .img-info {
     box-sizing: inherit;
 
@@ -83,5 +90,18 @@
     margin-top: 2rem;
 
     width: 100%;
+  }
+}
+
+
+@media only screen and (max-width: 450px) {
+  .post-show {
+    .img-section {
+      padding: 2rem 2rem 2rem 0;
+    }
+
+    .info-container {
+      padding: 2rem;
+    }
   }
 }

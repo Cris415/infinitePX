@@ -185,6 +185,10 @@
 
 @media only screen and (max-width: 450px) {
   .main-header {
-    padding: 1rem 1rem;
+    padding: .5rem .5rem;
+    .btn-medium {
+      padding: 0;
+    }
   }
+
 }
