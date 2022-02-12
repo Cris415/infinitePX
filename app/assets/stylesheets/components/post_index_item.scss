@@ -9,11 +9,12 @@
   &.item-small {
     flex-grow: 0;
   }
-  
+
   &-image-link {
     img {
       height: 30rem;
       min-width: 100%;
+      max-width: 100%;
       object-fit: cover;
     }
   }
@@ -24,34 +25,34 @@
 
     padding: 1rem;
     width: 100%;
-    
+
     transition: all ease-out 0.2s;
     left: 0;
     opacity: 0;
 
 
     color: white;
-    background: rgb(0,0,0);
+    background: rgb(0, 0, 0);
   }
 
-  &:hover > &-top {
+  &:hover>&-top {
     opacity: 100;
     top: 0;
   }
 
-  &:hover > &-bottom {
+  &:hover>&-bottom {
     opacity: 100;
     bottom: 0.3rem;
   }
 
   &-top {
     top: -0.3rem;
-    background: linear-gradient(180deg, rgba(0, 0, 0, 0.30) 18%, rgba(0,0,0,0.20) 50%, rgba(255,255,255,0) 100%);
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0.30) 18%, rgba(0, 0, 0, 0.20) 50%, rgba(255, 255, 255, 0) 100%);
   }
 
   &-bottom {
     bottom: -0.3rem;
-    background: linear-gradient(0deg, rgba(0,0,0,0.30) 18%, rgba(0,0,0,0.20) 50%, rgba(255,255,255,0) 100%);
+    background: linear-gradient(0deg, rgba(0, 0, 0, 0.30) 18%, rgba(0, 0, 0, 0.20) 50%, rgba(255, 255, 255, 0) 100%);
   }
-  
+
 }
