@@ -16,11 +16,11 @@ const HeaderLinks = (props) => {
   return props.currentUser ? (
     <>
       <Link className="main-header-link btn-discover" to="/discover">
-        <FontAwesomeIcon icon={faCompass} className="main-header-links-icon" />
+        <FontAwesomeIcon icon={faCompass} className="main-header-link-icon" />
         Discover
       </Link>
       <Link className="main-header-link btn-home" to="/">
-        <FontAwesomeIcon icon={faHome} className="main-header-links-icon" />
+        <FontAwesomeIcon icon={faHome} className="main-header-link-icon" />
         Home
       </Link>
       <SearchContainer />
@@ -29,7 +29,7 @@ const HeaderLinks = (props) => {
       <Link to="/posts/new" className="btn-upload btn btn-medium">
         <FontAwesomeIcon
           icon={faPlusCircle}
-          className="main-header-links-icon"
+          className="main-header-link-icon"
         />
         <FontAwesomeIcon icon={faArrowUp} className="btn-upload-large" />
         <span className="btn-upload-label">Upload</span>
