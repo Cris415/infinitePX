@@ -41,10 +41,12 @@
     }
 
     grid-column: 2 / span 1;
+    justify-self: start;
   }
 
   #search-bar.bar {
     grid-column: 5 / span 2;
+    justify-self: end;
   }
 
   .btn-upload {
@@ -61,6 +63,7 @@
 
     grid-column: 8 / span 1;
     grid-row: 1 / 1;
+    justify-self: start;
   }
 
   .header-dropdown {
@@ -132,6 +135,7 @@
     .btn-discover {
       grid-column: 2 / span 1;
       grid-row: 2 / span 1;
+      justify-self: center;
 
       svg {
         margin-left: 8px;
@@ -141,6 +145,7 @@
     .btn-upload {
       grid-column: 3 / span 1;
       grid-row: 2 / span 1;
+      justify-self: center;
       border: none;
       width: auto;
 
