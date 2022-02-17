@@ -21,17 +21,8 @@ main.content {
   border-top: solid 1px $color-grey-light-3;
 
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: center;
-  align-self: center;
-
-  &-links {
-    display: flex;
-    align-items: center;
-  }
-  &-links a {
-    margin-right: 2rem;
-  }
 
   img {
     height: 3rem;
@@ -40,6 +31,15 @@ main.content {
 
   a {
     color: $color-grey-dark-2;
+
+    &:first-child {
+      justify-self: flex-start;
+      flex: 4 0 0;
+    }
+
+    &:not(&:first-child) {
+      flex: 1 0 0;
+    }
   }
 }
 
@@ -54,6 +54,7 @@ main.content {
     font-weight: 600;
     margin-bottom: 1rem;
   }
+
   p {
     color: $color-grey-dark-2;
     font-size: 1.6rem;
@@ -70,5 +71,15 @@ main.content {
   h2 {
     font-size: 2rem;
     font-weight: 600;
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  .footer a {
+    text-align: center;
+  }
+
+  .footer a:first-child {
+    flex: 1 0 0;
   }
 }

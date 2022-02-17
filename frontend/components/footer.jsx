@@ -1,41 +1,29 @@
 import React from "react";
 
+const AnchorTag = (props) => {
+  return (
+    <a href={props.link} target="_blank" rel="noreferrer">
+      {props.children}
+    </a>
+  );
+};
+
 const Footer = () => {
   return (
     <footer className="footer">
-      <a
-        href="https://github.com/Cris415/infinitePX"
-        target="_blank"
-        rel="noreferrer"
-      >
+      <AnchorTag link="https://github.com/Cris415/infinitePX">
         <span className="footer-logo">InfinitePx</span>
-      </a>
-      <div className="footer-links">
-        <a href="https://github.com/Cris415" target="_blank" rel="noreferrer">
-          <img src={window.github_logo} alt="github-img" />
-        </a>
-        <a
-          href="https://www.linkedin.com/in/cristian-reynoso-31b4168b/"
-          target="_blank"
-          rel="noreferrer"
-        >
-          <img src={window.linkedin_logo} alt="linked-img" />
-        </a>
-        <a
-          href="https://angel.co/u/cristian-reynoso-1"
-          target="_blank"
-          rel="noreferrer"
-        >
-          <img src={window.angellist_logo} alt="linked-img" />
-        </a>
-        <a
-          href="https://www.cristianreynoso.com"
-          target="_blank"
-          rel="noreferrer"
-        >
-          Portfolio
-        </a>
-      </div>
+      </AnchorTag>
+      <AnchorTag link="https://github.com/Cris415">
+        <img src={window.github_logo} alt="github-img" />
+      </AnchorTag>
+      <AnchorTag link="https://www.linkedin.com/in/cristian-reynoso-31b4168b/">
+        <img src={window.linkedin_logo} alt="linked-img" />
+      </AnchorTag>
+      <AnchorTag link="https://angel.co/u/cristian-reynoso-1">
+        <img src={window.angellist_logo} alt="linked-img" />
+      </AnchorTag>
+      <AnchorTag link="https://www.cristianreynoso.com">Portfolio</AnchorTag>
     </footer>
   );
 };
