@@ -3,6 +3,7 @@ import PostIndex from "../posts/post_index/post_index";
 import UserIcon from "./user_icon";
 
 import FollowButtonContainer from "../follow_button/follow_button_container";
+import UserProfileCount from "./user_profile_count";
 
 function UserProfile(props) {
   const { user, posts, currentUserId, fetchUserPosts, fetchUser } = props;
@@ -20,16 +21,9 @@ function UserProfile(props) {
         <UserIcon size="large" />
         <h3 className="user-profile-username">{user.username}</h3>
         <FollowButtonContainer user={user} />
-        <div className="user-profile-count">
-          <span>
-            {user.followersCount} <strong>Followers</strong>
-          </span>
-          <span>
-            {user.follows.length} <strong>Following</strong>
-          </span>
-        </div>
+        <UserProfileCount user={user} />
       </div>
-      
+
       <PostIndex
         posts={posts}
         users={userForPostIndex}
