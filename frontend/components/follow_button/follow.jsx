@@ -1,46 +1,33 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 
-class Follow extends React.Component {
-  constructor(props) {
-    super(props);
+function Follow(props) {
+  const [following, setFollowing] = useState(
+    props.currentUser.follows.includes(props.user.id)
+  );
 
-    this.state = {
-      following: this.props.currentUser.follows.includes(this.props.user.id),
-      followStr: "Follow",
-    };
-
-    this.handleClick = this.handleClick.bind(this);
-    this.handleHover = this.handleHover.bind(this);
-  }
-
-  componentDidMount() {
-    this.setState({ followStr: this.state.following ? "Following" : "Follow" });
-  }
-
-  handleClick(e) {
-    e.preventDefault();
-    if (this.state.following) {
-      this.props.deleteFollow().then(() => {
-        this.setState({ following: false, followStr: "Follow" });
-        this.props.fetchUser();
+  function handleClick() {
+    if (following) {
+      props.deleteFollow().then(() => {
+        setFollowing(false);
+        props.fetchUser();
       });
     } else {
-      this.props.createFollow().then(() => {
-        this.setState({ following: true, followStr: "Following" });
-        this.props.fetchUser();
+      props.createFollow().then(() => {
+        setFollowing(true);
+        props.fetchUser();
       });
     }
   }
 
-  handleHover(type) {
+  function handleHover(type) {
     return () => {
-      if (this.state.following === true) {
+      if (following) {
         this.setState({ followStr: type });
       }
     };
   }
 
-  renderFollow() {
+  function renderFollow() {
     const { followStr } = this.state;
     if (this.props.followType === "inline") {
       return (
@@ -67,11 +54,9 @@ class Follow extends React.Component {
     }
   }
 
-  render() {
-    // Return null if the user is viewing their own page
-    if (this.props.currentUser.id === this.props.user.id) return null;
-    return <> {this.renderFollow()} </>;
-  }
+  // Return null if the user is viewing their own page
+  if (props.currentUser.id === props.user.id) return null;
+  return <> {renderFollow()} </>;
 }
 
 export default Follow;
