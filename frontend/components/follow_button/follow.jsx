@@ -4,7 +4,11 @@ function Follow(props) {
   let [following, setFollowing] = useState(
     props.currentUser.follows.includes(props.user.id)
   );
-  let [followStr, setFollowStr] = useState(following ? "Following" : "Follow");
+  let [followStr, setFollowStr] = useState("Follow");
+
+  useEffect(() => {
+    setFollowStr(following ? "Following" : "Follow");
+  }, [following]);
 
   function handleClick() {
     if (following) {
@@ -22,9 +26,7 @@ function Follow(props) {
 
   function handleHover(type) {
     return () => {
-      if (following) {
-        setFollowStr(type);
-      }
+      if (following) setFollowStr(type);
     };
   }
 
