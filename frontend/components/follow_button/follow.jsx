@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from "react";
 
 function Follow(props) {
-  const [following, setFollowing] = useState(
+  let [following, setFollowing] = useState(
     props.currentUser.follows.includes(props.user.id)
   );
+  let [followStr, setFollowStr] = useState(following ? "Following" : "Follow");
 
   function handleClick() {
     if (following) {
@@ -22,36 +23,31 @@ function Follow(props) {
   function handleHover(type) {
     return () => {
       if (following) {
-        this.setState({ followStr: type });
+        setFollowStr(type);
       }
     };
   }
 
   function renderFollow() {
-    const { followStr } = this.state;
-    if (this.props.followType === "inline") {
-      return (
-        <span
-          className={`link-btn link-btn-${followStr.toLowerCase()}`}
-          onClick={this.handleClick}
-          onMouseEnter={this.handleHover("Unfollow")}
-          onMouseLeave={this.handleHover("Following")}
-        >
-          {followStr}
-        </span>
-      );
-    } else {
-      return (
-        <button
-          className={`btn btn-${followStr.toLowerCase()}`}
-          onClick={this.handleClick}
-          onMouseEnter={this.handleHover("Unfollow")}
-          onMouseLeave={this.handleHover("Following")}
-        >
-          {followStr}
-        </button>
-      );
-    }
+    return props.followType === "inline" ? (
+      <span
+        className={`link-btn link-btn-${followStr.toLowerCase()}`}
+        onClick={handleClick}
+        onMouseEnter={handleHover("Unfollow")}
+        onMouseLeave={handleHover("Following")}
+      >
+        {followStr}
+      </span>
+    ) : (
+      <button
+        className={`btn btn-${followStr.toLowerCase()}`}
+        onClick={handleClick}
+        onMouseEnter={handleHover("Unfollow")}
+        onMouseLeave={handleHover("Following")}
+      >
+        {followStr}
+      </button>
+    );
   }
 
   // Return null if the user is viewing their own page
