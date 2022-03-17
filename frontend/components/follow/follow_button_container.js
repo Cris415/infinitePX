@@ -1,5 +1,5 @@
 import { connect } from "react-redux";
-import Follow from "./follow";
+import Follow from ".";
 import { createFollow, deleteFollow } from "../../actions/follow_actions";
 import { fetchUser } from "../../actions/user_actions";
 

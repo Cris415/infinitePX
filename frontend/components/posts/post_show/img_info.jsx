@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import UserIcon from "../../user_profile/user_icon";
-import FollowLinkContainer from "../../follow_button/follow_link_container";
+import FollowLinkContainer from "../../follow/follow_link_container";
 import PostShowTagIndex from "../../tags/show_tag_index";
 import { connect } from "react-redux";
 import { postAuthorSelector } from "../../../selectors/post_author_selector";

@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import PostIndex from "../posts/post_index/post_index";
 import UserIcon from "./user_icon";
 
-import FollowButtonContainer from "../follow_button/follow_button_container";
+import FollowButtonContainer from "../follow/follow_button_container";
 import UserProfileCount from "./user_profile_count";
 
 function UserProfile(props) {
