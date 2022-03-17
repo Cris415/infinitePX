@@ -13,7 +13,7 @@ import UserProfileContainer from "./user_profile/user_profile_container";
 
 import PageNotFound from "./error/page_not_found.jsx";
 import SearchResults from "./search/SearchResults";
-import Splash from "./splash/splash";
+import Splash from "./splash";
 import Feed from "./feed";
 import Discover from "./discover";
 import Footer from "./footer";
