@@ -1,5 +1,5 @@
 import React from "react";
-import FeedIndexContainer from "./posts/post_index/feed_index_container";
+import FeedIndexContainer from "./feed_index_container";
 
 const Feed = () => {
   return (

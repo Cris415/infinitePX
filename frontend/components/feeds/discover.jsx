@@ -1,5 +1,5 @@
 import React from "react";
-import DiscoverIndexContainer from "./posts/post_index/discover_index_container";
+import DiscoverIndexContainer from "./discover_index_container";
 
 const Discover = () => {
   return (
