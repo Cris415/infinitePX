@@ -30,7 +30,11 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "postinstall": "webpack",
-    "start": "webpack --watch --mode=development"
+    "render-postbuild": "npm run build",
+    "start": "per-env",
+    "start:development": "nodemon -r dotenv/config ./bin/www",
+    "start:production": "node ./bin/www",
+    "build": "echo 'Building....'"
   },
   "repository": {
     "type": "git",
